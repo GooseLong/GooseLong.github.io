@@ -42,7 +42,7 @@ init windowSize =
       , current = StoryletID 1
       , orientation = .orientation <| classifyDevice windowSize
       }
-    , Cmd.map StoryMsg <| Http.get { url = "/assets/story.json", expect = Http.expectJson gotStory storyDecoder }
+    , Cmd.map StoryMsg <| Http.get { url = "assets/story.json", expect = Http.expectJson gotStory storyDecoder }
     )
 
 
@@ -82,13 +82,18 @@ update msg model =
                 ErrorLoadingStory error ->
                     ( { model | story = Error error }, Cmd.none )
 
+                OptionClicked storyletid ->
+                    ( { model | current = storyletid }, Cmd.none )
+
 
 
 -- VIEW
 
 
 view model =
-    layout [] <| viewStorylet model.current model.orientation model.story
+    viewStorylet model.current model.orientation model.story
+        |> Element.map StoryMsg
+        |> layout []
 
 
 

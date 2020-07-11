@@ -42,6 +42,7 @@ type Character
 type Msg
     = LoadedStory (List Storylet)
     | ErrorLoadingStory Http.Error
+    | OptionClicked StoryletID
 
 
 characterFromString : String -> Decoder Character
@@ -92,7 +93,7 @@ gotStory result =
 -- VIEW
 
 
-viewStorylet : StoryletID -> Orientation -> Story -> Element msg
+viewStorylet : StoryletID -> Orientation -> Story -> Element Msg
 viewStorylet id orientation story =
     case story of
         Loading ->
@@ -152,7 +153,7 @@ viewStorylet id orientation story =
                                             , padding 3
                                             , Background.color <| rgb 0.8 0.8 0.8
                                             ]
-                                            { onPress = Nothing
+                                            { onPress = Just (OptionClicked <| Tuple.second optn)
                                             , label =
                                                 Tuple.first optn
                                                     |> text

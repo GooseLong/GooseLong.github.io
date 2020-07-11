@@ -11046,7 +11046,7 @@ var $author$project$Main$init = function (windowSize) {
 			$elm$http$Http$get(
 				{
 					expect: A2($elm$http$Http$expectJson, $author$project$Story$gotStory, $author$project$Story$storyDecoder),
-					url: '/assets/story.json'
+					url: 'assets/story.json'
 				})));
 };
 var $author$project$Main$WindowResized = F2(
@@ -11266,24 +11266,32 @@ var $author$project$Main$update = F2(
 				$elm$core$Platform$Cmd$none);
 		} else {
 			var storyMsg = msg.a;
-			if (storyMsg.$ === 'LoadedStory') {
-				var storylets = storyMsg.a;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{
-							story: $author$project$Story$Loaded(storylets)
-						}),
-					$elm$core$Platform$Cmd$none);
-			} else {
-				var error = storyMsg.a;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{
-							story: $author$project$Story$Error(error)
-						}),
-					$elm$core$Platform$Cmd$none);
+			switch (storyMsg.$) {
+				case 'LoadedStory':
+					var storylets = storyMsg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								story: $author$project$Story$Loaded(storylets)
+							}),
+						$elm$core$Platform$Cmd$none);
+				case 'ErrorLoadingStory':
+					var error = storyMsg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								story: $author$project$Story$Error(error)
+							}),
+						$elm$core$Platform$Cmd$none);
+				default:
+					var storyletid = storyMsg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{current: storyletid}),
+						$elm$core$Platform$Cmd$none);
 			}
 		}
 	});
@@ -16909,6 +16917,44 @@ var $mdgriffith$elm_ui$Element$layoutWith = F3(
 	});
 var $mdgriffith$elm_ui$Element$layout = $mdgriffith$elm_ui$Element$layoutWith(
 	{options: _List_Nil});
+var $mdgriffith$elm_ui$Internal$Model$Empty = {$: 'Empty'};
+var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
+	return {$: 'Text', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$map = F2(
+	function (fn, el) {
+		switch (el.$) {
+			case 'Styled':
+				var styled = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Styled(
+					{
+						html: F2(
+							function (add, context) {
+								return A2(
+									$elm$virtual_dom$VirtualDom$map,
+									fn,
+									A2(styled.html, add, context));
+							}),
+						styles: styled.styles
+					});
+			case 'Unstyled':
+				var html = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Unstyled(
+					A2(
+						$elm$core$Basics$composeL,
+						$elm$virtual_dom$VirtualDom$map(fn),
+						html));
+			case 'Text':
+				var str = el.a;
+				return $mdgriffith$elm_ui$Internal$Model$Text(str);
+			default:
+				return $mdgriffith$elm_ui$Internal$Model$Empty;
+		}
+	});
+var $mdgriffith$elm_ui$Element$map = $mdgriffith$elm_ui$Internal$Model$map;
+var $author$project$Story$OptionClicked = function (a) {
+	return {$: 'OptionClicked', a: a};
+};
 var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
 var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
 	return {$: 'Describe', a: a};
@@ -17251,9 +17297,6 @@ var $mdgriffith$elm_ui$Element$row = F2(
 						attrs))),
 			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
 	});
-var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
-	return {$: 'Text', a: a};
-};
 var $mdgriffith$elm_ui$Element$text = function (content) {
 	return $mdgriffith$elm_ui$Internal$Model$Text(content);
 };
@@ -17371,7 +17414,8 @@ var $author$project$Story$viewStorylet = F3(
 																	$mdgriffith$elm_ui$Element$padding(5)
 																]),
 															$mdgriffith$elm_ui$Element$text(optn.a)),
-														onPress: $elm$core$Maybe$Nothing
+														onPress: $elm$core$Maybe$Just(
+															$author$project$Story$OptionClicked(optn.b))
 													});
 											},
 											storylet.options))
@@ -17384,7 +17428,10 @@ var $author$project$Main$view = function (model) {
 	return A2(
 		$mdgriffith$elm_ui$Element$layout,
 		_List_Nil,
-		A3($author$project$Story$viewStorylet, model.current, model.orientation, model.story));
+		A2(
+			$mdgriffith$elm_ui$Element$map,
+			$author$project$Main$StoryMsg,
+			A3($author$project$Story$viewStorylet, model.current, model.orientation, model.story)));
 };
 var $author$project$Main$main = $elm$browser$Browser$element(
 	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
@@ -17400,4 +17447,4 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 				},
 				A2($elm$json$Json$Decode$field, 'height', $elm$json$Json$Decode$int));
 		},
-		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"]}},"Story.Character":{"args":[],"tags":{"Chippy":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
+		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
