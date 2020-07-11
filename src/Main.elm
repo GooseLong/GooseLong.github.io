@@ -10,6 +10,7 @@ import Element.Font as Font
 import Element.Input as Input
 import Http
 import Story exposing (..)
+import Typewriter
 
 
 
@@ -33,16 +34,27 @@ type alias Model =
     { story : Story
     , current : StoryletID
     , orientation : Orientation
+    , typewriter : Typewriter.Model
     }
 
 
 init : { width : Int, height : Int } -> ( Model, Cmd Msg )
 init windowSize =
+    let
+        ( typewriter, twCmd ) =
+            Typewriter.withWords [ "Loading . . ." ]
+                |> Typewriter.iterations Typewriter.infinite
+                |> Typewriter.init
+    in
     ( { story = Loading
       , current = StoryletID 1
       , orientation = .orientation <| classifyDevice windowSize
+      , typewriter = typewriter
       }
-    , Cmd.map StoryMsg <| Http.get { url = "assets/story.json", expect = Http.expectJson gotStory storyDecoder }
+    , Cmd.batch
+        [ Cmd.map TypewriterMsg twCmd
+        , Cmd.map StoryMsg <| Http.get { url = "assets/story.json", expect = Http.expectJson gotStory storyDecoder }
+        ]
     )
 
 
@@ -62,6 +74,7 @@ subscriptions _ =
 type Msg
     = WindowResized Int Int
     | StoryMsg Story.Msg
+    | TypewriterMsg Typewriter.Msg
 
 
 
@@ -77,13 +90,34 @@ update msg model =
         StoryMsg storyMsg ->
             case storyMsg of
                 LoadedStory storylets ->
-                    ( { model | story = Loaded storylets }, Cmd.none )
+                    let
+                        story =
+                            Loaded storylets
+
+                        ( typewriter, twCmd ) =
+                            Typewriter.withWords [ getParagraphFromId model.current story ]
+                                |> Typewriter.iterations (Typewriter.times 1)
+                                |> Typewriter.init
+                    in
+                    ( { model | story = story, typewriter = typewriter }, Cmd.map TypewriterMsg twCmd )
 
                 ErrorLoadingStory error ->
                     ( { model | story = Error error }, Cmd.none )
 
                 OptionClicked storyletid ->
-                    ( { model | current = storyletid }, Cmd.none )
+                    let
+                        ( typewriter, twCmd ) =
+                            Typewriter.withWords [ getParagraphFromId model.current model.story ]
+                                |> Typewriter.init
+                    in
+                    ( { model | current = storyletid, typewriter = typewriter }, Cmd.map TypewriterMsg twCmd )
+
+        TypewriterMsg twMsg ->
+            let
+                ( typewriter, cmd ) =
+                    Typewriter.update twMsg model.typewriter
+            in
+            ( { model | typewriter = typewriter }, Cmd.map TypewriterMsg cmd )
 
 
 
@@ -91,7 +125,7 @@ update msg model =
 
 
 view model =
-    viewStorylet model.current model.orientation model.story
+    viewStorylet model.current model.orientation (Typewriter.view model.typewriter) model.story
         |> Element.map StoryMsg
         |> layout []
 
