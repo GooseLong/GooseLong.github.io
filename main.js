@@ -11823,14 +11823,11 @@ var $author$project$Main$update = F2(
 					default:
 						var storyletid = storyMsg.a;
 						var _v3 = $mthadley$elm_typewriter$Typewriter$init(
-							A2(
-								$mthadley$elm_typewriter$Typewriter$iterations,
-								$mthadley$elm_typewriter$Typewriter$times(1),
-								$mthadley$elm_typewriter$Typewriter$withWords(
-									_List_fromArray(
-										[
-											A2($author$project$Story$getParagraphFromId, storyletid, model.story)
-										]))));
+							$mthadley$elm_typewriter$Typewriter$withWords(
+								_List_fromArray(
+									[
+										A2($author$project$Story$getParagraphFromId, model.current, model.story)
+									])));
 						var typewriter = _v3.a;
 						var twCmd = _v3.b;
 						return _Utils_Tuple2(
