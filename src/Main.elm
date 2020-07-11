@@ -1,12 +1,13 @@
 module Main exposing (main)
 
 import Browser
+import Browser.Dom exposing (Element)
 import Browser.Events
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
-import Html
+import Element.Input as Input
 
 
 
@@ -63,6 +64,10 @@ type Msg
     = WindowResized Int Int
 
 
+
+--    | ButtonPush
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
@@ -75,7 +80,21 @@ update msg model =
 
 
 view model =
-    Element.layout [] <| text "hello world"
+    case model.orientation of
+        Portrait ->
+            layout [] <|
+                column []
+                    [ image [ width <| px 100 ] { src = "src/assets/chippy.png", description = "Chiptune" }
+                    , paragraph [ Background.color <| rgb 0.2 0.3 0.99 ] [ text "testing" ]
+                    , column []
+                        [ Input.button [] { onPress = Nothing, label = text "test1" }
+                        , Input.button [] { onPress = Nothing, label = text "test2" }
+                        , Input.button [] { onPress = Nothing, label = text "test3" }
+                        ]
+                    ]
+
+        Landscape ->
+            layout [] <| row [] []
 
 
 
