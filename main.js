@@ -5113,53 +5113,7 @@ function _Http_track(router, xhr, tracker)
 			size: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
 		}))));
 	});
-}
-
-
-function _Time_now(millisToPosix)
-{
-	return _Scheduler_binding(function(callback)
-	{
-		callback(_Scheduler_succeed(millisToPosix(Date.now())));
-	});
-}
-
-var _Time_setInterval = F2(function(interval, task)
-{
-	return _Scheduler_binding(function(callback)
-	{
-		var id = setInterval(function() { _Scheduler_rawSpawn(task); }, interval);
-		return function() { clearInterval(id); };
-	});
-});
-
-function _Time_here()
-{
-	return _Scheduler_binding(function(callback)
-	{
-		callback(_Scheduler_succeed(
-			A2($elm$time$Time$customZone, -(new Date().getTimezoneOffset()), _List_Nil)
-		));
-	});
-}
-
-
-function _Time_getZoneName()
-{
-	return _Scheduler_binding(function(callback)
-	{
-		try
-		{
-			var name = $elm$time$Time$Name(Intl.DateTimeFormat().resolvedOptions().timeZone);
-		}
-		catch (e)
-		{
-			var name = $elm$time$Time$Offset(new Date().getTimezoneOffset());
-		}
-		callback(_Scheduler_succeed(name));
-	});
-}
-var $elm$core$List$cons = _List_cons;
+}var $elm$core$List$cons = _List_cons;
 var $elm$core$Elm$JsArray$foldr = _JsArray_foldr;
 var $elm$core$Array$foldr = F3(
 	function (func, baseCase, _v0) {
@@ -10765,9 +10719,6 @@ var $author$project$Main$StoryMsg = function (a) {
 var $author$project$Story$StoryletID = function (a) {
 	return {$: 'StoryletID', a: a};
 };
-var $author$project$Main$TypewriterMsg = function (a) {
-	return {$: 'TypewriterMsg', a: a};
-};
 var $mdgriffith$elm_ui$Element$BigDesktop = {$: 'BigDesktop'};
 var $mdgriffith$elm_ui$Element$Desktop = {$: 'Desktop'};
 var $mdgriffith$elm_ui$Element$Landscape = {$: 'Landscape'};
@@ -11051,209 +11002,6 @@ var $author$project$Story$gotStory = function (result) {
 		return $author$project$Story$ErrorLoadingStory(error);
 	}
 };
-var $mthadley$elm_typewriter$Typewriter$Infinite = {$: 'Infinite'};
-var $mthadley$elm_typewriter$Typewriter$infinite = $mthadley$elm_typewriter$Typewriter$Infinite;
-var $mthadley$elm_typewriter$Typewriter$Model = function (a) {
-	return {$: 'Model', a: a};
-};
-var $mthadley$elm_typewriter$Typewriter$Typing = function (a) {
-	return {$: 'Typing', a: a};
-};
-var $wernerdegroot$listzipper$List$Zipper$Zipper = F3(
-	function (a, b, c) {
-		return {$: 'Zipper', a: a, b: b, c: c};
-	});
-var $wernerdegroot$listzipper$List$Zipper$fromList = function (xs) {
-	if (!xs.b) {
-		return $elm$core$Maybe$Nothing;
-	} else {
-		var y = xs.a;
-		var ys = xs.b;
-		return $elm$core$Maybe$Just(
-			A3($wernerdegroot$listzipper$List$Zipper$Zipper, _List_Nil, y, ys));
-	}
-};
-var $mthadley$elm_typewriter$Typewriter$NextStep = {$: 'NextStep'};
-var $mthadley$elm_typewriter$Typewriter$UpdateCoeff = function (a) {
-	return {$: 'UpdateCoeff', a: a};
-};
-var $elm$random$Random$Generate = function (a) {
-	return {$: 'Generate', a: a};
-};
-var $elm$random$Random$Seed = F2(
-	function (a, b) {
-		return {$: 'Seed', a: a, b: b};
-	});
-var $elm$random$Random$next = function (_v0) {
-	var state0 = _v0.a;
-	var incr = _v0.b;
-	return A2($elm$random$Random$Seed, ((state0 * 1664525) + incr) >>> 0, incr);
-};
-var $elm$random$Random$initialSeed = function (x) {
-	var _v0 = $elm$random$Random$next(
-		A2($elm$random$Random$Seed, 0, 1013904223));
-	var state1 = _v0.a;
-	var incr = _v0.b;
-	var state2 = (state1 + x) >>> 0;
-	return $elm$random$Random$next(
-		A2($elm$random$Random$Seed, state2, incr));
-};
-var $elm$time$Time$Name = function (a) {
-	return {$: 'Name', a: a};
-};
-var $elm$time$Time$Offset = function (a) {
-	return {$: 'Offset', a: a};
-};
-var $elm$time$Time$Zone = F2(
-	function (a, b) {
-		return {$: 'Zone', a: a, b: b};
-	});
-var $elm$time$Time$customZone = $elm$time$Time$Zone;
-var $elm$time$Time$Posix = function (a) {
-	return {$: 'Posix', a: a};
-};
-var $elm$time$Time$millisToPosix = $elm$time$Time$Posix;
-var $elm$time$Time$now = _Time_now($elm$time$Time$millisToPosix);
-var $elm$time$Time$posixToMillis = function (_v0) {
-	var millis = _v0.a;
-	return millis;
-};
-var $elm$random$Random$init = A2(
-	$elm$core$Task$andThen,
-	function (time) {
-		return $elm$core$Task$succeed(
-			$elm$random$Random$initialSeed(
-				$elm$time$Time$posixToMillis(time)));
-	},
-	$elm$time$Time$now);
-var $elm$random$Random$step = F2(
-	function (_v0, seed) {
-		var generator = _v0.a;
-		return generator(seed);
-	});
-var $elm$random$Random$onEffects = F3(
-	function (router, commands, seed) {
-		if (!commands.b) {
-			return $elm$core$Task$succeed(seed);
-		} else {
-			var generator = commands.a.a;
-			var rest = commands.b;
-			var _v1 = A2($elm$random$Random$step, generator, seed);
-			var value = _v1.a;
-			var newSeed = _v1.b;
-			return A2(
-				$elm$core$Task$andThen,
-				function (_v2) {
-					return A3($elm$random$Random$onEffects, router, rest, newSeed);
-				},
-				A2($elm$core$Platform$sendToApp, router, value));
-		}
-	});
-var $elm$random$Random$onSelfMsg = F3(
-	function (_v0, _v1, seed) {
-		return $elm$core$Task$succeed(seed);
-	});
-var $elm$random$Random$Generator = function (a) {
-	return {$: 'Generator', a: a};
-};
-var $elm$random$Random$map = F2(
-	function (func, _v0) {
-		var genA = _v0.a;
-		return $elm$random$Random$Generator(
-			function (seed0) {
-				var _v1 = genA(seed0);
-				var a = _v1.a;
-				var seed1 = _v1.b;
-				return _Utils_Tuple2(
-					func(a),
-					seed1);
-			});
-	});
-var $elm$random$Random$cmdMap = F2(
-	function (func, _v0) {
-		var generator = _v0.a;
-		return $elm$random$Random$Generate(
-			A2($elm$random$Random$map, func, generator));
-	});
-_Platform_effectManagers['Random'] = _Platform_createManager($elm$random$Random$init, $elm$random$Random$onEffects, $elm$random$Random$onSelfMsg, $elm$random$Random$cmdMap);
-var $elm$random$Random$command = _Platform_leaf('Random');
-var $elm$random$Random$generate = F2(
-	function (tagger, generator) {
-		return $elm$random$Random$command(
-			$elm$random$Random$Generate(
-				A2($elm$random$Random$map, tagger, generator)));
-	});
-var $elm$core$Process$sleep = _Process_sleep;
-var $mthadley$elm_typewriter$Typewriter$schedule = function (_v0) {
-	var mode = _v0.a.mode;
-	var config = _v0.a.config;
-	var delayCoeff = _v0.a.delayCoeff;
-	var stepAfter = function (interval) {
-		return function (cmd) {
-			return $elm$core$Platform$Cmd$batch(
-				_List_fromArray(
-					[
-						cmd,
-						A2($elm$random$Random$generate, $mthadley$elm_typewriter$Typewriter$UpdateCoeff, config.jitter)
-					]));
-		}(
-			A2(
-				$elm$core$Task$perform,
-				function (_v2) {
-					return $mthadley$elm_typewriter$Typewriter$NextStep;
-				},
-				$elm$core$Process$sleep(interval * delayCoeff)));
-	};
-	switch (mode.$) {
-		case 'Typing':
-			return stepAfter(config.typeDelay);
-		case 'FinishedWord':
-			return stepAfter(300);
-		case 'Deleting':
-			return stepAfter(config.backspaceDelay);
-		case 'Next':
-			return stepAfter(500);
-		case 'Done':
-			return $elm$core$Platform$Cmd$none;
-		default:
-			return $elm$core$Platform$Cmd$none;
-	}
-};
-var $wernerdegroot$listzipper$List$Zipper$singleton = function (x) {
-	return A3($wernerdegroot$listzipper$List$Zipper$Zipper, _List_Nil, x, _List_Nil);
-};
-var $wernerdegroot$listzipper$List$Zipper$withDefault = function (x) {
-	return $elm$core$Maybe$withDefault(
-		$wernerdegroot$listzipper$List$Zipper$singleton(x));
-};
-var $mthadley$elm_typewriter$Typewriter$init = function (_v0) {
-	var config = _v0.a;
-	var model = $mthadley$elm_typewriter$Typewriter$Model(
-		{
-			config: config,
-			currentIteration: config.iterations,
-			delayCoeff: 1,
-			mode: $mthadley$elm_typewriter$Typewriter$Typing(0),
-			words: A2(
-				$wernerdegroot$listzipper$List$Zipper$withDefault,
-				'',
-				$wernerdegroot$listzipper$List$Zipper$fromList(config.words))
-		});
-	return _Utils_Tuple2(
-		model,
-		$mthadley$elm_typewriter$Typewriter$schedule(model));
-};
-var $mthadley$elm_typewriter$Typewriter$Config = function (a) {
-	return {$: 'Config', a: a};
-};
-var $mthadley$elm_typewriter$Typewriter$iterations = F2(
-	function (value, _v0) {
-		var config = _v0.a;
-		return $mthadley$elm_typewriter$Typewriter$Config(
-			_Utils_update(
-				config,
-				{iterations: value}));
-	});
 var $author$project$Story$Storylet = F4(
 	function (id, character, paragraph, options) {
 		return {character: character, id: id, options: options, paragraph: paragraph};
@@ -11285,72 +11033,21 @@ var $author$project$Story$storyDecoder = A2(
 	$elm$json$Json$Decode$field,
 	'story',
 	$elm$json$Json$Decode$list($author$project$Story$storyletDecoder));
-var $elm$core$Basics$abs = function (n) {
-	return (n < 0) ? (-n) : n;
-};
-var $elm$core$Bitwise$xor = _Bitwise_xor;
-var $elm$random$Random$peel = function (_v0) {
-	var state = _v0.a;
-	var word = (state ^ (state >>> ((state >>> 28) + 4))) * 277803737;
-	return ((word >>> 22) ^ word) >>> 0;
-};
-var $elm$random$Random$float = F2(
-	function (a, b) {
-		return $elm$random$Random$Generator(
-			function (seed0) {
-				var seed1 = $elm$random$Random$next(seed0);
-				var range = $elm$core$Basics$abs(b - a);
-				var n1 = $elm$random$Random$peel(seed1);
-				var n0 = $elm$random$Random$peel(seed0);
-				var lo = (134217727 & n1) * 1.0;
-				var hi = (67108863 & n0) * 1.0;
-				var val = ((hi * 134217728.0) + lo) / 9007199254740992.0;
-				var scaled = (val * range) + a;
-				return _Utils_Tuple2(
-					scaled,
-					$elm$random$Random$next(seed1));
-			});
-	});
-var $mthadley$elm_typewriter$Typewriter$withWords = function (words) {
-	return $mthadley$elm_typewriter$Typewriter$Config(
-		{
-			backspaceDelay: 50,
-			iterations: $mthadley$elm_typewriter$Typewriter$infinite,
-			jitter: A2($elm$random$Random$float, 0.8, 1.2),
-			typeDelay: 100,
-			words: words
-		});
-};
 var $author$project$Main$init = function (windowSize) {
-	var _v0 = $mthadley$elm_typewriter$Typewriter$init(
-		A2(
-			$mthadley$elm_typewriter$Typewriter$iterations,
-			$mthadley$elm_typewriter$Typewriter$infinite,
-			$mthadley$elm_typewriter$Typewriter$withWords(
-				_List_fromArray(
-					['Loading . . .']))));
-	var typewriter = _v0.a;
-	var twCmd = _v0.b;
 	return _Utils_Tuple2(
 		{
 			current: $author$project$Story$StoryletID(1),
 			orientation: $mdgriffith$elm_ui$Element$classifyDevice(windowSize).orientation,
-			story: $author$project$Story$Loading,
-			typewriter: typewriter
+			story: $author$project$Story$Loading
 		},
-		$elm$core$Platform$Cmd$batch(
-			_List_fromArray(
-				[
-					A2($elm$core$Platform$Cmd$map, $author$project$Main$TypewriterMsg, twCmd),
-					A2(
-					$elm$core$Platform$Cmd$map,
-					$author$project$Main$StoryMsg,
-					$elm$http$Http$get(
-						{
-							expect: A2($elm$http$Http$expectJson, $author$project$Story$gotStory, $author$project$Story$storyDecoder),
-							url: 'assets/story.json'
-						}))
-				])));
+		A2(
+			$elm$core$Platform$Cmd$map,
+			$author$project$Main$StoryMsg,
+			$elm$http$Http$get(
+				{
+					expect: A2($elm$http$Http$expectJson, $author$project$Story$gotStory, $author$project$Story$storyDecoder),
+					url: 'assets/story.json'
+				})));
 };
 var $author$project$Main$WindowResized = F2(
 	function (a, b) {
@@ -11554,298 +11251,48 @@ var $author$project$Story$Error = function (a) {
 var $author$project$Story$Loaded = function (a) {
 	return {$: 'Loaded', a: a};
 };
-var $author$project$Story$errorToString = function (err) {
-	switch (err.$) {
-		case 'Timeout':
-			return 'Timeout exceeded';
-		case 'NetworkError':
-			return 'Network error';
-		case 'BadStatus':
-			return 'Bad Status';
-		case 'BadUrl':
-			var url = err.a;
-			return 'Malformed url: ' + url;
-		default:
-			return 'Bad body?';
-	}
-};
-var $elm$core$List$filter = F2(
-	function (isGood, list) {
-		return A3(
-			$elm$core$List$foldr,
-			F2(
-				function (x, xs) {
-					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
-				}),
-			_List_Nil,
-			list);
-	});
-var $elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return $elm$core$Maybe$Just(x);
-	} else {
-		return $elm$core$Maybe$Nothing;
-	}
-};
-var $author$project$Story$getParagraphFromId = F2(
-	function (id, story) {
-		switch (story.$) {
-			case 'Loading':
-				return 'Loading';
-			case 'Error':
-				var error = story.a;
-				return $author$project$Story$errorToString(error);
-			default:
-				var storylets = story.a;
-				var mbStorylet = $elm$core$List$head(
-					A2(
-						$elm$core$List$filter,
-						function (strlt) {
-							return _Utils_eq(strlt.id, id);
-						},
-						storylets));
-				if (mbStorylet.$ === 'Nothing') {
-					return 'error - storylet not found';
-				} else {
-					var storylet = mbStorylet.a;
-					return storylet.paragraph;
-				}
-		}
-	});
-var $mthadley$elm_typewriter$Typewriter$Times = function (a) {
-	return {$: 'Times', a: a};
-};
-var $mthadley$elm_typewriter$Typewriter$times = A2(
-	$elm$core$Basics$composeL,
-	$mthadley$elm_typewriter$Typewriter$Times,
-	$elm$core$Basics$max(0));
-var $mthadley$elm_typewriter$Typewriter$Deleting = function (a) {
-	return {$: 'Deleting', a: a};
-};
-var $mthadley$elm_typewriter$Typewriter$Done = function (a) {
-	return {$: 'Done', a: a};
-};
-var $mthadley$elm_typewriter$Typewriter$FinishedWord = {$: 'FinishedWord'};
-var $mthadley$elm_typewriter$Typewriter$Next = {$: 'Next'};
-var $wernerdegroot$listzipper$List$Zipper$current = function (_v0) {
-	var x = _v0.b;
-	return x;
-};
-var $mthadley$elm_typewriter$Typewriter$currentWordLength = A2($elm$core$Basics$composeL, $elm$core$String$length, $wernerdegroot$listzipper$List$Zipper$current);
-var $wernerdegroot$listzipper$List$Zipper$first = function (zipper) {
-	var ls = zipper.a;
-	var x = zipper.b;
-	var rs = zipper.c;
-	var _v0 = $elm$core$List$reverse(ls);
-	if (!_v0.b) {
-		return zipper;
-	} else {
-		var y = _v0.a;
-		var ys = _v0.b;
-		return A3(
-			$wernerdegroot$listzipper$List$Zipper$Zipper,
-			_List_Nil,
-			y,
-			_Utils_ap(
-				ys,
-				_Utils_ap(
-					_List_fromArray(
-						[x]),
-					rs)));
-	}
-};
-var $wernerdegroot$listzipper$List$Zipper$next = function (_v0) {
-	var ls = _v0.a;
-	var x = _v0.b;
-	var rs = _v0.c;
-	if (!rs.b) {
-		return $elm$core$Maybe$Nothing;
-	} else {
-		var y = rs.a;
-		var ys = rs.b;
-		return $elm$core$Maybe$Just(
-			A3(
-				$wernerdegroot$listzipper$List$Zipper$Zipper,
-				A2($elm$core$List$cons, x, ls),
-				y,
-				ys));
-	}
-};
-var $mthadley$elm_typewriter$Typewriter$nextStep = function (_v0) {
-	var info = _v0.a;
-	return $mthadley$elm_typewriter$Typewriter$Model(
-		function () {
-			var _v1 = info.mode;
-			switch (_v1.$) {
-				case 'Typing':
-					var count = _v1.a;
-					if (_Utils_cmp(
-						count,
-						$mthadley$elm_typewriter$Typewriter$currentWordLength(info.words)) < 0) {
-						return _Utils_update(
-							info,
-							{
-								mode: $mthadley$elm_typewriter$Typewriter$Typing(count + 1)
-							});
-					} else {
-						var _v2 = _Utils_Tuple2(
-							info.currentIteration,
-							$wernerdegroot$listzipper$List$Zipper$next(info.words));
-						if (((_v2.a.$ === 'Times') && (_v2.a.a === 1)) && (_v2.b.$ === 'Nothing')) {
-							var _v3 = _v2.b;
-							return _Utils_update(
-								info,
-								{
-									mode: $mthadley$elm_typewriter$Typewriter$Done(
-										$wernerdegroot$listzipper$List$Zipper$current(info.words))
-								});
-						} else {
-							return _Utils_update(
-								info,
-								{mode: $mthadley$elm_typewriter$Typewriter$FinishedWord});
-						}
-					}
-				case 'FinishedWord':
-					return _Utils_update(
-						info,
-						{
-							mode: $mthadley$elm_typewriter$Typewriter$Deleting(0)
-						});
-				case 'Deleting':
-					var count = _v1.a;
-					return (_Utils_cmp(
-						count,
-						$mthadley$elm_typewriter$Typewriter$currentWordLength(info.words)) < 0) ? _Utils_update(
-						info,
-						{
-							mode: $mthadley$elm_typewriter$Typewriter$Deleting(count + 1)
-						}) : _Utils_update(
-						info,
-						{mode: $mthadley$elm_typewriter$Typewriter$Next});
-				case 'Next':
-					var _v4 = $wernerdegroot$listzipper$List$Zipper$next(info.words);
-					if (_v4.$ === 'Nothing') {
-						return _Utils_update(
-							info,
-							{
-								currentIteration: function () {
-									var _v5 = info.currentIteration;
-									if (_v5.$ === 'Infinite') {
-										return $mthadley$elm_typewriter$Typewriter$Infinite;
-									} else {
-										var n = _v5.a;
-										return $mthadley$elm_typewriter$Typewriter$Times(n - 1);
-									}
-								}(),
-								mode: $mthadley$elm_typewriter$Typewriter$Typing(0),
-								words: $wernerdegroot$listzipper$List$Zipper$first(info.words)
-							});
-					} else {
-						var newWords = _v4.a;
-						return _Utils_update(
-							info,
-							{
-								mode: $mthadley$elm_typewriter$Typewriter$Typing(0),
-								words: newWords
-							});
-					}
-				case 'Done':
-					return info;
-				default:
-					return info;
-			}
-		}());
-};
-var $mthadley$elm_typewriter$Typewriter$update = F2(
-	function (msg, model) {
-		var info = model.a;
-		if (msg.$ === 'NextStep') {
-			return _Utils_Tuple2(
-				$mthadley$elm_typewriter$Typewriter$nextStep(model),
-				$mthadley$elm_typewriter$Typewriter$schedule(model));
-		} else {
-			var coeff = msg.a;
-			return _Utils_Tuple2(
-				$mthadley$elm_typewriter$Typewriter$Model(
-					_Utils_update(
-						info,
-						{delayCoeff: coeff})),
-				$elm$core$Platform$Cmd$none);
-		}
-	});
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		switch (msg.$) {
-			case 'WindowResized':
-				var w = msg.a;
-				var h = msg.b;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{
-							orientation: $mdgriffith$elm_ui$Element$classifyDevice(
-								{height: h, width: w}).orientation
-						}),
-					$elm$core$Platform$Cmd$none);
-			case 'StoryMsg':
-				var storyMsg = msg.a;
-				switch (storyMsg.$) {
-					case 'LoadedStory':
-						var storylets = storyMsg.a;
-						var story = $author$project$Story$Loaded(storylets);
-						var _v2 = $mthadley$elm_typewriter$Typewriter$init(
-							A2(
-								$mthadley$elm_typewriter$Typewriter$iterations,
-								$mthadley$elm_typewriter$Typewriter$times(1),
-								$mthadley$elm_typewriter$Typewriter$withWords(
-									_List_fromArray(
-										[
-											A2($author$project$Story$getParagraphFromId, model.current, story)
-										]))));
-						var typewriter = _v2.a;
-						var twCmd = _v2.b;
-						return _Utils_Tuple2(
-							_Utils_update(
-								model,
-								{story: story, typewriter: typewriter}),
-							A2($elm$core$Platform$Cmd$map, $author$project$Main$TypewriterMsg, twCmd));
-					case 'ErrorLoadingStory':
-						var error = storyMsg.a;
-						return _Utils_Tuple2(
-							_Utils_update(
-								model,
-								{
-									story: $author$project$Story$Error(error)
-								}),
-							$elm$core$Platform$Cmd$none);
-					default:
-						var storyletid = storyMsg.a;
-						var _v3 = $mthadley$elm_typewriter$Typewriter$init(
-							$mthadley$elm_typewriter$Typewriter$withWords(
-								_List_fromArray(
-									[
-										A2($author$project$Story$getParagraphFromId, model.current, model.story)
-									])));
-						var typewriter = _v3.a;
-						var twCmd = _v3.b;
-						return _Utils_Tuple2(
-							_Utils_update(
-								model,
-								{current: storyletid, typewriter: typewriter}),
-							A2($elm$core$Platform$Cmd$map, $author$project$Main$TypewriterMsg, twCmd));
-				}
-			default:
-				var twMsg = msg.a;
-				var _v4 = A2($mthadley$elm_typewriter$Typewriter$update, twMsg, model.typewriter);
-				var typewriter = _v4.a;
-				var cmd = _v4.b;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{typewriter: typewriter}),
-					A2($elm$core$Platform$Cmd$map, $author$project$Main$TypewriterMsg, cmd));
+		if (msg.$ === 'WindowResized') {
+			var w = msg.a;
+			var h = msg.b;
+			return _Utils_Tuple2(
+				_Utils_update(
+					model,
+					{
+						orientation: $mdgriffith$elm_ui$Element$classifyDevice(
+							{height: h, width: w}).orientation
+					}),
+				$elm$core$Platform$Cmd$none);
+		} else {
+			var storyMsg = msg.a;
+			switch (storyMsg.$) {
+				case 'LoadedStory':
+					var storylets = storyMsg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								story: $author$project$Story$Loaded(storylets)
+							}),
+						$elm$core$Platform$Cmd$none);
+				case 'ErrorLoadingStory':
+					var error = storyMsg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{
+								story: $author$project$Story$Error(error)
+							}),
+						$elm$core$Platform$Cmd$none);
+				default:
+					var storyletid = storyMsg.a;
+					return _Utils_Tuple2(
+						_Utils_update(
+							model,
+							{current: storyletid}),
+						$elm$core$Platform$Cmd$none);
+			}
 		}
 	});
 var $mdgriffith$elm_ui$Internal$Style$classes = {above: 'a', active: 'atv', alignBottom: 'ab', alignCenterX: 'cx', alignCenterY: 'cy', alignContainerBottom: 'acb', alignContainerCenterX: 'accx', alignContainerCenterY: 'accy', alignContainerRight: 'acr', alignLeft: 'al', alignRight: 'ar', alignTop: 'at', alignedHorizontally: 'ah', alignedVertically: 'av', any: 's', behind: 'bh', below: 'b', bold: 'w7', borderDashed: 'bd', borderDotted: 'bdt', borderNone: 'bn', borderSolid: 'bs', capturePointerEvents: 'cpe', clip: 'cp', clipX: 'cpx', clipY: 'cpy', column: 'c', container: 'ctr', contentBottom: 'cb', contentCenterX: 'ccx', contentCenterY: 'ccy', contentLeft: 'cl', contentRight: 'cr', contentTop: 'ct', cursorPointer: 'cptr', cursorText: 'ctxt', focus: 'fcs', focusedWithin: 'focus-within', fullSize: 'fs', grid: 'g', hasBehind: 'hbh', heightContent: 'hc', heightExact: 'he', heightFill: 'hf', heightFillPortion: 'hfp', hover: 'hv', imageContainer: 'ic', inFront: 'fr', inputLabel: 'lbl', inputMultiline: 'iml', inputMultilineFiller: 'imlf', inputMultilineParent: 'imlp', inputMultilineWrapper: 'implw', inputText: 'it', italic: 'i', link: 'lnk', nearby: 'nb', noTextSelection: 'notxt', onLeft: 'ol', onRight: 'or', opaque: 'oq', overflowHidden: 'oh', page: 'pg', paragraph: 'p', passPointerEvents: 'ppe', root: 'ui', row: 'r', scrollbars: 'sb', scrollbarsX: 'sbx', scrollbarsY: 'sby', seButton: 'sbt', single: 'e', sizeByCapital: 'cap', spaceEvenly: 'sev', strike: 'sk', text: 't', textCenter: 'tc', textExtraBold: 'w8', textExtraLight: 'w2', textHeavy: 'w9', textJustify: 'tj', textJustifyAll: 'tja', textLeft: 'tl', textLight: 'w3', textMedium: 'w5', textNormalWeight: 'w4', textRight: 'tr', textSemiBold: 'w6', textThin: 'w1', textUnitalicized: 'tun', transition: 'ts', transparent: 'clr', underline: 'u', widthContent: 'wc', widthExact: 'we', widthFill: 'wf', widthFillPortion: 'wfp', wrapped: 'wrp'};
@@ -15125,6 +14572,17 @@ var $mdgriffith$elm_ui$Internal$Model$adjust = F3(
 	function (size, height, vertical) {
 		return {height: height / size, size: size, vertical: vertical};
 	});
+var $elm$core$List$filter = F2(
+	function (isGood, list) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, xs) {
+					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
+				}),
+			_List_Nil,
+			list);
+	});
 var $elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -17494,43 +16952,6 @@ var $mdgriffith$elm_ui$Internal$Model$map = F2(
 		}
 	});
 var $mdgriffith$elm_ui$Element$map = $mdgriffith$elm_ui$Internal$Model$map;
-var $elm$core$String$dropRight = F2(
-	function (n, string) {
-		return (n < 1) ? string : A3($elm$core$String$slice, 0, -n, string);
-	});
-var $mthadley$elm_typewriter$Typewriter$view = function (_v0) {
-	var info = _v0.a;
-	var mode = info.mode;
-	var words = info.words;
-	switch (mode.$) {
-		case 'Typing':
-			var count = mode.a;
-			return A2(
-				$elm$core$String$left,
-				count,
-				$wernerdegroot$listzipper$List$Zipper$current(words));
-		case 'FinishedWord':
-			return $wernerdegroot$listzipper$List$Zipper$current(words);
-		case 'Deleting':
-			var count = mode.a;
-			return A2(
-				$elm$core$String$dropRight,
-				count,
-				$wernerdegroot$listzipper$List$Zipper$current(words));
-		case 'Next':
-			return '';
-		case 'Done':
-			var last = mode.a;
-			return last;
-		default:
-			var pausedMode = mode.a;
-			return $mthadley$elm_typewriter$Typewriter$view(
-				$mthadley$elm_typewriter$Typewriter$Model(
-					_Utils_update(
-						info,
-						{mode: pausedMode})));
-	}
-};
 var $author$project$Story$OptionClicked = function (a) {
 	return {$: 'OptionClicked', a: a};
 };
@@ -17728,10 +17149,34 @@ var $mdgriffith$elm_ui$Element$el = F2(
 				_List_fromArray(
 					[child])));
 	});
+var $author$project$Story$errorToString = function (err) {
+	switch (err.$) {
+		case 'Timeout':
+			return 'Timeout exceeded';
+		case 'NetworkError':
+			return 'Network error';
+		case 'BadStatus':
+			return 'Bad Status';
+		case 'BadUrl':
+			var url = err.a;
+			return 'Malformed url: ' + url;
+		default:
+			return 'Bad body?';
+	}
+};
 var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
 	return {$: 'Fill', a: a};
 };
 var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
 var $elm$html$Html$Attributes$alt = $elm$html$Html$Attributes$stringProperty('alt');
 var $elm$html$Html$Attributes$src = function (url) {
 	return A2(
@@ -17883,8 +17328,8 @@ var $mdgriffith$elm_ui$Element$Font$size = function (i) {
 var $mdgriffith$elm_ui$Element$text = function (content) {
 	return $mdgriffith$elm_ui$Internal$Model$Text(content);
 };
-var $author$project$Story$viewStorylet = F4(
-	function (id, orientation, dialogue, story) {
+var $author$project$Story$viewStorylet = F3(
+	function (id, orientation, story) {
 		switch (story.$) {
 			case 'Loading':
 				return $mdgriffith$elm_ui$Element$text('Loading');
@@ -17992,7 +17437,7 @@ var $author$project$Story$viewStorylet = F4(
 											]),
 										_List_fromArray(
 											[
-												$mdgriffith$elm_ui$Element$text(dialogue)
+												$mdgriffith$elm_ui$Element$text(storylet.paragraph)
 											])),
 										A2(
 										$mdgriffith$elm_ui$Element$column,
@@ -18044,12 +17489,7 @@ var $author$project$Main$view = function (model) {
 		A2(
 			$mdgriffith$elm_ui$Element$map,
 			$author$project$Main$StoryMsg,
-			A4(
-				$author$project$Story$viewStorylet,
-				model.current,
-				model.orientation,
-				$mthadley$elm_typewriter$Typewriter$view(model.typewriter),
-				model.story)));
+			A3($author$project$Story$viewStorylet, model.current, model.orientation, model.story)));
 };
 var $author$project$Main$main = $elm$browser$Browser$element(
 	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
@@ -18065,4 +17505,4 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 				},
 				A2($elm$json$Json$Decode$field, 'height', $elm$json$Json$Decode$int));
 		},
-		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"],"TypewriterMsg":["Typewriter.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Typewriter.Msg":{"args":[],"tags":{"NextStep":[],"UpdateCoeff":["Basics.Float"]}},"Story.Character":{"args":[],"tags":{"Chippy":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"Basics.Float":{"args":[],"tags":{"Float":[]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
+		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));

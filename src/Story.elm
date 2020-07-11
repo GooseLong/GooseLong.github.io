@@ -93,30 +93,8 @@ gotStory result =
 -- VIEW
 
 
-getParagraphFromId : StoryletID -> Story -> String
-getParagraphFromId id story =
-    case story of
-        Loading ->
-            "Loading"
-
-        Error error ->
-            errorToString error
-
-        Loaded storylets ->
-            let
-                mbStorylet =
-                    List.filter (\strlt -> strlt.id == id) storylets |> List.head
-            in
-            case mbStorylet of
-                Nothing ->
-                    "error - storylet not found"
-
-                Just storylet ->
-                    storylet.paragraph
-
-
-viewStorylet : StoryletID -> Orientation -> String -> Story -> Element Msg
-viewStorylet id orientation dialogue story =
+viewStorylet : StoryletID -> Orientation -> Story -> Element Msg
+viewStorylet id orientation story =
     case story of
         Loading ->
             text "Loading"
@@ -196,7 +174,7 @@ viewStorylet id orientation dialogue story =
                                 , Background.color <| rgb 0.2 0.3 0.99
                                 , Font.size fontSize
                                 ]
-                                [ text dialogue ]
+                                [ text storylet.paragraph ]
                             , column [ width fill, spacing buttonSpacing, padding buttonSpacing ] <|
                                 List.map
                                     (\optn ->
