@@ -17110,6 +17110,7 @@ var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
 	return {$: 'Fill', a: a};
 };
 var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
+var $mdgriffith$elm_ui$Element$fillPortion = $mdgriffith$elm_ui$Internal$Model$Fill;
 var $elm$core$List$head = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -17230,6 +17231,26 @@ var $mdgriffith$elm_ui$Element$rgb = F3(
 	function (r, g, b) {
 		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, r, g, b, 1);
 	});
+var $mdgriffith$elm_ui$Internal$Model$AsRow = {$: 'AsRow'};
+var $mdgriffith$elm_ui$Internal$Model$asRow = $mdgriffith$elm_ui$Internal$Model$AsRow;
+var $mdgriffith$elm_ui$Element$row = F2(
+	function (attrs, children) {
+		return A4(
+			$mdgriffith$elm_ui$Internal$Model$element,
+			$mdgriffith$elm_ui$Internal$Model$asRow,
+			$mdgriffith$elm_ui$Internal$Model$div,
+			A2(
+				$elm$core$List$cons,
+				$mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.contentLeft + (' ' + $mdgriffith$elm_ui$Internal$Style$classes.contentCenterY)),
+				A2(
+					$elm$core$List$cons,
+					$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink),
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+						attrs))),
+			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
+	});
 var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
 	return {$: 'Text', a: a};
 };
@@ -17259,65 +17280,102 @@ var $author$project$Story$viewStorylet = F3(
 				} else {
 					var storylet = mbStorylet.a;
 					return A2(
-						$mdgriffith$elm_ui$Element$column,
+						function () {
+							if (orientation.$ === 'Portrait') {
+								return $mdgriffith$elm_ui$Element$column;
+							} else {
+								return $mdgriffith$elm_ui$Element$row;
+							}
+						}(),
 						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$mdgriffith$elm_ui$Element$image,
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-										$mdgriffith$elm_ui$Element$padding(50)
-									]),
+								$mdgriffith$elm_ui$Element$el,
 								function () {
-									var _v2 = storylet.character;
-									return {description: 'Chiptune', src: 'assets/chippy.png'};
-								}()),
+									if (orientation.$ === 'Portrait') {
+										return _List_fromArray(
+											[
+												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+												$mdgriffith$elm_ui$Element$height(
+												$mdgriffith$elm_ui$Element$fillPortion(3)),
+												$mdgriffith$elm_ui$Element$padding(50)
+											]);
+									} else {
+										return _List_fromArray(
+											[
+												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+												$mdgriffith$elm_ui$Element$height(
+												$mdgriffith$elm_ui$Element$fillPortion(4)),
+												$mdgriffith$elm_ui$Element$padding(50)
+											]);
+									}
+								}(),
 								A2(
-								$mdgriffith$elm_ui$Element$paragraph,
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$padding(20),
-										$mdgriffith$elm_ui$Element$Background$color(
-										A3($mdgriffith$elm_ui$Element$rgb, 0.2, 0.3, 0.99))
-									]),
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$text(storylet.paragraph)
-									])),
+									$mdgriffith$elm_ui$Element$image,
+									_List_fromArray(
+										[
+											$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+											$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
+										]),
+									function () {
+										var _v4 = storylet.character;
+										return {description: 'Chiptune', src: 'assets/chippy.png'};
+									}())),
 								A2(
 								$mdgriffith$elm_ui$Element$column,
 								_List_fromArray(
 									[
 										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-										$mdgriffith$elm_ui$Element$spacing(10),
-										$mdgriffith$elm_ui$Element$padding(10)
+										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
 									]),
-								A2(
-									$elm$core$List$map,
-									function (optn) {
-										return A2(
-											$mdgriffith$elm_ui$Element$Input$button,
-											_List_fromArray(
-												[
-													$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-													$mdgriffith$elm_ui$Element$padding(3),
-													$mdgriffith$elm_ui$Element$Background$color(
-													A3($mdgriffith$elm_ui$Element$rgb, 0.8, 0.8, 0.8))
-												]),
-											{
-												label: A2(
-													$mdgriffith$elm_ui$Element$el,
+								_List_fromArray(
+									[
+										A2(
+										$mdgriffith$elm_ui$Element$paragraph,
+										_List_fromArray(
+											[
+												$mdgriffith$elm_ui$Element$padding(20),
+												$mdgriffith$elm_ui$Element$Background$color(
+												A3($mdgriffith$elm_ui$Element$rgb, 0.2, 0.3, 0.99))
+											]),
+										_List_fromArray(
+											[
+												$mdgriffith$elm_ui$Element$text(storylet.paragraph)
+											])),
+										A2(
+										$mdgriffith$elm_ui$Element$column,
+										_List_fromArray(
+											[
+												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+												$mdgriffith$elm_ui$Element$spacing(10),
+												$mdgriffith$elm_ui$Element$padding(10)
+											]),
+										A2(
+											$elm$core$List$map,
+											function (optn) {
+												return A2(
+													$mdgriffith$elm_ui$Element$Input$button,
 													_List_fromArray(
 														[
-															$mdgriffith$elm_ui$Element$padding(5)
+															$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$padding(3),
+															$mdgriffith$elm_ui$Element$Background$color(
+															A3($mdgriffith$elm_ui$Element$rgb, 0.8, 0.8, 0.8))
 														]),
-													$mdgriffith$elm_ui$Element$text(optn.a)),
-												onPress: $elm$core$Maybe$Nothing
-											});
-									},
-									storylet.options))
+													{
+														label: A2(
+															$mdgriffith$elm_ui$Element$el,
+															_List_fromArray(
+																[
+																	$mdgriffith$elm_ui$Element$padding(5)
+																]),
+															$mdgriffith$elm_ui$Element$text(optn.a)),
+														onPress: $elm$core$Maybe$Nothing
+													});
+											},
+											storylet.options))
+									]))
 							]));
 				}
 		}

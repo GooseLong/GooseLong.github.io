@@ -111,30 +111,56 @@ viewStorylet id orientation story =
                     text "error - storylet not found"
 
                 Just storylet ->
-                    column []
-                        [ image [ width <| fill, padding 50 ] <|
-                            case storylet.character of
-                                Chippy ->
-                                    { src = "assets/chippy.png"
-                                    , description = "Chiptune"
-                                    }
-                        , paragraph [ padding 20, Background.color <| rgb 0.2 0.3 0.99 ] [ text storylet.paragraph ]
-                        , column [ width fill, spacing 10, padding 10 ] <|
-                            List.map
-                                (\optn ->
-                                    Input.button
-                                        [ width fill
-                                        , padding 3
-                                        , Background.color <| rgb 0.8 0.8 0.8
-                                        ]
-                                        { onPress = Nothing
-                                        , label =
-                                            Tuple.first optn
-                                                |> text
-                                                |> el [ padding 5 ]
+                    (case orientation of
+                        Portrait ->
+                            column
+
+                        Landscape ->
+                            row
+                    )
+                        []
+                        [ el
+                            (case orientation of
+                                Portrait ->
+                                    [ width fill
+                                    , height <| fillPortion 3
+                                    , padding 50
+                                    ]
+
+                                Landscape ->
+                                    [ width fill
+                                    , height <| fillPortion 4
+                                    , padding 50
+                                    ]
+                            )
+                          <|
+                            image
+                                [ width fill, height fill ]
+                            <|
+                                case storylet.character of
+                                    Chippy ->
+                                        { src = "assets/chippy.png"
+                                        , description = "Chiptune"
                                         }
-                                )
-                                storylet.options
+                        , column [ width fill, height fill ]
+                            [ paragraph [ padding 20, Background.color <| rgb 0.2 0.3 0.99 ] [ text storylet.paragraph ]
+                            , column [ width fill, spacing 10, padding 10 ] <|
+                                List.map
+                                    (\optn ->
+                                        Input.button
+                                            [ width fill
+                                            , padding 3
+                                            , Background.color <| rgb 0.8 0.8 0.8
+                                            ]
+                                            { onPress = Nothing
+                                            , label =
+                                                Tuple.first optn
+                                                    |> text
+                                                    |> el [ padding 5 ]
+                                            }
+                                    )
+                                    storylet.options
+                            ]
                         ]
 
 
