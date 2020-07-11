@@ -11251,6 +11251,7 @@ var $author$project$Story$Error = function (a) {
 var $author$project$Story$Loaded = function (a) {
 	return {$: 'Loaded', a: a};
 };
+var $author$project$Main$audioControl = _Platform_outgoingPort('audioControl', $elm$json$Json$Encode$string);
 var $author$project$Main$update = F2(
 	function (msg, model) {
 		if (msg.$ === 'WindowResized') {
@@ -11291,7 +11292,7 @@ var $author$project$Main$update = F2(
 						_Utils_update(
 							model,
 							{current: storyletid}),
-						$elm$core$Platform$Cmd$none);
+						$author$project$Main$audioControl('pew'));
 			}
 		}
 	});

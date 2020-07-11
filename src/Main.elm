@@ -1,4 +1,4 @@
-module Main exposing (main)
+port module Main exposing (main)
 
 import Browser
 import Browser.Dom exposing (Element)
@@ -47,12 +47,15 @@ init windowSize =
 
 
 
--- SUBSCRIPTIONS
+-- SUBSCRIPTIONS / PORTS
 
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
     Browser.Events.onResize (\w h -> WindowResized w h)
+
+
+port audioControl : String -> Cmd msg
 
 
 
@@ -83,7 +86,7 @@ update msg model =
                     ( { model | story = Error error }, Cmd.none )
 
                 OptionClicked storyletid ->
-                    ( { model | current = storyletid }, Cmd.none )
+                    ( { model | current = storyletid }, audioControl "pew" )
 
 
 

@@ -19,14 +19,39 @@
       rel="stylesheet"
 	/>
 	<script src="main.js"></script>
+	<script src="node_modules/howler/dist/howler.min.js"></script>
 </head>
 
 <body>
 	<div id="myapp"></div>
 	<script>
-	var app = Elm.Main.init({
+	const app = Elm.Main.init({
 	  node: document.getElementById('myapp'),
 	  flags: {"width": window.innerWidth, "height":window.innerHeight}
+	});
+	const music = new Howl({
+	  src: ['assets/title_screen.mp3'],
+	  autoplay: true,
+  	  loop: true
+	});
+	const sound = new Howl({
+		src: ['assets/pew.mp3']
+	});
+	const musicIds = {
+		"title" : music
+	}
+	const soundIds = {
+		"pew" : sound
+	}
+	app.ports.audioControl.subscribe(message =>{
+		if (soundIds.hasOwnProperty(message)) {
+			sound.fade(1,0,100);
+			soundIds[message].play();
+		}
+		else if (musicIds.hasOwnProperty(message)) {
+			music.fade(1,0,100);
+			musicIds[message].play();
+		}
 	});
 	</script>
   </body>
