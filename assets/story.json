@@ -4,10 +4,11 @@
           "id":1,
           "character":"chippy",
           "paragraph":"string",
-          "options":[
-             2,
-             3
-          ]
+          "options":{
+             "hello!" : 2,
+             "what?!" : 3,
+             "i dont care." : 4
+          }
        }
     ]
  }
