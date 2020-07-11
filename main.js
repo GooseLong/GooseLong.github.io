@@ -16710,7 +16710,7 @@ var $author$project$Main$view = function (model) {
 								$mdgriffith$elm_ui$Element$width(
 								$mdgriffith$elm_ui$Element$px(100))
 							]),
-						{description: 'Chiptune', src: 'src/assets/chippy.png'}),
+						{description: 'Chiptune', src: 'assets/chippy.png'}),
 						A2(
 						$mdgriffith$elm_ui$Element$paragraph,
 						_List_fromArray(

@@ -84,7 +84,7 @@ view model =
         Portrait ->
             layout [] <|
                 column []
-                    [ image [ width <| px 100 ] { src = "src/assets/chippy.png", description = "Chiptune" }
+                    [ image [ width <| px 100 ] { src = "assets/chippy.png", description = "Chiptune" }
                     , paragraph [ Background.color <| rgb 0.2 0.3 0.99 ] [ text "testing" ]
                     , column []
                         [ Input.button [] { onPress = Nothing, label = text "test1" }
