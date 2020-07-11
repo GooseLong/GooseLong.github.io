@@ -17432,7 +17432,7 @@ var $author$project$Story$viewStorylet = F3(
 											[
 												$mdgriffith$elm_ui$Element$padding(20),
 												$mdgriffith$elm_ui$Element$Background$color(
-												A3($mdgriffith$elm_ui$Element$rgb, 0.2, 0.3, 0.99)),
+												A3($mdgriffith$elm_ui$Element$rgb, 0.5, 0.6, 0.8)),
 												$mdgriffith$elm_ui$Element$Font$size(fontSize)
 											]),
 										_List_fromArray(

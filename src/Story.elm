@@ -171,7 +171,7 @@ viewStorylet id orientation story =
                             ]
                             [ paragraph
                                 [ padding 20
-                                , Background.color <| rgb 0.2 0.3 0.99
+                                , Background.color <| rgb 0.5 0.6 0.8
                                 , Font.size fontSize
                                 ]
                                 [ text storylet.paragraph ]
