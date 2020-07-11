@@ -8,6 +8,8 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
+import Http
+import Json.Decode exposing (Decoder, field, int, list, string)
 
 
 
@@ -23,28 +25,91 @@ main =
         }
 
 
-init : { width : Int, height : Int } -> ( Model, Cmd msg )
-init windowSize =
-    ( { character = CharacterA
-      , orientation = .orientation <| classifyDevice windowSize
-      }
-    , Cmd.none
-    )
-
-
 
 -- MODEL
 
 
 type alias Model =
-    { character : Character
+    { story : Story
+    , current : StoryletID
     , orientation : Orientation
     }
 
 
+type Story
+    = Loading
+    | Loaded (List Storylet)
+    | Error Http.Error
+
+
+type StoryletID
+    = StoryletID Int
+
+
+type alias Storylet =
+    { id : StoryletID
+    , character : Character
+    , paragraph : String
+    , options : List StoryletID
+    }
+
+
 type Character
-    = CharacterA
-    | CharacterB
+    = Chippy
+
+
+characterFromString : String -> Decoder Character
+characterFromString string =
+    case string of
+        "chippy" ->
+            Json.Decode.succeed Chippy
+
+        _ ->
+            Json.Decode.fail ("Invalid character: " ++ string)
+
+
+characterDecoder : Decoder Character
+characterDecoder =
+    string |> Json.Decode.andThen characterFromString
+
+
+optionsDecoder : Decoder (List StoryletID)
+optionsDecoder =
+    list <| Json.Decode.map StoryletID int
+
+
+storyletDecoder : Decoder Storylet
+storyletDecoder =
+    Json.Decode.map4 Storylet
+        (field "id" <| Json.Decode.map StoryletID int)
+        (field "character" characterDecoder)
+        (field "paragraph" string)
+        (field "options" optionsDecoder)
+
+
+storyDecoder : Decoder (List Storylet)
+storyDecoder =
+    field "story" <| list storyletDecoder
+
+
+gotStory : Result Http.Error (List Storylet) -> Msg
+gotStory result =
+    case result of
+        Ok storylets ->
+            LoadedStory storylets
+
+        Err error ->
+            ErrorLoadingStory error
+
+
+init : { width : Int, height : Int } -> ( Model, Cmd Msg )
+init windowSize =
+    ( { story = Loading
+      , current = StoryletID 1
+      , orientation = .orientation <| classifyDevice windowSize
+      }
+    , Http.get { url = "/assets/story.json", expect = Http.expectJson gotStory storyDecoder }
+    )
 
 
 
@@ -62,6 +127,8 @@ subscriptions _ =
 
 type Msg
     = WindowResized Int Int
+    | LoadedStory (List Storylet)
+    | ErrorLoadingStory Http.Error
 
 
 
@@ -73,6 +140,12 @@ update msg model =
     case msg of
         WindowResized w h ->
             ( { model | orientation = .orientation <| classifyDevice { width = w, height = h } }, Cmd.none )
+
+        LoadedStory storylets ->
+            ( { model | story = Loaded storylets }, Cmd.none )
+
+        ErrorLoadingStory error ->
+            ( { model | story = Error error }, Cmd.none )
 
 
 

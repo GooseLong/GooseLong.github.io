@@ -1,0 +1,13 @@
+{
+    "story":[
+       {
+          "id":1,
+          "character":"chippy",
+          "paragraph":"string",
+          "options":[
+             2,
+             3
+          ]
+       }
+    ]
+ }
