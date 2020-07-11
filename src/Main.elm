@@ -107,7 +107,8 @@ update msg model =
                 OptionClicked storyletid ->
                     let
                         ( typewriter, twCmd ) =
-                            Typewriter.withWords [ getParagraphFromId model.current model.story ]
+                            Typewriter.withWords [ getParagraphFromId storyletid model.story ]
+                                |> Typewriter.iterations (Typewriter.times 1)
                                 |> Typewriter.init
                     in
                     ( { model | current = storyletid, typewriter = typewriter }, Cmd.map TypewriterMsg twCmd )
