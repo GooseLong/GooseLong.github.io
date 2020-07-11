@@ -39,7 +39,7 @@ type alias Model =
 init : { width : Int, height : Int } -> ( Model, Cmd Msg )
 init windowSize =
     ( { story = Loading
-      , current = StoryletID 1
+      , current = StoryletID 100
       , orientation = .orientation <| classifyDevice windowSize
       }
     , Cmd.map StoryMsg <| Http.get { url = "assets/story.json", expect = Http.expectJson gotStory storyDecoder }
@@ -86,7 +86,7 @@ update msg model =
                     ( { model | story = Error error }, Cmd.none )
 
                 OptionClicked storyletid ->
-                    ( { model | current = storyletid }, audioControl "pew" )
+                    ( { model | current = storyletid }, audioControl "bloop" )
 
 
 

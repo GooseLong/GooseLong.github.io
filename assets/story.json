@@ -1,24 +1,68 @@
 {
-    "story":[
+   "story": [
        {
-          "id":1,
-          "character":"chippy",
-          "paragraph":"hello. my name is chiptune. what is your name? ...",
-          "options":{
-             "hello!" : 2,
-             "what?!" : 3,
-             "i dont care." : 4
-          }
+           "character": "chippy",
+           "id": 0,
+           "options": {
+               "hi": 2,
+               "i don't care": 4,
+               "what?!": 3
+           },
+           "paragraph": "hi my name's chippy"
        },
        {
-        "id":2,
-        "character":"chippy",
-        "paragraph":"... i requested the name you go by. what is it?",
-        "options":{
-           "uhhhh..." : 5,
-           "i dont have one." : 6,
-           "you know... i mean i do have a completely normal name..." : 7
-        }
-     }
-    ]
- }
+           "character": "chippy",
+           "id": 1,
+           "options": {},
+           "paragraph": "Double-click this passage to edit it."
+       },
+       {
+           "character": "chippy",
+           "id": 2,
+           "options": {},
+           "paragraph": "Double-click this passage to edit it."
+       },
+       {
+           "character": "chippy",
+           "id": 3,
+           "options": {},
+           "paragraph": "Double-click this passage to edit it."
+       },
+       {
+           "character": "athol",
+           "id": 100,
+           "options": {
+               "go away": 102,
+               "hi i guess": 104,
+               "oh gosh": 103
+           },
+           "paragraph": "Hey what's up"
+       },
+       {
+           "character": "athol",
+           "id": 101,
+           "options": {
+               "piss": 105
+           },
+           "paragraph": "Hey, that's pretty rude"
+       },
+       {
+           "character": "athol",
+           "id": 102,
+           "options": {},
+           "paragraph": "Double-click this passage to edit it."
+       },
+       {
+           "character": "athol",
+           "id": 103,
+           "options": {},
+           "paragraph": "Double-click this passage to edit it."
+       },
+       {
+           "character": "athol",
+           "id": 104,
+           "options": {},
+           "paragraph": "Double-click this passage to edit it."
+       }
+   ]
+}

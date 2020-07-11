@@ -33,6 +33,7 @@ type StoryletID
 
 type Character
     = Chippy
+    | Athol
 
 
 
@@ -50,6 +51,9 @@ characterFromString string =
     case string of
         "chippy" ->
             Json.Decode.succeed Chippy
+
+        "athol" ->
+            Json.Decode.succeed Athol
 
         _ ->
             Json.Decode.fail ("Invalid character: " ++ string)
@@ -130,10 +134,10 @@ viewStorylet id orientation story =
                 Just storylet ->
                     (case orientation of
                         Portrait ->
-                            column []
+                            column [ width fill ]
 
                         Landscape ->
-                            row [ height fill ]
+                            row [ width fill, height fill ]
                     )
                         [ el
                             (case orientation of
@@ -158,6 +162,11 @@ viewStorylet id orientation story =
                                     Chippy ->
                                         { src = "assets/chippy.png"
                                         , description = "Chiptune"
+                                        }
+
+                                    Athol ->
+                                        { src = "assets/error.png"
+                                        , description = "Athol"
                                         }
                         , column
                             [ width fill
@@ -215,5 +224,5 @@ errorToString err =
         Http.BadUrl url ->
             "Malformed url: " ++ url
 
-        Http.BadBody _ ->
-            "Bad body?"
+        Http.BadBody body ->
+            "Bad body?" ++ body

@@ -34,22 +34,24 @@
 	  flags: {"width": window.innerWidth, "height":window.innerHeight}
 	});
 	const music = new Howl({
-	  src: ['assets/title_screen.mp3'],
-	  autoplay: true,
-  	  loop: true
+		src: ['assets/title_screen.mp3'],
+		autoplay: true,
+		loop: true,
+		volume: 0.2 
 	});
 	const sound = new Howl({
-		src: ['assets/pew.mp3']
+		src: ['assets/button_bloop.mp3'],
+		volume: 2
 	});
 	const musicIds = {
 		"title" : music
 	}
 	const soundIds = {
-		"pew" : sound
+		"bloop" : sound
 	}
 	app.ports.audioControl.subscribe(message =>{
 		if (soundIds.hasOwnProperty(message)) {
-			sound.fade(1,0,100);
+			//sound.fade(1,0,100);
 			soundIds[message].play();
 		}
 		else if (musicIds.hasOwnProperty(message)) {

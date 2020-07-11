@@ -11006,13 +11006,17 @@ var $author$project$Story$Storylet = F4(
 	function (id, character, paragraph, options) {
 		return {character: character, id: id, options: options, paragraph: paragraph};
 	});
+var $author$project$Story$Athol = {$: 'Athol'};
 var $author$project$Story$Chippy = {$: 'Chippy'};
 var $elm$json$Json$Decode$fail = _Json_fail;
 var $author$project$Story$characterFromString = function (string) {
-	if (string === 'chippy') {
-		return $elm$json$Json$Decode$succeed($author$project$Story$Chippy);
-	} else {
-		return $elm$json$Json$Decode$fail('Invalid character: ' + string);
+	switch (string) {
+		case 'chippy':
+			return $elm$json$Json$Decode$succeed($author$project$Story$Chippy);
+		case 'athol':
+			return $elm$json$Json$Decode$succeed($author$project$Story$Athol);
+		default:
+			return $elm$json$Json$Decode$fail('Invalid character: ' + string);
 	}
 };
 var $author$project$Story$characterDecoder = A2($elm$json$Json$Decode$andThen, $author$project$Story$characterFromString, $elm$json$Json$Decode$string);
@@ -11036,7 +11040,7 @@ var $author$project$Story$storyDecoder = A2(
 var $author$project$Main$init = function (windowSize) {
 	return _Utils_Tuple2(
 		{
-			current: $author$project$Story$StoryletID(1),
+			current: $author$project$Story$StoryletID(100),
 			orientation: $mdgriffith$elm_ui$Element$classifyDevice(windowSize).orientation,
 			story: $author$project$Story$Loading
 		},
@@ -11292,7 +11296,7 @@ var $author$project$Main$update = F2(
 						_Utils_update(
 							model,
 							{current: storyletid}),
-						$author$project$Main$audioControl('pew'));
+						$author$project$Main$audioControl('bloop'));
 			}
 		}
 	});
@@ -17162,7 +17166,8 @@ var $author$project$Story$errorToString = function (err) {
 			var url = err.a;
 			return 'Malformed url: ' + url;
 		default:
-			return 'Bad body?';
+			var body = err.a;
+			return 'Bad body?' + body;
 	}
 };
 var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
@@ -17367,11 +17372,16 @@ var $author$project$Story$viewStorylet = F3(
 					var storylet = mbStorylet.a;
 					return function () {
 						if (orientation.$ === 'Portrait') {
-							return $mdgriffith$elm_ui$Element$column(_List_Nil);
+							return $mdgriffith$elm_ui$Element$column(
+								_List_fromArray(
+									[
+										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+									]));
 						} else {
 							return $mdgriffith$elm_ui$Element$row(
 								_List_fromArray(
 									[
+										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
 										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
 									]));
 						}
@@ -17409,7 +17419,11 @@ var $author$project$Story$viewStorylet = F3(
 										]),
 									function () {
 										var _v4 = storylet.character;
-										return {description: 'Chiptune', src: 'assets/chippy.png'};
+										if (_v4.$ === 'Chippy') {
+											return {description: 'Chiptune', src: 'assets/chippy.png'};
+										} else {
+											return {description: 'Athol', src: 'assets/error.png'};
+										}
 									}())),
 								A2(
 								$mdgriffith$elm_ui$Element$column,
@@ -17506,4 +17520,4 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 				},
 				A2($elm$json$Json$Decode$field, 'height', $elm$json$Json$Decode$int));
 		},
-		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
+		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[],"Athol":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
