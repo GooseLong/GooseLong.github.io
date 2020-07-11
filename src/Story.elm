@@ -106,6 +106,22 @@ viewStorylet id orientation story =
             let
                 mbStorylet =
                     List.filter (\strlt -> strlt.id == id) storylets |> List.head
+
+                fontSize =
+                    case orientation of
+                        Landscape ->
+                            18
+
+                        Portrait ->
+                            62
+
+                buttonSpacing =
+                    case orientation of
+                        Landscape ->
+                            10
+
+                        Portrait ->
+                            15
             in
             case mbStorylet of
                 Nothing ->
@@ -114,50 +130,69 @@ viewStorylet id orientation story =
                 Just storylet ->
                     (case orientation of
                         Portrait ->
-                            column
+                            column []
 
                         Landscape ->
-                            row
+                            row [ height fill ]
                     )
-                        []
                         [ el
                             (case orientation of
                                 Portrait ->
                                     [ width fill
-                                    , height <| fillPortion 3
+                                    , height fill
                                     , padding 50
                                     ]
 
                                 Landscape ->
                                     [ width fill
-                                    , height <| fillPortion 4
+                                    , height shrink
                                     , padding 50
+                                    , centerY
                                     ]
                             )
                           <|
                             image
-                                [ width fill, height fill ]
+                                [ width fill, height fill, centerX, centerY ]
                             <|
                                 case storylet.character of
                                     Chippy ->
                                         { src = "assets/chippy.png"
                                         , description = "Chiptune"
                                         }
-                        , column [ width fill, height fill ]
-                            [ paragraph [ padding 20, Background.color <| rgb 0.2 0.3 0.99 ] [ text storylet.paragraph ]
-                            , column [ width fill, spacing 10, padding 10 ] <|
+                        , column
+                            [ width fill
+                            , height shrink
+                            , case orientation of
+                                Portrait ->
+                                    alignBottom
+
+                                Landscape ->
+                                    centerY
+                            ]
+                            [ paragraph
+                                [ padding 20
+                                , Background.color <| rgb 0.2 0.3 0.99
+                                , Font.size fontSize
+                                ]
+                                [ text storylet.paragraph ]
+                            , column [ width fill, spacing buttonSpacing, padding buttonSpacing ] <|
                                 List.map
                                     (\optn ->
                                         Input.button
                                             [ width fill
                                             , padding 3
                                             , Background.color <| rgb 0.8 0.8 0.8
+                                            , Border.rounded 3
                                             ]
                                             { onPress = Just (OptionClicked <| Tuple.second optn)
                                             , label =
-                                                Tuple.first optn
-                                                    |> text
-                                                    |> el [ padding 5 ]
+                                                paragraph
+                                                    [ padding 5
+                                                    , Font.size fontSize
+                                                    ]
+                                                    [ Tuple.first optn
+                                                        |> text
+                                                    ]
                                             }
                                     )
                                     storylet.options

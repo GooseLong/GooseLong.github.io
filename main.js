@@ -16955,6 +16955,11 @@ var $mdgriffith$elm_ui$Element$map = $mdgriffith$elm_ui$Internal$Model$map;
 var $author$project$Story$OptionClicked = function (a) {
 	return {$: 'OptionClicked', a: a};
 };
+var $mdgriffith$elm_ui$Internal$Model$AlignY = function (a) {
+	return {$: 'AlignY', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$Bottom = {$: 'Bottom'};
+var $mdgriffith$elm_ui$Element$alignBottom = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$Bottom);
 var $mdgriffith$elm_ui$Internal$Model$Button = {$: 'Button'};
 var $mdgriffith$elm_ui$Internal$Model$Describe = function (a) {
 	return {$: 'Describe', a: a};
@@ -17090,6 +17095,13 @@ var $mdgriffith$elm_ui$Element$Input$button = F2(
 				_List_fromArray(
 					[label])));
 	});
+var $mdgriffith$elm_ui$Internal$Model$AlignX = function (a) {
+	return {$: 'AlignX', a: a};
+};
+var $mdgriffith$elm_ui$Internal$Model$CenterX = {$: 'CenterX'};
+var $mdgriffith$elm_ui$Element$centerX = $mdgriffith$elm_ui$Internal$Model$AlignX($mdgriffith$elm_ui$Internal$Model$CenterX);
+var $mdgriffith$elm_ui$Internal$Model$CenterY = {$: 'CenterY'};
+var $mdgriffith$elm_ui$Element$centerY = $mdgriffith$elm_ui$Internal$Model$AlignY($mdgriffith$elm_ui$Internal$Model$CenterY);
 var $mdgriffith$elm_ui$Element$Background$color = function (clr) {
 	return A2(
 		$mdgriffith$elm_ui$Internal$Model$StyleClass,
@@ -17156,7 +17168,6 @@ var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
 	return {$: 'Fill', a: a};
 };
 var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
-var $mdgriffith$elm_ui$Element$fillPortion = $mdgriffith$elm_ui$Internal$Model$Fill;
 var $elm$core$List$head = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -17277,6 +17288,17 @@ var $mdgriffith$elm_ui$Element$rgb = F3(
 	function (r, g, b) {
 		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, r, g, b, 1);
 	});
+var $mdgriffith$elm_ui$Internal$Flag$borderRound = $mdgriffith$elm_ui$Internal$Flag$flag(17);
+var $mdgriffith$elm_ui$Element$Border$rounded = function (radius) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$borderRound,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$Single,
+			'br-' + $elm$core$String$fromInt(radius),
+			'border-radius',
+			$elm$core$String$fromInt(radius) + 'px'));
+};
 var $mdgriffith$elm_ui$Internal$Model$AsRow = {$: 'AsRow'};
 var $mdgriffith$elm_ui$Internal$Model$asRow = $mdgriffith$elm_ui$Internal$Model$AsRow;
 var $mdgriffith$elm_ui$Element$row = F2(
@@ -17297,6 +17319,12 @@ var $mdgriffith$elm_ui$Element$row = F2(
 						attrs))),
 			$mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
 	});
+var $mdgriffith$elm_ui$Element$Font$size = function (i) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$fontSize,
+		$mdgriffith$elm_ui$Internal$Model$FontSize(i));
+};
 var $mdgriffith$elm_ui$Element$text = function (content) {
 	return $mdgriffith$elm_ui$Internal$Model$Text(content);
 };
@@ -17318,19 +17346,35 @@ var $author$project$Story$viewStorylet = F3(
 							return _Utils_eq(strlt.id, id);
 						},
 						storylets));
+				var fontSize = function () {
+					if (orientation.$ === 'Landscape') {
+						return 18;
+					} else {
+						return 62;
+					}
+				}();
+				var buttonSpacing = function () {
+					if (orientation.$ === 'Landscape') {
+						return 10;
+					} else {
+						return 15;
+					}
+				}();
 				if (mbStorylet.$ === 'Nothing') {
 					return $mdgriffith$elm_ui$Element$text('error - storylet not found');
 				} else {
 					var storylet = mbStorylet.a;
-					return A2(
-						function () {
-							if (orientation.$ === 'Portrait') {
-								return $mdgriffith$elm_ui$Element$column;
-							} else {
-								return $mdgriffith$elm_ui$Element$row;
-							}
-						}(),
-						_List_Nil,
+					return function () {
+						if (orientation.$ === 'Portrait') {
+							return $mdgriffith$elm_ui$Element$column(_List_Nil);
+						} else {
+							return $mdgriffith$elm_ui$Element$row(
+								_List_fromArray(
+									[
+										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
+									]));
+						}
+					}()(
 						_List_fromArray(
 							[
 								A2(
@@ -17340,17 +17384,16 @@ var $author$project$Story$viewStorylet = F3(
 										return _List_fromArray(
 											[
 												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$height(
-												$mdgriffith$elm_ui$Element$fillPortion(3)),
+												$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
 												$mdgriffith$elm_ui$Element$padding(50)
 											]);
 									} else {
 										return _List_fromArray(
 											[
 												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$height(
-												$mdgriffith$elm_ui$Element$fillPortion(4)),
-												$mdgriffith$elm_ui$Element$padding(50)
+												$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+												$mdgriffith$elm_ui$Element$padding(50),
+												$mdgriffith$elm_ui$Element$centerY
 											]);
 									}
 								}(),
@@ -17359,7 +17402,9 @@ var $author$project$Story$viewStorylet = F3(
 									_List_fromArray(
 										[
 											$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-											$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
+											$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+											$mdgriffith$elm_ui$Element$centerX,
+											$mdgriffith$elm_ui$Element$centerY
 										]),
 									function () {
 										var _v4 = storylet.character;
@@ -17370,7 +17415,14 @@ var $author$project$Story$viewStorylet = F3(
 								_List_fromArray(
 									[
 										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
+										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+										function () {
+										if (orientation.$ === 'Portrait') {
+											return $mdgriffith$elm_ui$Element$alignBottom;
+										} else {
+											return $mdgriffith$elm_ui$Element$centerY;
+										}
+									}()
 									]),
 								_List_fromArray(
 									[
@@ -17380,7 +17432,8 @@ var $author$project$Story$viewStorylet = F3(
 											[
 												$mdgriffith$elm_ui$Element$padding(20),
 												$mdgriffith$elm_ui$Element$Background$color(
-												A3($mdgriffith$elm_ui$Element$rgb, 0.2, 0.3, 0.99))
+												A3($mdgriffith$elm_ui$Element$rgb, 0.2, 0.3, 0.99)),
+												$mdgriffith$elm_ui$Element$Font$size(fontSize)
 											]),
 										_List_fromArray(
 											[
@@ -17391,8 +17444,8 @@ var $author$project$Story$viewStorylet = F3(
 										_List_fromArray(
 											[
 												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$spacing(10),
-												$mdgriffith$elm_ui$Element$padding(10)
+												$mdgriffith$elm_ui$Element$spacing(buttonSpacing),
+												$mdgriffith$elm_ui$Element$padding(buttonSpacing)
 											]),
 										A2(
 											$elm$core$List$map,
@@ -17404,16 +17457,21 @@ var $author$project$Story$viewStorylet = F3(
 															$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
 															$mdgriffith$elm_ui$Element$padding(3),
 															$mdgriffith$elm_ui$Element$Background$color(
-															A3($mdgriffith$elm_ui$Element$rgb, 0.8, 0.8, 0.8))
+															A3($mdgriffith$elm_ui$Element$rgb, 0.8, 0.8, 0.8)),
+															$mdgriffith$elm_ui$Element$Border$rounded(3)
 														]),
 													{
 														label: A2(
-															$mdgriffith$elm_ui$Element$el,
+															$mdgriffith$elm_ui$Element$paragraph,
 															_List_fromArray(
 																[
-																	$mdgriffith$elm_ui$Element$padding(5)
+																	$mdgriffith$elm_ui$Element$padding(5),
+																	$mdgriffith$elm_ui$Element$Font$size(fontSize)
 																]),
-															$mdgriffith$elm_ui$Element$text(optn.a)),
+															_List_fromArray(
+																[
+																	$mdgriffith$elm_ui$Element$text(optn.a)
+																])),
 														onPress: $elm$core$Maybe$Just(
 															$author$project$Story$OptionClicked(optn.b))
 													});

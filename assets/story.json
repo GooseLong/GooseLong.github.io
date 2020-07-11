@@ -3,12 +3,22 @@
        {
           "id":1,
           "character":"chippy",
-          "paragraph":"string",
+          "paragraph":"hello. my name is chiptune. what is your name? ...",
           "options":{
              "hello!" : 2,
              "what?!" : 3,
              "i dont care." : 4
           }
-       }
+       },
+       {
+        "id":2,
+        "character":"chippy",
+        "paragraph":"... i requested the name you go by. what is it?",
+        "options":{
+           "uhhhh..." : 5,
+           "i dont have one." : 6,
+           "you know... i mean i do have a completely normal name..." : 7
+        }
+     }
     ]
  }
