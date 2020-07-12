@@ -5,6 +5,7 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
+import Element.Keyed as Keyed
 import Http
 import Json.Decode exposing (Decoder, field, int, list, string)
 
@@ -205,24 +206,33 @@ viewStorylet id orientation story =
                                     ]
                             )
                           <|
-                            image
-                                [ width fill, height fill, centerX, centerY ]
-                            <|
-                                case storylet.character of
-                                    Chippy ->
-                                        { src = "assets/chippy.png"
-                                        , description = "Chiptune"
-                                        }
+                            case storylet.character of
+                                Chippy ->
+                                    Keyed.el [ width fill, height fill, centerX, centerY ]
+                                        ( characterToString storylet.character
+                                        , image [ width fill, height fill, centerX, centerY ]
+                                            { src = "assets/chippy.png"
+                                            , description = "Chiptune"
+                                            }
+                                        )
 
-                                    Athol ->
-                                        { src = "assets/error.png"
-                                        , description = "Athol"
-                                        }
+                                Athol ->
+                                    Keyed.el [ width fill, height fill, centerX, centerY ]
+                                        ( characterToString storylet.character
+                                        , image [ width fill, height fill, centerX, centerY ]
+                                            { src = "assets/error.png"
+                                            , description = "Athol"
+                                            }
+                                        )
 
-                                    Clawdious ->
-                                        { src = "assets/error.png"
-                                        , description = "Clawdious"
-                                        }
+                                Clawdious ->
+                                    Keyed.el [ width fill, height fill, centerX, centerY ]
+                                        ( characterToString storylet.character
+                                        , image [ width fill, height fill, centerX, centerY ]
+                                            { src = "assets/error.png"
+                                            , description = "Clawdious"
+                                            }
+                                        )
                         , column
                             [ width fill
                             , height shrink
