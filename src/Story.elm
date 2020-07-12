@@ -37,6 +37,7 @@ type Character
     | Athol
     | Clawdious
     | Rowan
+    | End
 
 
 
@@ -63,6 +64,9 @@ characterFromString string =
 
         "rowan" ->
             Json.Decode.succeed Rowan
+
+        "end" ->
+            Json.Decode.succeed End
 
         _ ->
             Json.Decode.fail ("Invalid character: " ++ string)
@@ -145,6 +149,9 @@ characterToString character =
         Rowan ->
             "rowan"
 
+        End ->
+            "rowan"
+
 
 getStoryletFromId : StoryletID -> List Storylet -> Maybe Storylet
 getStoryletFromId id storylets =
@@ -190,104 +197,128 @@ viewStorylet id orientation story =
                     text "error - storylet not found"
 
                 Just storylet ->
-                    (case orientation of
-                        Portrait ->
-                            column [ width fill ]
+                    case storylet.character of
+                        End ->
+                            el
+                                [ centerX
+                                , centerY
+                                , Font.family
+                                    [ Font.typeface "Lucida Console"
+                                    , Font.monospace
+                                    ]
+                                , Font.size 80
+                                ]
+                            <|
+                                text "THE END"
 
-                        Landscape ->
-                            row [ width fill, height fill ]
-                    )
-                        [ el
+                        _ ->
                             (case orientation of
                                 Portrait ->
-                                    [ width fill
-                                    , height fill
-                                    , paddingEach { top = 0, right = 40, bottom = 0, left = 10 }
-                                    ]
+                                    column [ width fill ]
 
                                 Landscape ->
+                                    row [ width fill, height fill ]
+                            )
+                                [ el
+                                    (case orientation of
+                                        Portrait ->
+                                            [ width fill
+                                            , height fill
+                                            , paddingEach { top = 0, right = 40, bottom = 0, left = 10 }
+                                            ]
+
+                                        Landscape ->
+                                            [ width fill
+                                            , height shrink
+                                            , paddingEach { top = 0, right = 40, bottom = 0, left = 10 }
+                                            , centerY
+                                            ]
+                                    )
+                                  <|
+                                    case storylet.character of
+                                        Chippy ->
+                                            Keyed.el [ width fill, height fill, centerX, centerY ]
+                                                ( characterToString storylet.character
+                                                , image [ width fill, height fill, centerX, centerY ]
+                                                    { src = "assets/chippy_min.png"
+                                                    , description = "Chiptune"
+                                                    }
+                                                )
+
+                                        Athol ->
+                                            Keyed.el [ width fill, height fill, centerX, centerY ]
+                                                ( characterToString storylet.character
+                                                , image [ width fill, height fill, centerX, centerY ]
+                                                    { src = "assets/athol_min.jfif"
+                                                    , description = "Athol"
+                                                    }
+                                                )
+
+                                        Clawdious ->
+                                            Keyed.el [ width fill, height fill, centerX, centerY ]
+                                                ( characterToString storylet.character
+                                                , image [ width fill, height fill, centerX, centerY ]
+                                                    { src = "assets/clawdious_min.jfif"
+                                                    , description = "Clawdious"
+                                                    }
+                                                )
+
+                                        Rowan ->
+                                            Keyed.el [ width fill, height fill, centerX, centerY ]
+                                                ( characterToString storylet.character
+                                                , image [ width fill, height fill, centerX, centerY ]
+                                                    { src = "assets/rowan_min.png"
+                                                    , description = "Rowan"
+                                                    }
+                                                )
+
+                                        End ->
+                                            Keyed.el [ width fill, height fill, centerX, centerY ]
+                                                ( characterToString storylet.character
+                                                , image [ width fill, height fill, centerX, centerY ]
+                                                    { src = "assets/error.png"
+                                                    , description = "End_error"
+                                                    }
+                                                )
+                                , column
                                     [ width fill
                                     , height shrink
-                                    , paddingEach { top = 0, right = 40, bottom = 0, left = 10 }
-                                    , centerY
+                                    , case orientation of
+                                        Portrait ->
+                                            alignBottom
+
+                                        Landscape ->
+                                            centerY
                                     ]
-                            )
-                          <|
-                            case storylet.character of
-                                Chippy ->
-                                    Keyed.el [ width fill, height fill, centerX, centerY ]
-                                        ( characterToString storylet.character
-                                        , image [ width fill, height fill, centerX, centerY ]
-                                            { src = "assets/chippy_min.png"
-                                            , description = "Chiptune"
-                                            }
-                                        )
-
-                                Athol ->
-                                    Keyed.el [ width fill, height fill, centerX, centerY ]
-                                        ( characterToString storylet.character
-                                        , image [ width fill, height fill, centerX, centerY ]
-                                            { src = "assets/athol_min.jfif"
-                                            , description = "Athol"
-                                            }
-                                        )
-
-                                Clawdious ->
-                                    Keyed.el [ width fill, height fill, centerX, centerY ]
-                                        ( characterToString storylet.character
-                                        , image [ width fill, height fill, centerX, centerY ]
-                                            { src = "assets/clawdious_min.jfif"
-                                            , description = "Clawdious"
-                                            }
-                                        )
-
-                                Rowan ->
-                                    Keyed.el [ width fill, height fill, centerX, centerY ]
-                                        ( characterToString storylet.character
-                                        , image [ width fill, height fill, centerX, centerY ]
-                                            { src = "assets/rowan_min.png"
-                                            , description = "Rowan"
-                                            }
-                                        )
-                        , column
-                            [ width fill
-                            , height shrink
-                            , case orientation of
-                                Portrait ->
-                                    alignBottom
-
-                                Landscape ->
-                                    centerY
-                            ]
-                            [ paragraph
-                                [ padding 20
-                                , Background.color <| rgb 0.5 0.6 0.8
-                                , Font.size fontSize
+                                    [ paragraph
+                                        [ padding 20
+                                        , Background.color <| rgb 0.5 0.6 0.8
+                                        , Font.size fontSize
+                                        ]
+                                        [ text storylet.paragraph ]
+                                    , column [ width fill, spacing buttonSpacing, padding buttonSpacing ] <|
+                                        List.map
+                                            (\optn ->
+                                                Input.button
+                                                    [ width fill
+                                                    , padding 3
+                                                    , Background.color <| rgb 0.8 0.8 0.8
+                                                    , Border.rounded 3
+                                                    ]
+                                                    { onPress = Just (OptionClicked <| Tuple.second optn)
+                                                    , label =
+                                                        paragraph
+                                                            [ padding 5
+                                                            , Font.size fontSize
+                                                            ]
+                                                            [ Tuple.first optn
+                                                                |> text
+                                                            ]
+                                                    }
+                                            )
+                                            storylet.options
+                                    ]
                                 ]
-                                [ text storylet.paragraph ]
-                            , column [ width fill, spacing buttonSpacing, padding buttonSpacing ] <|
-                                List.map
-                                    (\optn ->
-                                        Input.button
-                                            [ width fill
-                                            , padding 3
-                                            , Background.color <| rgb 0.8 0.8 0.8
-                                            , Border.rounded 3
-                                            ]
-                                            { onPress = Just (OptionClicked <| Tuple.second optn)
-                                            , label =
-                                                paragraph
-                                                    [ padding 5
-                                                    , Font.size fontSize
-                                                    ]
-                                                    [ Tuple.first optn
-                                                        |> text
-                                                    ]
-                                            }
-                                    )
-                                    storylet.options
-                            ]
-                        ]
 
 
 errorToString : Http.Error -> String

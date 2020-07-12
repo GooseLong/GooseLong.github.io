@@ -11009,6 +11009,7 @@ var $author$project$Story$Storylet = F4(
 var $author$project$Story$Athol = {$: 'Athol'};
 var $author$project$Story$Chippy = {$: 'Chippy'};
 var $author$project$Story$Clawdious = {$: 'Clawdious'};
+var $author$project$Story$End = {$: 'End'};
 var $author$project$Story$Rowan = {$: 'Rowan'};
 var $elm$json$Json$Decode$fail = _Json_fail;
 var $author$project$Story$characterFromString = function (string) {
@@ -11021,6 +11022,8 @@ var $author$project$Story$characterFromString = function (string) {
 			return $elm$json$Json$Decode$succeed($author$project$Story$Clawdious);
 		case 'rowan':
 			return $elm$json$Json$Decode$succeed($author$project$Story$Rowan);
+		case 'end':
+			return $elm$json$Json$Decode$succeed($author$project$Story$End);
 		default:
 			return $elm$json$Json$Decode$fail('Invalid character: ' + string);
 	}
@@ -11270,6 +11273,8 @@ var $author$project$Story$characterToString = function (character) {
 			return 'athol';
 		case 'Clawdious':
 			return 'clawdious';
+		case 'Rowan':
+			return 'rowan';
 		default:
 			return 'rowan';
 	}
@@ -17309,6 +17314,15 @@ var $author$project$Story$errorToString = function (err) {
 			return 'Bad body?' + body;
 	}
 };
+var $mdgriffith$elm_ui$Element$Font$family = function (families) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$fontFamily,
+		A2(
+			$mdgriffith$elm_ui$Internal$Model$FontFamily,
+			A3($elm$core$List$foldl, $mdgriffith$elm_ui$Internal$Model$renderFontClassName, 'ff-', families),
+			families));
+};
 var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
 	return {$: 'Fill', a: a};
 };
@@ -17364,6 +17378,8 @@ var $mdgriffith$elm_ui$Element$image = F2(
 						$mdgriffith$elm_ui$Internal$Model$Unkeyed(_List_Nil))
 					])));
 	});
+var $mdgriffith$elm_ui$Internal$Model$Monospace = {$: 'Monospace'};
+var $mdgriffith$elm_ui$Element$Font$monospace = $mdgriffith$elm_ui$Internal$Model$Monospace;
 var $mdgriffith$elm_ui$Internal$Model$PaddingStyle = F5(
 	function (a, b, c, d, e) {
 		return {$: 'PaddingStyle', a: a, b: b, c: c, d: d, e: e};
@@ -17498,6 +17514,7 @@ var $mdgriffith$elm_ui$Element$Font$size = function (i) {
 var $mdgriffith$elm_ui$Element$text = function (content) {
 	return $mdgriffith$elm_ui$Internal$Model$Text(content);
 };
+var $mdgriffith$elm_ui$Element$Font$typeface = $mdgriffith$elm_ui$Internal$Model$Typeface;
 var $author$project$Story$viewStorylet = F3(
 	function (id, orientation, story) {
 		switch (story.$) {
@@ -17538,208 +17555,249 @@ var $author$project$Story$viewStorylet = F3(
 					return $mdgriffith$elm_ui$Element$text('error - storylet not found');
 				} else {
 					var storylet = mbStorylet.a;
-					return function () {
-						if (orientation.$ === 'Portrait') {
-							return $mdgriffith$elm_ui$Element$column(
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-									]));
-						} else {
-							return $mdgriffith$elm_ui$Element$row(
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
-									]));
-						}
-					}()(
-						_List_fromArray(
-							[
-								A2(
-								$mdgriffith$elm_ui$Element$el,
-								function () {
-									if (orientation.$ === 'Portrait') {
-										return _List_fromArray(
-											[
-												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$paddingEach(
-												{bottom: 0, left: 10, right: 40, top: 0})
-											]);
-									} else {
-										return _List_fromArray(
-											[
-												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-												$mdgriffith$elm_ui$Element$paddingEach(
-												{bottom: 0, left: 10, right: 40, top: 0}),
-												$mdgriffith$elm_ui$Element$centerY
-											]);
-									}
-								}(),
-								function () {
-									var _v4 = storylet.character;
-									switch (_v4.$) {
-										case 'Chippy':
-											return A2(
-												$mdgriffith$elm_ui$Element$Keyed$el,
-												_List_fromArray(
-													[
-														$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$centerX,
-														$mdgriffith$elm_ui$Element$centerY
-													]),
-												_Utils_Tuple2(
-													$author$project$Story$characterToString(storylet.character),
-													A2(
-														$mdgriffith$elm_ui$Element$image,
-														_List_fromArray(
-															[
-																$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$centerX,
-																$mdgriffith$elm_ui$Element$centerY
-															]),
-														{description: 'Chiptune', src: 'assets/chippy_min.png'})));
-										case 'Athol':
-											return A2(
-												$mdgriffith$elm_ui$Element$Keyed$el,
-												_List_fromArray(
-													[
-														$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$centerX,
-														$mdgriffith$elm_ui$Element$centerY
-													]),
-												_Utils_Tuple2(
-													$author$project$Story$characterToString(storylet.character),
-													A2(
-														$mdgriffith$elm_ui$Element$image,
-														_List_fromArray(
-															[
-																$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$centerX,
-																$mdgriffith$elm_ui$Element$centerY
-															]),
-														{description: 'Athol', src: 'assets/athol_min.jfif'})));
-										case 'Clawdious':
-											return A2(
-												$mdgriffith$elm_ui$Element$Keyed$el,
-												_List_fromArray(
-													[
-														$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$centerX,
-														$mdgriffith$elm_ui$Element$centerY
-													]),
-												_Utils_Tuple2(
-													$author$project$Story$characterToString(storylet.character),
-													A2(
-														$mdgriffith$elm_ui$Element$image,
-														_List_fromArray(
-															[
-																$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$centerX,
-																$mdgriffith$elm_ui$Element$centerY
-															]),
-														{description: 'Clawdious', src: 'assets/clawdious_min.jfif'})));
-										default:
-											return A2(
-												$mdgriffith$elm_ui$Element$Keyed$el,
-												_List_fromArray(
-													[
-														$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-														$mdgriffith$elm_ui$Element$centerX,
-														$mdgriffith$elm_ui$Element$centerY
-													]),
-												_Utils_Tuple2(
-													$author$project$Story$characterToString(storylet.character),
-													A2(
-														$mdgriffith$elm_ui$Element$image,
-														_List_fromArray(
-															[
-																$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-																$mdgriffith$elm_ui$Element$centerX,
-																$mdgriffith$elm_ui$Element$centerY
-															]),
-														{description: 'Rowan', src: 'assets/rowan_min.png'})));
-									}
-								}()),
-								A2(
-								$mdgriffith$elm_ui$Element$column,
-								_List_fromArray(
-									[
-										$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-										$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-										function () {
+					var _v2 = storylet.character;
+					if (_v2.$ === 'End') {
+						return A2(
+							$mdgriffith$elm_ui$Element$el,
+							_List_fromArray(
+								[
+									$mdgriffith$elm_ui$Element$centerX,
+									$mdgriffith$elm_ui$Element$centerY,
+									$mdgriffith$elm_ui$Element$Font$family(
+									_List_fromArray(
+										[
+											$mdgriffith$elm_ui$Element$Font$typeface('Lucida Console'),
+											$mdgriffith$elm_ui$Element$Font$monospace
+										])),
+									$mdgriffith$elm_ui$Element$Font$size(80)
+								]),
+							$mdgriffith$elm_ui$Element$text('THE END'));
+					} else {
+						return function () {
+							if (orientation.$ === 'Portrait') {
+								return $mdgriffith$elm_ui$Element$column(
+									_List_fromArray(
+										[
+											$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+										]));
+							} else {
+								return $mdgriffith$elm_ui$Element$row(
+									_List_fromArray(
+										[
+											$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+											$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill)
+										]));
+							}
+						}()(
+							_List_fromArray(
+								[
+									A2(
+									$mdgriffith$elm_ui$Element$el,
+									function () {
 										if (orientation.$ === 'Portrait') {
-											return $mdgriffith$elm_ui$Element$alignBottom;
+											return _List_fromArray(
+												[
+													$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+													$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+													$mdgriffith$elm_ui$Element$paddingEach(
+													{bottom: 0, left: 10, right: 40, top: 0})
+												]);
 										} else {
-											return $mdgriffith$elm_ui$Element$centerY;
+											return _List_fromArray(
+												[
+													$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+													$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+													$mdgriffith$elm_ui$Element$paddingEach(
+													{bottom: 0, left: 10, right: 40, top: 0}),
+													$mdgriffith$elm_ui$Element$centerY
+												]);
 										}
-									}()
-									]),
-								_List_fromArray(
-									[
-										A2(
-										$mdgriffith$elm_ui$Element$paragraph,
-										_List_fromArray(
-											[
-												$mdgriffith$elm_ui$Element$padding(20),
-												$mdgriffith$elm_ui$Element$Background$color(
-												A3($mdgriffith$elm_ui$Element$rgb, 0.5, 0.6, 0.8)),
-												$mdgriffith$elm_ui$Element$Font$size(fontSize)
-											]),
-										_List_fromArray(
-											[
-												$mdgriffith$elm_ui$Element$text(storylet.paragraph)
-											])),
-										A2(
-										$mdgriffith$elm_ui$Element$column,
-										_List_fromArray(
-											[
-												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$spacing(buttonSpacing),
-												$mdgriffith$elm_ui$Element$padding(buttonSpacing)
-											]),
-										A2(
-											$elm$core$List$map,
-											function (optn) {
+									}(),
+									function () {
+										var _v5 = storylet.character;
+										switch (_v5.$) {
+											case 'Chippy':
 												return A2(
-													$mdgriffith$elm_ui$Element$Input$button,
+													$mdgriffith$elm_ui$Element$Keyed$el,
 													_List_fromArray(
 														[
 															$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-															$mdgriffith$elm_ui$Element$padding(3),
-															$mdgriffith$elm_ui$Element$Background$color(
-															A3($mdgriffith$elm_ui$Element$rgb, 0.8, 0.8, 0.8)),
-															$mdgriffith$elm_ui$Element$Border$rounded(3)
+															$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$centerX,
+															$mdgriffith$elm_ui$Element$centerY
 														]),
-													{
-														label: A2(
-															$mdgriffith$elm_ui$Element$paragraph,
+													_Utils_Tuple2(
+														$author$project$Story$characterToString(storylet.character),
+														A2(
+															$mdgriffith$elm_ui$Element$image,
 															_List_fromArray(
 																[
-																	$mdgriffith$elm_ui$Element$padding(5),
-																	$mdgriffith$elm_ui$Element$Font$size(fontSize)
+																	$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$centerX,
+																	$mdgriffith$elm_ui$Element$centerY
 																]),
+															{description: 'Chiptune', src: 'assets/chippy_min.png'})));
+											case 'Athol':
+												return A2(
+													$mdgriffith$elm_ui$Element$Keyed$el,
+													_List_fromArray(
+														[
+															$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$centerX,
+															$mdgriffith$elm_ui$Element$centerY
+														]),
+													_Utils_Tuple2(
+														$author$project$Story$characterToString(storylet.character),
+														A2(
+															$mdgriffith$elm_ui$Element$image,
 															_List_fromArray(
 																[
-																	$mdgriffith$elm_ui$Element$text(optn.a)
-																])),
-														onPress: $elm$core$Maybe$Just(
-															$author$project$Story$OptionClicked(optn.b))
-													});
-											},
-											storylet.options))
-									]))
-							]));
+																	$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$centerX,
+																	$mdgriffith$elm_ui$Element$centerY
+																]),
+															{description: 'Athol', src: 'assets/athol_min.jfif'})));
+											case 'Clawdious':
+												return A2(
+													$mdgriffith$elm_ui$Element$Keyed$el,
+													_List_fromArray(
+														[
+															$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$centerX,
+															$mdgriffith$elm_ui$Element$centerY
+														]),
+													_Utils_Tuple2(
+														$author$project$Story$characterToString(storylet.character),
+														A2(
+															$mdgriffith$elm_ui$Element$image,
+															_List_fromArray(
+																[
+																	$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$centerX,
+																	$mdgriffith$elm_ui$Element$centerY
+																]),
+															{description: 'Clawdious', src: 'assets/clawdious_min.jfif'})));
+											case 'Rowan':
+												return A2(
+													$mdgriffith$elm_ui$Element$Keyed$el,
+													_List_fromArray(
+														[
+															$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$centerX,
+															$mdgriffith$elm_ui$Element$centerY
+														]),
+													_Utils_Tuple2(
+														$author$project$Story$characterToString(storylet.character),
+														A2(
+															$mdgriffith$elm_ui$Element$image,
+															_List_fromArray(
+																[
+																	$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$centerX,
+																	$mdgriffith$elm_ui$Element$centerY
+																]),
+															{description: 'Rowan', src: 'assets/rowan_min.png'})));
+											default:
+												return A2(
+													$mdgriffith$elm_ui$Element$Keyed$el,
+													_List_fromArray(
+														[
+															$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+															$mdgriffith$elm_ui$Element$centerX,
+															$mdgriffith$elm_ui$Element$centerY
+														]),
+													_Utils_Tuple2(
+														$author$project$Story$characterToString(storylet.character),
+														A2(
+															$mdgriffith$elm_ui$Element$image,
+															_List_fromArray(
+																[
+																	$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+																	$mdgriffith$elm_ui$Element$centerX,
+																	$mdgriffith$elm_ui$Element$centerY
+																]),
+															{description: 'End_error', src: 'assets/error.png'})));
+										}
+									}()),
+									A2(
+									$mdgriffith$elm_ui$Element$column,
+									_List_fromArray(
+										[
+											$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+											$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
+											function () {
+											if (orientation.$ === 'Portrait') {
+												return $mdgriffith$elm_ui$Element$alignBottom;
+											} else {
+												return $mdgriffith$elm_ui$Element$centerY;
+											}
+										}()
+										]),
+									_List_fromArray(
+										[
+											A2(
+											$mdgriffith$elm_ui$Element$paragraph,
+											_List_fromArray(
+												[
+													$mdgriffith$elm_ui$Element$padding(20),
+													$mdgriffith$elm_ui$Element$Background$color(
+													A3($mdgriffith$elm_ui$Element$rgb, 0.5, 0.6, 0.8)),
+													$mdgriffith$elm_ui$Element$Font$size(fontSize)
+												]),
+											_List_fromArray(
+												[
+													$mdgriffith$elm_ui$Element$text(storylet.paragraph)
+												])),
+											A2(
+											$mdgriffith$elm_ui$Element$column,
+											_List_fromArray(
+												[
+													$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+													$mdgriffith$elm_ui$Element$spacing(buttonSpacing),
+													$mdgriffith$elm_ui$Element$padding(buttonSpacing)
+												]),
+											A2(
+												$elm$core$List$map,
+												function (optn) {
+													return A2(
+														$mdgriffith$elm_ui$Element$Input$button,
+														_List_fromArray(
+															[
+																$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+																$mdgriffith$elm_ui$Element$padding(3),
+																$mdgriffith$elm_ui$Element$Background$color(
+																A3($mdgriffith$elm_ui$Element$rgb, 0.8, 0.8, 0.8)),
+																$mdgriffith$elm_ui$Element$Border$rounded(3)
+															]),
+														{
+															label: A2(
+																$mdgriffith$elm_ui$Element$paragraph,
+																_List_fromArray(
+																	[
+																		$mdgriffith$elm_ui$Element$padding(5),
+																		$mdgriffith$elm_ui$Element$Font$size(fontSize)
+																	]),
+																_List_fromArray(
+																	[
+																		$mdgriffith$elm_ui$Element$text(optn.a)
+																	])),
+															onPress: $elm$core$Maybe$Just(
+																$author$project$Story$OptionClicked(optn.b))
+														});
+												},
+												storylet.options))
+										]))
+								]));
+					}
 				}
 		}
 	});
@@ -17766,4 +17824,4 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 				},
 				A2($elm$json$Json$Decode$field, 'height', $elm$json$Json$Decode$int));
 		},
-		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[],"Athol":[],"Clawdious":[],"Rowan":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
+		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[],"Athol":[],"Clawdious":[],"Rowan":[],"End":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
