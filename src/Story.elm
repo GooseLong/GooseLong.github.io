@@ -211,7 +211,7 @@ viewStorylet id orientation story =
                                     Keyed.el [ width fill, height fill, centerX, centerY ]
                                         ( characterToString storylet.character
                                         , image [ width fill, height fill, centerX, centerY ]
-                                            { src = "assets/chippy.png"
+                                            { src = "assets/chippy_min.png"
                                             , description = "Chiptune"
                                             }
                                         )

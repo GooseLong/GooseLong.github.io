@@ -17561,7 +17561,7 @@ var $author$project$Story$viewStorylet = F3(
 																$mdgriffith$elm_ui$Element$centerX,
 																$mdgriffith$elm_ui$Element$centerY
 															]),
-														{description: 'Chiptune', src: 'assets/chippy.png'})));
+														{description: 'Chiptune', src: 'assets/chippy_min.png'})));
 										case 'Athol':
 											return A2(
 												$mdgriffith$elm_ui$Element$Keyed$el,
