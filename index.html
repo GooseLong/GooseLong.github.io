@@ -6,13 +6,36 @@
   <style>
   	body { padding: 0; margin: 0; }
 	
-	.zooms {
-	  transition: transform .2s;
+	  .startButton {
+		font-family: 'Lucida Console';
+		background-color: #8099cc; /* Green */
+		border: none;
+		color: black;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 40px;
+		width: 100%;
+		width: 100vw;
 	}
-
-	.zooms:hover {
-		transform: scale(1.015);
-	}
+	ul {
+    display: flex;
+    align-items: stretch; /* Default */
+    justify-content: space-between;
+    width: 100%;
+    background: #cacaca;
+    margin: 0;
+    padding: 0;
+	font-family: "Lucida Console";
+}
+li {
+    display: block;
+    flex: 0 1 auto; /* Default */
+    list-style-type: none;
+    background: #fafafa;
+    padding: 10px;
+}
   </style>
   <link
       href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -31,8 +54,13 @@
 	<script src="assets/howler.min.js"></script>
 	<p id="loadingIndicator">LOADING...</p>
 	<div id="startMenu">
-		<button onclick="startElm()">START GAME</button>
+		<button class="startButton" onclick="startElm()">START GAME</button>
 	</div>
+	<ul id="credits" class="creds">
+		<il>Art by @angleraptor</il>
+		<il>Music by @fishsticks_1312</il>
+		<il>Programming by @angoose4</il>
+	</ul>
 	<div id="myapp"></div>
 	<script>
 	const startMenu = document.getElementById("startMenu");
@@ -68,6 +96,7 @@
 	const app = Elm.Main
 	function startElm() {
 		document.getElementById("startMenu").remove()
+		document.getElementById("credits").remove()
 		app.init({
 			node: document.getElementById('myapp'),
 			flags: {"width": window.innerWidth, "height":window.innerHeight}
