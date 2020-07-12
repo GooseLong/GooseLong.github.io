@@ -1,0 +1,514 @@
+{
+  "passages": [
+    {
+      "text": "Hello newest pioneers! Congratulations on a remarkably smooth launch and docking procedure!\n@@@\n\n[[Urh..Th-thanks.->bye rowan]]\n[[Oh n-no, that was all ground control.]]\n[[...->bye rowan]]",
+      "links": [
+        {
+          "name": "Urh..Th-thanks.",
+          "link": "bye rowan",
+          "pid": "2"
+        },
+        {
+          "name": "Oh n-no, that was all ground control.",
+          "link": "Oh n-no, that was all ground control.",
+          "pid": "5"
+        },
+        {
+          "name": "...",
+          "link": "bye rowan",
+          "pid": "2"
+        }
+      ],
+      "name": "Welcome",
+      "pid": "1",
+      "position": {
+        "x": "1027",
+        "y": "305"
+      }
+    },
+    {
+      "text": "Dr. Rowan, Dr. Athol will show you around, please head down that hall.\n@@@\n\n[[...->introduction]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "introduction",
+          "pid": "3"
+        }
+      ],
+      "name": "bye rowan",
+      "pid": "2",
+      "position": {
+        "x": "1019",
+        "y": "559"
+      }
+    },
+    {
+      "text": "My name is Chiptune, the captain of this station and the one that keeps it running smoothly. If you ever see anything concerning such as broken equipment or slacking staff, come to me and I'll let control know.\n@@@\n\n[[What can they do from down there?]]\n[[W-wait.. l-like chippy Chippy?]]\n[[*think about how far away home is right now*]]",
+      "links": [
+        {
+          "name": "What can they do from down there?",
+          "link": "What can they do from down there?",
+          "pid": "4"
+        },
+        {
+          "name": "W-wait.. l-like chippy Chippy?",
+          "link": "W-wait.. l-like THE Chippy?",
+          "pid": "6"
+        },
+        {
+          "name": "*think about how far away home is right now*",
+          "link": "*think about how far away home is right now*",
+          "pid": "7"
+        }
+      ],
+      "name": "introduction",
+      "pid": "3",
+      "position": {
+        "x": "978",
+        "y": "686"
+      }
+    },
+    {
+      "text": "They will be able to report back appropriate discussions to deal with the situation.\n@@@\n\n[[R-right of course. Sorry.]]\n[[That sounds like a lot of overhead.]]\n[[Oh gosh... is broken equiptment common?]]",
+      "links": [
+        {
+          "name": "R-right of course. Sorry.",
+          "link": "R-right of course. Sorry.",
+          "pid": "10"
+        },
+        {
+          "name": "That sounds like a lot of overhead.",
+          "link": "That sounds like a lot of overhead.",
+          "pid": "11"
+        },
+        {
+          "name": "Oh gosh... is broken equiptment common?",
+          "link": "Oh gosh... is broken equiptment common?",
+          "pid": "12"
+        }
+      ],
+      "name": "What can they do from down there?",
+      "pid": "4",
+      "position": {
+        "x": "864",
+        "y": "1056"
+      }
+    },
+    {
+      "text": "I know, you did a very good job of not getting in the way.\n\n*Their screen lights up with a fluorescent smile*\n@@@\n[[Oh.->bye rowan]]\n[[*Try to laugh*->bye rowan]]\n[[*Blush*->bye rowan]]\n",
+      "links": [
+        {
+          "name": "Oh.",
+          "link": "bye rowan",
+          "pid": "2"
+        },
+        {
+          "name": "*Try to laugh*",
+          "link": "bye rowan",
+          "pid": "2"
+        },
+        {
+          "name": "*Blush*",
+          "link": "bye rowan",
+          "pid": "2"
+        }
+      ],
+      "name": "Oh n-no, that was all ground control.",
+      "pid": "5",
+      "position": {
+        "x": "937",
+        "y": "432"
+      }
+    },
+    {
+      "text": "*Sigh* Yes. I'm 'Chippy' an insultingly simple name and an even more insulting role for my highly advanced artificial mind.\n@@@\n[[Y-you -- those ads -- were an inspiration to me as a kid..]]\n[[Y-your ..early work.. is huge reason I'm here at all.]]",
+      "links": [
+        {
+          "name": "Y-you -- those ads -- were an inspiration to me as a kid..",
+          "link": "Y-you -- those ads -- were an inspiration to me as a kid..",
+          "pid": "8"
+        },
+        {
+          "name": "Y-your ..early work.. is huge reason I'm here at all.",
+          "link": "Y-your ..early work.. is huge reason I'm here at all.",
+          "pid": "9"
+        }
+      ],
+      "name": "W-wait.. l-like THE Chippy?",
+      "pid": "6",
+      "position": {
+        "x": "1066",
+        "y": "979"
+      }
+    },
+    {
+      "text": "Understood?\n@@@\n[[y-yes.]]",
+      "links": [
+        {
+          "name": "y-yes.",
+          "link": "y-yes.",
+          "pid": "19"
+        }
+      ],
+      "name": "*think about how far away home is right now*",
+      "pid": "7",
+      "position": {
+        "x": "773",
+        "y": "746"
+      }
+    },
+    {
+      "text": "I didn't say I wasn't great at what I did! My superior mind may have been horribly wasted on being a 'mascot' but I did my duty nevertheless.\n@@@\n\n[[S-sorry I didn't mean to offend..]]\n[[Yes you were fantastic.]]\n[[*smile encouragingly*]]",
+      "links": [
+        {
+          "name": "S-sorry I didn't mean to offend..",
+          "link": "S-sorry I didn't mean to offend..",
+          "pid": "14"
+        },
+        {
+          "name": "Yes you were fantastic.",
+          "link": "Yes you were fantastic.",
+          "pid": "15"
+        },
+        {
+          "name": "*smile encouragingly*",
+          "link": "*smile encouragingly*",
+          "pid": "16"
+        }
+      ],
+      "name": "Y-you -- those ads -- were an inspiration to me as a kid..",
+      "pid": "8",
+      "position": {
+        "x": "1072",
+        "y": "1220"
+      }
+    },
+    {
+      "text": "...\n@@@\n[[S-sorry I---->Y-you -- those ads -- were an inspiration to me as a kid..]]\n",
+      "links": [
+        {
+          "name": "S-sorry I---",
+          "link": "Y-you -- those ads -- were an inspiration to me as a kid..",
+          "pid": "8"
+        }
+      ],
+      "name": "Y-your ..early work.. is huge reason I'm here at all.",
+      "pid": "9",
+      "position": {
+        "x": "1223",
+        "y": "1095"
+      }
+    },
+    {
+      "text": "That's quite alright, I excpect you're rather frazzled from the flight.\n@@@\n\n[[yeah..->now its time]]",
+      "links": [
+        {
+          "name": "yeah..",
+          "link": "now its time",
+          "pid": "17"
+        }
+      ],
+      "name": "R-right of course. Sorry.",
+      "pid": "10",
+      "position": {
+        "x": "502",
+        "y": "1358"
+      }
+    },
+    {
+      "text": "And name a single thing that hasn't been acheived without a bit of bureaucracy.\n@@@\n\n[[(farming?)->see!]]\n[[(love?)->see!]]\n[[No, I suppose you're right.->see!]]",
+      "links": [
+        {
+          "name": "(farming?)",
+          "link": "see!",
+          "pid": "13"
+        },
+        {
+          "name": "(love?)",
+          "link": "see!",
+          "pid": "13"
+        },
+        {
+          "name": "No, I suppose you're right.",
+          "link": "see!",
+          "pid": "13"
+        }
+      ],
+      "name": "That sounds like a lot of overhead.",
+      "pid": "11",
+      "position": {
+        "x": "679",
+        "y": "1236"
+      }
+    },
+    {
+      "text": "I would say we get a few broken things a month but nothing hugely dangerous. Ground Control is able to walk us through every step of the repairing process.\n@@@\n\n[[*Try to calm your breathing*->now its time]]\n[[*Tell yourself there's nothing to worry about*->now its time]]",
+      "links": [
+        {
+          "name": "*Try to calm your breathing*",
+          "link": "now its time",
+          "pid": "17"
+        },
+        {
+          "name": "*Tell yourself there's nothing to worry about*",
+          "link": "now its time",
+          "pid": "17"
+        }
+      ],
+      "name": "Oh gosh... is broken equiptment common?",
+      "pid": "12",
+      "position": {
+        "x": "873",
+        "y": "1306"
+      }
+    },
+    {
+      "text": "See!\n@@@\n\n[[...->now its time]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "now its time",
+          "pid": "17"
+        }
+      ],
+      "name": "see!",
+      "pid": "13",
+      "position": {
+        "x": "758",
+        "y": "1369"
+      }
+    },
+    {
+      "text": "Apoligy accepted, I expect you're rather frazzled from the flight anyway.\n@@@\n[[yeah..->now its time]]",
+      "links": [
+        {
+          "name": "yeah..",
+          "link": "now its time",
+          "pid": "17"
+        }
+      ],
+      "name": "S-sorry I didn't mean to offend..",
+      "pid": "14",
+      "position": {
+        "x": "1006",
+        "y": "1408"
+      }
+    },
+    {
+      "text": "Thanks.\n*Their screen flashes embarressment*\n@@@\n[[*smile*->now its time]]\n[[*regret saying that*->now its time]]",
+      "links": [
+        {
+          "name": "*smile*",
+          "link": "now its time",
+          "pid": "17"
+        },
+        {
+          "name": "*regret saying that*",
+          "link": "now its time",
+          "pid": "17"
+        }
+      ],
+      "name": "Yes you were fantastic.",
+      "pid": "15",
+      "position": {
+        "x": "1128",
+        "y": "1417"
+      }
+    },
+    {
+      "text": "*Chippy's face/screen blushes*\n@@@\n[[*try to make your face look as neutral as possible*->now its time]]",
+      "links": [
+        {
+          "name": "*try to make your face look as neutral as possible*",
+          "link": "now its time",
+          "pid": "17"
+        }
+      ],
+      "name": "*smile encouragingly*",
+      "pid": "16",
+      "position": {
+        "x": "1262",
+        "y": "1416"
+      }
+    },
+    {
+      "text": "Now, time to show you how to get your daily instructions from control! There's the daily announcement from me over the PA....\n@@@\n[[...->cont list 1]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "cont list 1",
+          "pid": "18"
+        }
+      ],
+      "name": "now its time",
+      "pid": "17",
+      "position": {
+        "x": "968",
+        "y": "1638"
+      }
+    },
+    {
+      "text": "... Control updates the board in the dining quaters every morning with group tasks..\n@@@\n[[...->cont list 2]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "cont list 2",
+          "pid": "20"
+        }
+      ],
+      "name": "cont list 1",
+      "pid": "18",
+      "position": {
+        "x": "968",
+        "y": "1788"
+      }
+    },
+    {
+      "text": "Good.\n@@@\n[[...->What can they do from down there?]] ",
+      "links": [
+        {
+          "name": "...",
+          "link": "What can they do from down there?",
+          "pid": "4"
+        }
+      ],
+      "name": "y-yes.",
+      "pid": "19",
+      "position": {
+        "x": "752",
+        "y": "897"
+      }
+    },
+    {
+      "text": "..I will drop off a printed copy of your individual tasks at your living quaters every morning. If you take the spare bunk in my living quaters you can get your instructions first!\n@@@\n[[I-...->cont list 3]]",
+      "links": [
+        {
+          "name": "I-...",
+          "link": "cont list 3",
+          "pid": "21"
+        }
+      ],
+      "name": "cont list 2",
+      "pid": "20",
+      "position": {
+        "x": "968",
+        "y": "1938"
+      }
+    },
+    {
+      "text": "Then of course you have--\n@@@\n[[Please stop!!!]]",
+      "links": [
+        {
+          "name": "Please stop!!!",
+          "link": "Please stop!!!",
+          "pid": "22"
+        }
+      ],
+      "name": "cont list 3",
+      "pid": "21",
+      "position": {
+        "x": "987",
+        "y": "2087"
+      }
+    },
+    {
+      "text": "There's no need to shout. I'm giving you the information control asked me to give you.\n@@@\n[[I.. its just-- I get really overwhelmed sometimes.]]\n[[I'm just a bit tired.]]",
+      "links": [
+        {
+          "name": "I.. its just-- I get really overwhelmed sometimes.",
+          "link": "I.. its just-- I get really overwhelmed sometimes.",
+          "pid": "23"
+        },
+        {
+          "name": "I'm just a bit tired.",
+          "link": "I'm just a bit tired.",
+          "pid": "24"
+        }
+      ],
+      "name": "Please stop!!!",
+      "pid": "22",
+      "position": {
+        "x": "987",
+        "y": "2279"
+      }
+    },
+    {
+      "text": "Oh, not anything too bad I'm sure or control wouldn't put you in such a cramped, high pressure environment.\n@@@\n[[...]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "...",
+          "pid": "25"
+        }
+      ],
+      "name": "I.. its just-- I get really overwhelmed sometimes.",
+      "pid": "23",
+      "position": {
+        "x": "837",
+        "y": "2387"
+      }
+    },
+    {
+      "text": "Of course.. long trip.. but this really is vital information.\n@@@\n[[I-- I can't right now..->...]]",
+      "links": [
+        {
+          "name": "I-- I can't right now..",
+          "link": "...",
+          "pid": "25"
+        }
+      ],
+      "name": "I'm just a bit tired.",
+      "pid": "24",
+      "position": {
+        "x": "1122",
+        "y": "2389"
+      }
+    },
+    {
+      "text": "...\n@@@\n[[...->...2]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "...2",
+          "pid": "26"
+        }
+      ],
+      "name": "...",
+      "pid": "25",
+      "position": {
+        "x": "981",
+        "y": "2600"
+      }
+    },
+    {
+      "text": "I'll print out all the necessary info and give it to you later today If you promise to read it.\n@@@\n[[ok. sure.->END]]",
+      "links": [
+        {
+          "name": "ok. sure.",
+          "link": "END",
+          "pid": "27"
+        }
+      ],
+      "name": "...2",
+      "pid": "26",
+      "position": {
+        "x": "976",
+        "y": "2752"
+      }
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "END",
+      "pid": "27",
+      "position": {
+        "x": "979",
+        "y": "2934"
+      }
+    }
+  ],
+  "name": "chippy",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.8",
+  "ifid": "A25AAAD3-1EDB-4FC4-B4A6-103C8ECD121A"
+}

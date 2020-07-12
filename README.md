@@ -26,8 +26,8 @@ Current idea: Anxiety in space
 10. End
 
 ## TODOs:
- 1. Title screen / menu / credits / intro in JS
- 2. Adding assets and fixing the bugs that arrise when I do
- 3. Fixing up UI
- 4. Write dialogue
+ 1. Title screen / menu / credits / intro in JS ( will need to remove because itch page serves this function )
+ 2. Adding assets and fixing the bugs that arrise when I do almost done!
+ 3. Fixing up UI (todo if i have ideas...)
+ 4. Write dialogue (need to write: rowan, clawdious, group)
  5. Stitch story together into satisfying narrative

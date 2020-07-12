@@ -69,7 +69,7 @@ li {
 		document.getElementById("loadingIndicator").remove()
 		startMenu.style.visibility = 'visible'
 	}
-	const title_music = new Howl({
+	const rowan_music = new Howl({
 		src: ['assets/title_screen_min.mp3'],
 		loop : true,
 		autoplay : true,
@@ -80,14 +80,25 @@ li {
 		loop : true,
 		volume: 0.2 
 	});
+	const athol_music = new Howl({
+		src: ['assets/athol_min.mp3'],
+		loop : true,
+		volume: 0.4 
+	});
+	const clawdious_music = new Howl({
+		src: ['assets/clawdious_min.mp3'],
+		loop : true,
+		volume: 0.3 
+	});
 	const sound = new Howl({
 		src: ['assets/button_bloop.mp3'],
 		volume: 2
 	});
 	const musicIds = {
-		"title" : title_music,
+		"rowan" : rowan_music,
 		"chippy" : chippy_music,
-		"athol" : chippy_music
+		"athol" : athol_music,
+		"clawdious" :clawdious_music
 	}
 	const soundIds = {
 		"bloop" : sound

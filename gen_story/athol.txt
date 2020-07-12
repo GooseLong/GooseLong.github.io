@@ -53,11 +53,11 @@
       }
     },
     {
-      "text": "whats your name?\n\n[[I'm insert name]]\n[[lord pumpernickle]]\n",
+      "text": "whats your name?\n@@@\n[[I'm insert name]]\n[[lord pumpernickle]]\n",
       "links": [
         {
-          "name": "I'm insert name",
-          "link": "I'm insert name",
+          "name": "I'm insert-name the third",
+          "link": "I'm insert-name the third",
           "pid": "12"
         },
         {
@@ -99,7 +99,7 @@
       }
     },
     {
-      "text": "@@@\n[[*backs away in akwardness*]] ",
+      "text": "\n@@@\n[[*backs away in akwardness*]] ",
       "links": [
         {
           "name": "*backs away in akwardness*",

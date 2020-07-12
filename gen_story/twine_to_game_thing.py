@@ -86,6 +86,8 @@ for ic,chapter in enumerate(chapters):
     character = chapter["name"]
     for ip, passage in enumerate(chapter["passages"]):
         #print("links" in passage)
+        if chapter["name"] == "group":
+            character = passage["tags"][0]
         output["story"].append({
             "id":ic*100+int(passage["pid"]),
             "character":character,
