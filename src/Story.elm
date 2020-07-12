@@ -36,6 +36,7 @@ type Character
     = Chippy
     | Athol
     | Clawdious
+    | Rowan
 
 
 
@@ -138,6 +139,9 @@ characterToString character =
         Clawdious ->
             "clawdious"
 
+        Rowan ->
+            "Rowan"
+
 
 getStoryletFromId : StoryletID -> List Storylet -> Maybe Storylet
 getStoryletFromId id storylets =
@@ -231,6 +235,15 @@ viewStorylet id orientation story =
                                         , image [ width fill, height fill, centerX, centerY ]
                                             { src = "assets/clawdious_min.jfif"
                                             , description = "Clawdious"
+                                            }
+                                        )
+
+                                Rowan ->
+                                    Keyed.el [ width fill, height fill, centerX, centerY ]
+                                        ( characterToString storylet.character
+                                        , image [ width fill, height fill, centerX, centerY ]
+                                            { src = "assets/rowan_min.png"
+                                            , description = "Rowan"
                                             }
                                         )
                         , column

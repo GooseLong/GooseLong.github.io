@@ -79,7 +79,7 @@ def linksToOptions(passage,ic):
     if not ("links" in passage):
         return options
     for link in passage["links"]:
-        options[link["name"]] = ic*100+int(link["pid"])
+        options[link["name"].lower()] = ic*100+int(link["pid"])
     return options
 
 for ic,chapter in enumerate(chapters):

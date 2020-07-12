@@ -11265,8 +11265,10 @@ var $author$project$Story$characterToString = function (character) {
 			return 'chippy';
 		case 'Athol':
 			return 'athol';
-		default:
+		case 'Clawdious':
 			return 'clawdious';
+		default:
+			return 'Rowan';
 	}
 };
 var $elm$core$List$filter = F2(
@@ -17620,7 +17622,7 @@ var $author$project$Story$viewStorylet = F3(
 																$mdgriffith$elm_ui$Element$centerY
 															]),
 														{description: 'Athol', src: 'assets/athol_min.jfif'})));
-										default:
+										case 'Clawdious':
 											return A2(
 												$mdgriffith$elm_ui$Element$Keyed$el,
 												_List_fromArray(
@@ -17642,6 +17644,28 @@ var $author$project$Story$viewStorylet = F3(
 																$mdgriffith$elm_ui$Element$centerY
 															]),
 														{description: 'Clawdious', src: 'assets/clawdious_min.jfif'})));
+										default:
+											return A2(
+												$mdgriffith$elm_ui$Element$Keyed$el,
+												_List_fromArray(
+													[
+														$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+														$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+														$mdgriffith$elm_ui$Element$centerX,
+														$mdgriffith$elm_ui$Element$centerY
+													]),
+												_Utils_Tuple2(
+													$author$project$Story$characterToString(storylet.character),
+													A2(
+														$mdgriffith$elm_ui$Element$image,
+														_List_fromArray(
+															[
+																$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+																$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
+																$mdgriffith$elm_ui$Element$centerX,
+																$mdgriffith$elm_ui$Element$centerY
+															]),
+														{description: 'Rowan', src: 'assets/rowan_min.png'})));
 									}
 								}()),
 								A2(
@@ -17739,4 +17763,4 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 				},
 				A2($elm$json$Json$Decode$field, 'height', $elm$json$Json$Decode$int));
 		},
-		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[],"Athol":[],"Clawdious":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
+		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[],"Athol":[],"Clawdious":[],"Rowan":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
