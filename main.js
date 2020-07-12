@@ -11040,7 +11040,7 @@ var $author$project$Story$storyDecoder = A2(
 var $author$project$Main$init = function (windowSize) {
 	return _Utils_Tuple2(
 		{
-			current: $author$project$Story$StoryletID(100),
+			current: $author$project$Story$StoryletID(1),
 			orientation: $mdgriffith$elm_ui$Element$classifyDevice(windowSize).orientation,
 			story: $author$project$Story$Loading
 		},
@@ -11256,6 +11256,99 @@ var $author$project$Story$Loaded = function (a) {
 	return {$: 'Loaded', a: a};
 };
 var $author$project$Main$audioControl = _Platform_outgoingPort('audioControl', $elm$json$Json$Encode$string);
+var $author$project$Story$characterToString = function (character) {
+	if (character.$ === 'Chippy') {
+		return 'chippy';
+	} else {
+		return 'athol';
+	}
+};
+var $elm$core$List$filter = F2(
+	function (isGood, list) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, xs) {
+					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
+				}),
+			_List_Nil,
+			list);
+	});
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $author$project$Story$getStoryletFromId = F2(
+	function (id, storylets) {
+		return $elm$core$List$head(
+			A2(
+				$elm$core$List$filter,
+				function (strlt) {
+					return _Utils_eq(strlt.id, id);
+				},
+				storylets));
+	});
+var $elm$core$Maybe$map2 = F3(
+	function (func, ma, mb) {
+		if (ma.$ === 'Nothing') {
+			return $elm$core$Maybe$Nothing;
+		} else {
+			var a = ma.a;
+			if (mb.$ === 'Nothing') {
+				return $elm$core$Maybe$Nothing;
+			} else {
+				var b = mb.a;
+				return $elm$core$Maybe$Just(
+					A2(func, a, b));
+			}
+		}
+	});
+var $elm$core$Tuple$pair = F2(
+	function (a, b) {
+		return _Utils_Tuple2(a, b);
+	});
+var $author$project$Story$newCharacter = F3(
+	function (oldId, newId, story) {
+		switch (story.$) {
+			case 'Loading':
+				return $elm$core$Maybe$Nothing;
+			case 'Error':
+				return $elm$core$Maybe$Nothing;
+			default:
+				var storylets = story.a;
+				var mbStorylets = A3(
+					$elm$core$Maybe$map2,
+					$elm$core$Tuple$pair,
+					$elm$core$List$head(
+						A2(
+							$elm$core$List$filter,
+							function (strlt) {
+								return _Utils_eq(strlt.id, oldId);
+							},
+							storylets)),
+					$elm$core$List$head(
+						A2(
+							$elm$core$List$filter,
+							function (strlt) {
+								return _Utils_eq(strlt.id, newId);
+							},
+							storylets)));
+				if (mbStorylets.$ === 'Just') {
+					var _v2 = mbStorylets.a;
+					var oldStorylet = _v2.a;
+					var newStorylet = _v2.b;
+					return (!_Utils_eq(oldStorylet.character, newStorylet.character)) ? $elm$core$Maybe$Just(
+						$author$project$Story$characterToString(newStorylet.character)) : $elm$core$Maybe$Nothing;
+				} else {
+					return $elm$core$Maybe$Nothing;
+				}
+		}
+	});
 var $author$project$Main$update = F2(
 	function (msg, model) {
 		if (msg.$ === 'WindowResized') {
@@ -11274,13 +11367,27 @@ var $author$project$Main$update = F2(
 			switch (storyMsg.$) {
 				case 'LoadedStory':
 					var storylets = storyMsg.a;
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{
-								story: $author$project$Story$Loaded(storylets)
-							}),
-						$elm$core$Platform$Cmd$none);
+					var _v2 = A2($author$project$Story$getStoryletFromId, model.current, storylets);
+					if (_v2.$ === 'Nothing') {
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{
+									story: $author$project$Story$Error(
+										$elm$http$Http$BadBody('Starting storylet does not exist'))
+								}),
+							$elm$core$Platform$Cmd$none);
+					} else {
+						var storylet = _v2.a;
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{
+									story: $author$project$Story$Loaded(storylets)
+								}),
+							$author$project$Main$audioControl(
+								$author$project$Story$characterToString(storylet.character)));
+					}
 				case 'ErrorLoadingStory':
 					var error = storyMsg.a;
 					return _Utils_Tuple2(
@@ -11292,11 +11399,26 @@ var $author$project$Main$update = F2(
 						$elm$core$Platform$Cmd$none);
 				default:
 					var storyletid = storyMsg.a;
-					return _Utils_Tuple2(
-						_Utils_update(
-							model,
-							{current: storyletid}),
-						$author$project$Main$audioControl('bloop'));
+					var _v3 = A3($author$project$Story$newCharacter, model.current, storyletid, model.story);
+					if (_v3.$ === 'Just') {
+						var newcharacter = _v3.a;
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{current: storyletid}),
+							$elm$core$Platform$Cmd$batch(
+								_List_fromArray(
+									[
+										$author$project$Main$audioControl('bloop'),
+										$author$project$Main$audioControl(newcharacter)
+									])));
+					} else {
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{current: storyletid}),
+							$author$project$Main$audioControl('bloop'));
+					}
 			}
 		}
 	});
@@ -14577,17 +14699,6 @@ var $mdgriffith$elm_ui$Internal$Model$adjust = F3(
 	function (size, height, vertical) {
 		return {height: height / size, size: size, vertical: vertical};
 	});
-var $elm$core$List$filter = F2(
-	function (isGood, list) {
-		return A3(
-			$elm$core$List$foldr,
-			F2(
-				function (x, xs) {
-					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
-				}),
-			_List_Nil,
-			list);
-	});
 var $elm$core$List$maximum = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -17174,15 +17285,6 @@ var $mdgriffith$elm_ui$Internal$Model$Fill = function (a) {
 	return {$: 'Fill', a: a};
 };
 var $mdgriffith$elm_ui$Element$fill = $mdgriffith$elm_ui$Internal$Model$Fill(1);
-var $elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return $elm$core$Maybe$Just(x);
-	} else {
-		return $elm$core$Maybe$Nothing;
-	}
-};
 var $elm$html$Html$Attributes$alt = $elm$html$Html$Attributes$stringProperty('alt');
 var $elm$html$Html$Attributes$src = function (url) {
 	return A2(
@@ -17354,7 +17456,7 @@ var $author$project$Story$viewStorylet = F3(
 						storylets));
 				var fontSize = function () {
 					if (orientation.$ === 'Landscape') {
-						return 18;
+						return 32;
 					} else {
 						return 62;
 					}

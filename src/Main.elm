@@ -39,7 +39,7 @@ type alias Model =
 init : { width : Int, height : Int } -> ( Model, Cmd Msg )
 init windowSize =
     ( { story = Loading
-      , current = StoryletID 100
+      , current = StoryletID 1
       , orientation = .orientation <| classifyDevice windowSize
       }
     , Cmd.map StoryMsg <| Http.get { url = "assets/story.json", expect = Http.expectJson gotStory storyDecoder }
@@ -80,13 +80,23 @@ update msg model =
         StoryMsg storyMsg ->
             case storyMsg of
                 LoadedStory storylets ->
-                    ( { model | story = Loaded storylets }, Cmd.none )
+                    case getStoryletFromId model.current storylets of
+                        Nothing ->
+                            ( { model | story = Error <| Http.BadBody "Starting storylet does not exist" }, Cmd.none )
+
+                        Just storylet ->
+                            ( { model | story = Loaded storylets }, audioControl <| characterToString storylet.character )
 
                 ErrorLoadingStory error ->
                     ( { model | story = Error error }, Cmd.none )
 
                 OptionClicked storyletid ->
-                    ( { model | current = storyletid }, audioControl "bloop" )
+                    case newCharacter model.current storyletid model.story of
+                        Just newcharacter ->
+                            ( { model | current = storyletid }, Cmd.batch [ audioControl "bloop", audioControl newcharacter ] )
+
+                        Nothing ->
+                            ( { model | current = storyletid }, audioControl "bloop" )
 
 
 

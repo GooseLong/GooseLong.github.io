@@ -79,7 +79,7 @@ def linksToOptions(passage,ic):
     if not ("links" in passage):
         return options
     for link in passage["links"]:
-        options[link["link"]] = ic*100+int(link["pid"])
+        options[link["name"]] = ic*100+int(link["pid"])
     return options
 
 for ic,chapter in enumerate(chapters):
@@ -87,7 +87,7 @@ for ic,chapter in enumerate(chapters):
     for ip, passage in enumerate(chapter["passages"]):
         #print("links" in passage)
         output["story"].append({
-            "id":ic*100+ip,
+            "id":ic*100+int(passage["pid"]),
             "character":character,
             "paragraph":passage["text"].split("\n@@@")[0],
             "options":linksToOptions(passage,ic)

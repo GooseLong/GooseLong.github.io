@@ -28,16 +28,20 @@
 </head>
 
 <body>
+	<div id="startMenu">
+		<button onclick="startElm()">START GAME</button>
+	</div>
 	<div id="myapp"></div>
 	<script>
-	const app = Elm.Main.init({
-	  node: document.getElementById('myapp'),
-	  flags: {"width": window.innerWidth, "height":window.innerHeight}
-	});
-	const music = new Howl({
+	const title_music = new Howl({
 		src: ['assets/title_screen.mp3'],
-		autoplay: true,
-		loop: true,
+		loop : true,
+		autoplay : true,
+		volume: 0.2 
+	});
+	const chippy_music = new Howl({
+		src: ['assets/chippy.mp3'],
+		loop : true,
 		volume: 0.2 
 	});
 	const sound = new Howl({
@@ -45,21 +49,36 @@
 		volume: 2
 	});
 	const musicIds = {
-		"title" : music
+		"title" : title_music,
+		"chippy" : chippy_music,
+		"athol" : chippy_music
 	}
 	const soundIds = {
 		"bloop" : sound
 	}
-	app.ports.audioControl.subscribe(message =>{
-		if (soundIds.hasOwnProperty(message)) {
-			//sound.fade(1,0,100);
-			soundIds[message].play();
-		}
-		else if (musicIds.hasOwnProperty(message)) {
-			music.fade(1,0,100);
-			musicIds[message].play();
-		}
-	});
+
+	const app = Elm.Main
+	function startElm() {
+		document.getElementById("startMenu").remove()
+		app.init({
+			node: document.getElementById('myapp'),
+			flags: {"width": window.innerWidth, "height":window.innerHeight}
+		}).ports.audioControl.subscribe(message =>{
+			if (soundIds.hasOwnProperty(message)) {
+				//sound.fade(1,0,100);
+				soundIds[message].play();
+			}
+			else if (musicIds.hasOwnProperty(message)) {
+				//Howler.fade(0.2,0,100);
+				Howler.stop();
+				musicIds[message].play();
+				//Howler.fade(0,0.2,100);
+			}
+		});
+	}
+	
+	
+	
 	</script>
   </body>
   </html>

@@ -93,6 +93,49 @@ gotStory result =
             ErrorLoadingStory error
 
 
+newCharacter : StoryletID -> StoryletID -> Story -> Maybe String
+newCharacter oldId newId story =
+    case story of
+        Loading ->
+            Nothing
+
+        Error _ ->
+            Nothing
+
+        Loaded storylets ->
+            let
+                mbStorylets =
+                    Maybe.map2 Tuple.pair
+                        (List.filter (\strlt -> strlt.id == oldId) storylets |> List.head)
+                        (List.filter (\strlt -> strlt.id == newId) storylets |> List.head)
+            in
+            case mbStorylets of
+                Just ( oldStorylet, newStorylet ) ->
+                    if oldStorylet.character /= newStorylet.character then
+                        Just <| characterToString newStorylet.character
+
+                    else
+                        Nothing
+
+                Nothing ->
+                    Nothing
+
+
+characterToString : Character -> String
+characterToString character =
+    case character of
+        Chippy ->
+            "chippy"
+
+        Athol ->
+            "athol"
+
+
+getStoryletFromId : StoryletID -> List Storylet -> Maybe Storylet
+getStoryletFromId id storylets =
+    List.filter (\strlt -> strlt.id == id) storylets |> List.head
+
+
 
 -- VIEW
 
@@ -114,7 +157,7 @@ viewStorylet id orientation story =
                 fontSize =
                     case orientation of
                         Landscape ->
-                            18
+                            32
 
                         Portrait ->
                             62

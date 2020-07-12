@@ -1,68 +1,48 @@
 {
-   "story": [
-       {
-           "character": "chippy",
-           "id": 0,
-           "options": {
-               "hi": 2,
-               "i don't care": 4,
-               "what?!": 3
-           },
-           "paragraph": "hi my name's chippy"
-       },
-       {
-           "character": "chippy",
-           "id": 1,
-           "options": {},
-           "paragraph": "Double-click this passage to edit it."
-       },
-       {
-           "character": "chippy",
-           "id": 2,
-           "options": {},
-           "paragraph": "Double-click this passage to edit it."
-       },
-       {
-           "character": "chippy",
-           "id": 3,
-           "options": {},
-           "paragraph": "Double-click this passage to edit it."
-       },
-       {
-           "character": "athol",
-           "id": 100,
-           "options": {
-               "go away": 102,
-               "hi i guess": 104,
-               "oh gosh": 103
-           },
-           "paragraph": "Hey what's up"
-       },
-       {
-           "character": "athol",
-           "id": 101,
-           "options": {
-               "piss": 105
-           },
-           "paragraph": "Hey, that's pretty rude"
-       },
-       {
-           "character": "athol",
-           "id": 102,
-           "options": {},
-           "paragraph": "Double-click this passage to edit it."
-       },
-       {
-           "character": "athol",
-           "id": 103,
-           "options": {},
-           "paragraph": "Double-click this passage to edit it."
-       },
-       {
-           "character": "athol",
-           "id": 104,
-           "options": {},
-           "paragraph": "Double-click this passage to edit it."
-       }
-   ]
+    "story": [
+        {
+            "character": "athol",       
+            "id": 1,
+            "options": {
+                "go away": 2,
+                "hi i guess": 4,        
+                "oh gosh": 3
+            },
+            "paragraph": "Hey what's up"
+        },
+        {
+            "character": "athol",       
+            "id": 2,
+            "options": {
+                "go away": 5
+            },
+            "paragraph": "Hey, that's pretty rude"
+        },
+        {
+            "character": "athol",
+            "id": 3,
+            "options": {},
+            "paragraph": "Double-click this passage to edit it."
+        },
+        {
+            "character": "athol",
+            "id": 4,
+            "options": {},
+            "paragraph": "Double-click this passage to edit it."
+        },
+        {
+            "character": "athol",
+            "id": 5,
+            "options": {
+                "End": 6
+            },
+            "paragraph": "[[End]]"
+        },
+        {
+            "character": "chippy",
+            "id": 6,
+            "options": {},
+            "paragraph": "This is the end of the chapter."
+        }
+    ]
 }
