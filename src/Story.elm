@@ -6,6 +6,7 @@ import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
 import Element.Keyed as Keyed
+import Html.Attributes
 import Http
 import Json.Decode exposing (Decoder, field, int, list, string)
 
@@ -294,6 +295,7 @@ viewStorylet id orientation story =
                                         [ padding 20
                                         , Background.color <| rgb 0.5 0.6 0.8
                                         , Font.size fontSize
+                                        , Element.htmlAttribute (Html.Attributes.style "white-space" "normal")
                                         ]
                                         [ text storylet.paragraph ]
                                     , column [ width fill, spacing buttonSpacing, padding buttonSpacing ] <|
