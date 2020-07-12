@@ -17377,6 +17377,40 @@ var $mdgriffith$elm_ui$Element$padding = function (x) {
 			f,
 			f));
 };
+var $mdgriffith$elm_ui$Internal$Model$paddingName = F4(
+	function (top, right, bottom, left) {
+		return 'pad-' + ($elm$core$String$fromInt(top) + ('-' + ($elm$core$String$fromInt(right) + ('-' + ($elm$core$String$fromInt(bottom) + ('-' + $elm$core$String$fromInt(left)))))));
+	});
+var $mdgriffith$elm_ui$Element$paddingEach = function (_v0) {
+	var top = _v0.top;
+	var right = _v0.right;
+	var bottom = _v0.bottom;
+	var left = _v0.left;
+	if (_Utils_eq(top, right) && (_Utils_eq(top, bottom) && _Utils_eq(top, left))) {
+		var topFloat = top;
+		return A2(
+			$mdgriffith$elm_ui$Internal$Model$StyleClass,
+			$mdgriffith$elm_ui$Internal$Flag$padding,
+			A5(
+				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+				'p-' + $elm$core$String$fromInt(top),
+				topFloat,
+				topFloat,
+				topFloat,
+				topFloat));
+	} else {
+		return A2(
+			$mdgriffith$elm_ui$Internal$Model$StyleClass,
+			$mdgriffith$elm_ui$Internal$Flag$padding,
+			A5(
+				$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+				A4($mdgriffith$elm_ui$Internal$Model$paddingName, top, right, bottom, left),
+				top,
+				right,
+				bottom,
+				left));
+	}
+};
 var $mdgriffith$elm_ui$Internal$Model$Paragraph = {$: 'Paragraph'};
 var $mdgriffith$elm_ui$Internal$Model$SpacingStyle = F3(
 	function (a, b, c) {
@@ -17525,14 +17559,16 @@ var $author$project$Story$viewStorylet = F3(
 											[
 												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
 												$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$fill),
-												$mdgriffith$elm_ui$Element$padding(50)
+												$mdgriffith$elm_ui$Element$paddingEach(
+												{bottom: 0, left: 10, right: 40, top: 0})
 											]);
 									} else {
 										return _List_fromArray(
 											[
 												$mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
 												$mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink),
-												$mdgriffith$elm_ui$Element$padding(50),
+												$mdgriffith$elm_ui$Element$paddingEach(
+												{bottom: 0, left: 10, right: 40, top: 0}),
 												$mdgriffith$elm_ui$Element$centerY
 											]);
 									}
@@ -17583,7 +17619,7 @@ var $author$project$Story$viewStorylet = F3(
 																$mdgriffith$elm_ui$Element$centerX,
 																$mdgriffith$elm_ui$Element$centerY
 															]),
-														{description: 'Athol', src: 'assets/error.png'})));
+														{description: 'Athol', src: 'assets/athol_min.jfif'})));
 										default:
 											return A2(
 												$mdgriffith$elm_ui$Element$Keyed$el,
@@ -17605,7 +17641,7 @@ var $author$project$Story$viewStorylet = F3(
 																$mdgriffith$elm_ui$Element$centerX,
 																$mdgriffith$elm_ui$Element$centerY
 															]),
-														{description: 'Clawdious', src: 'assets/error.png'})));
+														{description: 'Clawdious', src: 'assets/clawdious_min.jfif'})));
 									}
 								}()),
 								A2(

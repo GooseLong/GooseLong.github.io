@@ -89,7 +89,7 @@ for ic,chapter in enumerate(chapters):
         output["story"].append({
             "id":ic*100+int(passage["pid"]),
             "character":character,
-            "paragraph":passage["text"].split("\n@@@")[0],
+            "paragraph":passage["text"].split("\n@@@")[0].lower(),
             "options":linksToOptions(passage,ic)
         })
 

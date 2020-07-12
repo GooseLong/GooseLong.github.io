@@ -195,13 +195,13 @@ viewStorylet id orientation story =
                                 Portrait ->
                                     [ width fill
                                     , height fill
-                                    , padding 50
+                                    , paddingEach { top = 0, right = 40, bottom = 0, left = 10 }
                                     ]
 
                                 Landscape ->
                                     [ width fill
                                     , height shrink
-                                    , padding 50
+                                    , paddingEach { top = 0, right = 40, bottom = 0, left = 10 }
                                     , centerY
                                     ]
                             )
@@ -220,7 +220,7 @@ viewStorylet id orientation story =
                                     Keyed.el [ width fill, height fill, centerX, centerY ]
                                         ( characterToString storylet.character
                                         , image [ width fill, height fill, centerX, centerY ]
-                                            { src = "assets/error.png"
+                                            { src = "assets/athol_min.jfif"
                                             , description = "Athol"
                                             }
                                         )
@@ -229,7 +229,7 @@ viewStorylet id orientation story =
                                     Keyed.el [ width fill, height fill, centerX, centerY ]
                                         ( characterToString storylet.character
                                         , image [ width fill, height fill, centerX, centerY ]
-                                            { src = "assets/error.png"
+                                            { src = "assets/clawdious_min.jfif"
                                             , description = "Clawdious"
                                             }
                                         )
