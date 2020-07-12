@@ -151,7 +151,7 @@ viewStorylet : StoryletID -> Orientation -> Story -> Element Msg
 viewStorylet id orientation story =
     case story of
         Loading ->
-            text "Loading"
+            el [ centerX, centerY ] <| text "Loading"
 
         Error error ->
             text <| errorToString error

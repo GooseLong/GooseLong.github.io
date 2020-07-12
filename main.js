@@ -17446,7 +17446,11 @@ var $author$project$Story$viewStorylet = F3(
 	function (id, orientation, story) {
 		switch (story.$) {
 			case 'Loading':
-				return $mdgriffith$elm_ui$Element$text('Loading');
+				return A2(
+					$mdgriffith$elm_ui$Element$el,
+					_List_fromArray(
+						[$mdgriffith$elm_ui$Element$centerX, $mdgriffith$elm_ui$Element$centerY]),
+					$mdgriffith$elm_ui$Element$text('Loading'));
 			case 'Error':
 				var error = story.a;
 				return $mdgriffith$elm_ui$Element$text(
