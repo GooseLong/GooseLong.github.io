@@ -43,7 +43,7 @@
       }
     },
     {
-      "text": "My name is Chiptune, the captain of this station and the one that keeps it running smoothly. If you ever see anything concerning such as broken equipment or slacking staff, come to me and I'll let control know.\n@@@\n\n[[What can they do from down there?]]\n[[W-wait.. l-like chippy Chippy?]]\n[[*think about how far away home is right now*]]",
+      "text": "My name is Chiptune, the captain of this station and the one that keeps it running smoothly. If you ever see anything concerning such as broken equipment or slacking staff, come to me and I'll let control know.\n@@@\n\n[[What can they do from down there?]]\n[[W-wait.. l-like THE Chippy?]]\n[[*think about how far away home is right now*]]",
       "links": [
         {
           "name": "What can they do from down there?",
@@ -51,7 +51,7 @@
           "pid": "4"
         },
         {
-          "name": "W-wait.. l-like chippy Chippy?",
+          "name": "W-wait.. l-like THE Chippy?",
           "link": "W-wait.. l-like THE Chippy?",
           "pid": "6"
         },
@@ -121,7 +121,7 @@
       }
     },
     {
-      "text": "*Sigh* Yes. I'm 'Chippy' an insultingly simple name and an even more insulting role for my highly advanced artificial mind.\n@@@\n[[Y-you -- those ads -- were an inspiration to me as a kid..]]\n[[Y-your ..early work.. is huge reason I'm here at all.]]",
+      "text": "*Sigh* Yes. I'm THE 'Chippy' an insultingly simple name and an even more insulting role for my highly advanced artificial mind.\n@@@\n[[Y-you -- those ads -- were an inspiration to me as a kid..]]\n[[Y-your ..early work.. is huge reason I'm here at all.]]",
       "links": [
         {
           "name": "Y-you -- those ads -- were an inspiration to me as a kid..",
@@ -158,7 +158,7 @@
       }
     },
     {
-      "text": "I didn't say I wasn't great at what I did! My superior mind may have been horribly wasted on being a 'mascot' but I did my duty nevertheless.\n@@@\n\n[[S-sorry I didn't mean to offend..]]\n[[Yes you were fantastic.]]\n[[*smile encouragingly*]]",
+      "text": "I didn't say I wasn't great at what I did! My superior mind may have been horribly wasted on being a 'mascot' but I did my duty nevertheless.\n@@@\n\n[[S-sorry I didn't mean to offend..]]\n[[Yes you were fantastic. i still vividly remember your catch phrase, \"we must fight, fight to see what's really out there\"->Yes you were fantastic.]]\n[[*smile encouragingly*]]",
       "links": [
         {
           "name": "S-sorry I didn't mean to offend..",
@@ -166,7 +166,7 @@
           "pid": "14"
         },
         {
-          "name": "Yes you were fantastic.",
+          "name": "Yes you were fantastic. i still vividly remember your catch phrase, \"we must fight, fight to see what's really out there\"",
           "link": "Yes you were fantastic.",
           "pid": "15"
         },
@@ -180,14 +180,14 @@
       "pid": "8",
       "position": {
         "x": "1072",
-        "y": "1220"
+        "y": "1219"
       }
     },
     {
-      "text": "...\n@@@\n[[S-sorry I---->Y-you -- those ads -- were an inspiration to me as a kid..]]\n",
+      "text": "...\n@@@\n[[S-sorry I-->Y-you -- those ads -- were an inspiration to me as a kid..]]\n",
       "links": [
         {
-          "name": "S-sorry I---",
+          "name": "S-sorry I-",
           "link": "Y-you -- those ads -- were an inspiration to me as a kid..",
           "pid": "8"
         }

@@ -31,3 +31,7 @@ Current idea: Anxiety in space
  3. Fixing up UI (todo if i have ideas...)
  4. Write dialogue (need to write: rowan, clawdious, group)
  5. Stitch story together into satisfying narrative
+
+
+1. replace rowanNs with rowan (not needed if i change source file)
+2. link all the chapters together

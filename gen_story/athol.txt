@@ -22,8 +22,8 @@
       "name": "Athol",
       "pid": "1",
       "position": {
-        "x": "639",
-        "y": "22"
+        "x": "641",
+        "y": "0"
       }
     },
     {
@@ -53,11 +53,11 @@
       }
     },
     {
-      "text": "whats your name?\n@@@\n[[I'm insert name]]\n[[lord pumpernickle]]\n",
+      "text": "whats your name?\n\n[[I'm insert name]]\n[[lord pumpernickle]]\n",
       "links": [
         {
-          "name": "I'm insert-name the third",
-          "link": "I'm insert-name the third",
+          "name": "I'm insert name",
+          "link": "I'm insert name",
           "pid": "12"
         },
         {
@@ -90,49 +90,56 @@
       }
     },
     {
-      "text": "\n\n",
+      "text": "Bye!\n@@@\n[[...->END]]\n",
+      "links": [
+        {
+          "name": "...",
+          "link": "END",
+          "pid": "23"
+        }
+      ],
       "name": "end of diologue",
       "pid": "5",
       "position": {
-        "x": "164",
-        "y": "1089"
+        "x": "114",
+        "y": "1188"
       }
     },
     {
-      "text": "\n@@@\n[[*backs away in akwardness*]] ",
+      "text": "...\n@@@\n[[*backs away in akwardness*->end of diologue]] ",
       "links": [
         {
           "name": "*backs away in akwardness*",
-          "link": "*backs away in akwardness*",
-          "pid": "20"
+          "link": "end of diologue",
+          "pid": "5"
         }
       ],
       "name": "*stares at the floor*",
       "pid": "6",
       "position": {
-        "x": "836",
-        "y": "269"
+        "x": "824",
+        "y": "225"
       }
     },
     {
-      "text": "i get it, you're a little shy, we can talk again later if your uncomfortable\n@@@\n[[yes please]]\n[[*backs away in akwardness*]]\n",
+      "text": "i get it, you're a little shy, we can talk again later if your uncomfortable\n@@@\n[[yes please->end of diologue]]\n[[*backs away in akwardness*->end of diologue]]",
       "links": [
         {
           "name": "yes please",
-          "link": "yes please",
-          "pid": "21"
+          "link": "end of diologue",
+          "pid": "5"
         },
         {
           "name": "*backs away in akwardness*",
-          "link": "*backs away in akwardness*",
-          "pid": "20"
+          "link": "end of diologue",
+          "pid": "5"
         }
       ],
       "name": "uuuhhhhhhhhhhhhhhhhhhhhhh",
       "pid": "7",
       "position": {
-        "x": "28",
-        "y": "541"
+        "x": "2",
+        "y": "572"
       }
     },
     {
@@ -141,14 +148,14 @@
         {
           "name": "oh geez",
           "link": "oh geez",
-          "pid": "18"
+          "pid": "17"
         }
       ],
       "name": "no, not really",
       "pid": "8",
       "position": {
-        "x": "182",
-        "y": "501"
+        "x": "190",
+        "y": "519"
       }
     },
     {
@@ -157,7 +164,7 @@
         {
           "name": "neat",
           "link": "neat",
-          "pid": "17"
+          "pid": "16"
         }
       ],
       "name": "so,uh, what do you do here?",
@@ -189,7 +196,7 @@
         {
           "name": "oh geez",
           "link": "oh geez",
-          "pid": "18"
+          "pid": "17"
         }
       ],
       "name": "claudious?",
@@ -205,12 +212,12 @@
         {
           "name": "I cant wait to get to work",
           "link": "I cant wait to get to work",
-          "pid": "24"
+          "pid": "20"
         },
         {
           "name": "uuhhhhhhhhh",
           "link": "uuhhhhhhhhh",
-          "pid": "25"
+          "pid": "21"
         }
       ],
       "name": "I'm insert name",
@@ -221,19 +228,19 @@
       }
     },
     {
-      "text": "alright i won't take your time\n\n@@@\n[[*walks away*]]",
+      "text": "alright i won't take your time\n\n@@@\n[[*walks away*->end of diologue]]",
       "links": [
         {
           "name": "*walks away*",
-          "link": "*walks away*",
-          "pid": "16"
+          "link": "end of diologue",
+          "pid": "5"
         }
       ],
       "name": "please I'm just really tired",
       "pid": "13",
       "position": {
-        "x": "388",
-        "y": "296"
+        "x": "358",
+        "y": "367"
       }
     },
     {
@@ -263,12 +270,12 @@
       }
     },
     {
-      "text": "huh?\n@@@\n\n[[*backs away in akwardness*]]",
+      "text": "huh?\n@@@\n\n[[*backs away in akwardness*->end of diologue]]",
       "links": [
         {
           "name": "*backs away in akwardness*",
-          "link": "*backs away in akwardness*",
-          "pid": "20"
+          "link": "end of diologue",
+          "pid": "5"
         }
       ],
       "name": "lord pumpernickle",
@@ -279,136 +286,72 @@
       }
     },
     {
-      "text": "@@@\n[[end of diologue]] ",
-      "links": [
-        {
-          "name": "end of diologue",
-          "link": "end of diologue",
-          "pid": "5"
-        }
-      ],
-      "name": "*walks away*",
-      "pid": "16",
-      "position": {
-        "x": "350",
-        "y": "438"
-      }
-    },
-    {
       "text": "yea, I think iis pretty cool and groovy\n@@@\n[[sounds like it]]",
       "links": [
         {
           "name": "sounds like it",
           "link": "sounds like it",
-          "pid": "19"
+          "pid": "18"
         }
       ],
       "name": "neat",
-      "pid": "17",
+      "pid": "16",
       "position": {
         "x": "739",
         "y": "673"
       }
     },
     {
-      "text": "He isn't too bad, but he goes on forever\n@@@\n[[*backs away in akwardness*]]\n[[talking is overrated]]\n",
+      "text": "He isn't too bad, but he goes on forever\n@@@\n[[*backs away in akwardness*->end of diologue]]\n[[talking is overrated]]\n",
       "links": [
         {
           "name": "*backs away in akwardness*",
-          "link": "*backs away in akwardness*",
-          "pid": "20"
+          "link": "end of diologue",
+          "pid": "5"
         },
         {
           "name": "talking is overrated",
           "link": "talking is overrated",
-          "pid": "23"
+          "pid": "19"
         }
       ],
       "name": "oh geez",
-      "pid": "18",
+      "pid": "17",
       "position": {
-        "x": "403",
-        "y": "614"
+        "x": "353",
+        "y": "581"
       }
     },
     {
-      "text": "yea, anywhomst, i gotta get back to my cabbage, its really coming along. nice to meet ya\n@@@\n[[bye]]",
+      "text": "yea, anywhomst, i gotta get back to my cabbage, its really coming along. nice to meet ya\n@@@\n[[bye->end of diologue]]",
       "links": [
         {
           "name": "bye",
-          "link": "bye",
-          "pid": "22"
+          "link": "end of diologue",
+          "pid": "5"
         }
       ],
       "name": "sounds like it",
-      "pid": "19",
+      "pid": "18",
       "position": {
-        "x": "652",
-        "y": "829"
+        "x": "649",
+        "y": "863"
       }
     },
     {
-      "text": "@@@\n[[end of diologue]] ",
-      "links": [
-        {
-          "name": "end of diologue",
-          "link": "end of diologue",
-          "pid": "5"
-        }
-      ],
-      "name": "*backs away in akwardness*",
-      "pid": "20",
-      "position": {
-        "x": "438",
-        "y": "782"
-      }
-    },
-    {
-      "text": "@@@\n[[end of diologue]] ",
-      "links": [
-        {
-          "name": "end of diologue",
-          "link": "end of diologue",
-          "pid": "5"
-        }
-      ],
-      "name": "yes please",
-      "pid": "21",
-      "position": {
-        "x": "30",
-        "y": "681"
-      }
-    },
-    {
-      "text": "@@@\n[[end of diologue]] ",
-      "links": [
-        {
-          "name": "end of diologue",
-          "link": "end of diologue",
-          "pid": "5"
-        }
-      ],
-      "name": "bye",
-      "pid": "22",
-      "position": {
-        "x": "562",
-        "y": "943"
-      }
-    },
-    {
-      "text": "talking isn't too bad, anyway, i gotta get back to work, it was nice to meet ya\n@@@\n[[bye]]",
+      "text": "talking isn't too bad, anyway, i gotta get back to work, it was nice to meet ya\n@@@\n[[bye->end of diologue]]",
       "links": [
         {
           "name": "bye",
-          "link": "bye",
-          "pid": "22"
+          "link": "end of diologue",
+          "pid": "5"
         }
       ],
       "name": "talking is overrated",
-      "pid": "23",
+      "pid": "19",
       "position": {
-        "x": "219",
-        "y": "685"
+        "x": "399",
+        "y": "726"
       }
     },
     {
@@ -421,7 +364,7 @@
         }
       ],
       "name": "I cant wait to get to work",
-      "pid": "24",
+      "pid": "20",
       "position": {
         "x": "471",
         "y": "434"
@@ -433,7 +376,7 @@
         {
           "name": "I didn't think I could make it very far into this conversation without screwing up",
           "link": "I didn't think I could make it very far into this conversation without screwing up",
-          "pid": "26"
+          "pid": "22"
         },
         {
           "name": "uuuhhhhhhhhhhhhhhhhhhhhhh",
@@ -442,31 +385,40 @@
         }
       ],
       "name": "uuhhhhhhhhh",
-      "pid": "25",
+      "pid": "21",
       "position": {
-        "x": "649",
-        "y": "558"
+        "x": "638",
+        "y": "517"
       }
     },
     {
-      "text": "i get it, you're a little shy, we can talk again later if your uncomfortable\n@@@\n[[yes please]]\n[[*backs away in akwardness*]]\n",
+      "text": "i get it, you're a little shy, we can talk again later if your uncomfortable\n@@@\n[[yes please->end of diologue]]\n[[*backs away in akwardness*->end of diologue]]\n",
       "links": [
         {
           "name": "yes please",
-          "link": "yes please",
-          "pid": "21"
+          "link": "end of diologue",
+          "pid": "5"
         },
         {
           "name": "*backs away in akwardness*",
-          "link": "*backs away in akwardness*",
-          "pid": "20"
+          "link": "end of diologue",
+          "pid": "5"
         }
       ],
       "name": "I didn't think I could make it very far into this conversation without screwing up",
-      "pid": "26",
+      "pid": "22",
       "position": {
-        "x": "597",
-        "y": "681"
+        "x": "602",
+        "y": "676"
+      }
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "END",
+      "pid": "23",
+      "position": {
+        "x": "114",
+        "y": "1338"
       }
     }
   ],

@@ -1,0 +1,323 @@
+{
+  "passages":[
+    {
+      "text": "hey kid, I'm Clawdious\n@@@\n[[nice to meet you]]\n[[you're a lobster]]\n[[*stands confused*]]\n",
+      "links": [
+        {
+          "name": "nice to meet you",
+          "link": "nice to meet you",
+          "pid": "24"
+        },
+        {
+          "name": "you're a lobster",
+          "link": "you're a lobster",
+          "pid": "25"
+        },
+        {
+          "name": "*stands confused*",
+          "link": "*stands confused*",
+          "pid": "26"
+        }
+      ],
+      "name": "clawdious",
+      "pid": "1",
+      "position": {
+        "x": "1314.6666870117188",
+        "y": "0"
+      }
+    },
+    {
+      "text": "of course its nice to meet me, i got the best stories on this shuttle\n@@@\n[[oh, like what?]]\n[[sure ya do]]",
+      "links": [
+        {
+          "name": "oh, like what?",
+          "link": "oh, like what?",
+          "pid": "30"
+        },
+        {
+          "name": "sure ya do",
+          "link": "sure ya do",
+          "pid": "31"
+        }
+      ],
+      "name": "nice to meet you",
+      "pid": "24",
+      "position": {
+        "x": "889.6666870117188",
+        "y": "23"
+      }
+    },
+    {
+      "text": "yea, but im not an alien, dont believe those things exist\n@@@\n[[but, you're talking]]\n[[*vissibly confussed*]]",
+      "links": [
+        {
+          "name": "but, you're talking",
+          "link": "but, you're talking",
+          "pid": "27"
+        },
+        {
+          "name": "*vissibly confussed*",
+          "link": "*vissibly confussed*",
+          "pid": "32"
+        }
+      ],
+      "name": "you're a lobster",
+      "pid": "25",
+      "position": {
+        "x": "1317.6666870117188",
+        "y": "144"
+      }
+    },
+    {
+      "text": "Look kid, I've been around awhile, you'll see weirder\n@@@\n[[how long have you been here?]]\n[[*still confused*]]\n",
+      "links": [
+        {
+          "name": "how long have you been here?",
+          "link": "how long have you been here?",
+          "pid": "28"
+        },
+        {
+          "name": "*still confused*",
+          "link": "*still confused*",
+          "pid": "29"
+        }
+      ],
+      "name": "*stands confused*",
+      "pid": "26",
+      "position": {
+        "x": "1733.6666870117188",
+        "y": "3"
+      }
+    },
+    {
+      "text": "yea, and?\n@@@\n[[but humans and specis and stuff]]\n[[*stares confused*]]",
+      "links": [
+        {
+          "name": "but humans and specis and stuff",
+          "link": "but humans and specis and stuff",
+          "pid": "33"
+        },
+        {
+          "name": "*stares confused*",
+          "link": "*stares confused*",
+          "pid": "35"
+        }
+      ],
+      "name": "but, you're talking",
+      "pid": "27",
+      "position": {
+        "x": "1223.6666870117188",
+        "y": "277"
+      }
+    },
+    {
+      "text": "over 100 years, this ship is more of a home than earth has been, but can't forget where we're from\n@@@\n[[",
+      "name": "how long have you been here?",
+      "pid": "28",
+      "position": {
+        "x": "1580.6666870117188",
+        "y": "167"
+      }
+    },
+    {
+      "text": "look, I get that things are strange but, you'll get used to it, you still gotta deal with us for a while\n@@@\n[[*walk away confused from a talking lobster* ->end of diologue]] ",
+      "links": [
+        {
+          "name": "*walk away confused from a talking lobster* ",
+          "link": "end of diologue",
+          "pid": "5"
+        }
+      ],
+      "name": "*still confused*",
+      "pid": "29",
+      "position": {
+        "x": "1571.6666870117188",
+        "y": "605"
+      }
+    },
+    {
+      "text": "ove seen supernovas happen outside my windowive seen galaxies collapse with such beauty\n@@@\n[[that would've been cool]]\n[[*stands amazed and wondered*]] \n",
+      "links": [
+        {
+          "name": "that would've been cool",
+          "link": "that would've been cool",
+          "pid": "38"
+        },
+        {
+          "name": "*stands amazed and wondered*",
+          "link": "*stands amazed and wondered*",
+          "pid": "39"
+        }
+      ],
+      "name": "oh, like what?",
+      "pid": "30",
+      "position": {
+        "x": "1003.6666870117188",
+        "y": "160"
+      }
+    },
+    {
+      "text": "I'm Immortal, lobsters physically can't die of age, i've seen plenty\n@@@\n[[I don't doubt it]]\n",
+      "links": [
+        {
+          "name": "I don't doubt it",
+          "link": "I don't doubt it",
+          "pid": "36"
+        }
+      ],
+      "name": "sure ya do",
+      "pid": "31",
+      "position": {
+        "x": "777.6666870117188",
+        "y": "155"
+      }
+    },
+    {
+      "text": "yea, we all are from Earth\n@@@\n[[but humans and specis and stuff]]\n[[*still confused*]]",
+      "links": [
+        {
+          "name": "but humans and specis and stuff",
+          "link": "but humans and specis and stuff",
+          "pid": "33"
+        },
+        {
+          "name": "*still confused*",
+          "link": "*still confused*",
+          "pid": "29"
+        }
+      ],
+      "name": "*vissibly confussed*",
+      "pid": "32",
+      "position": {
+        "x": "1415.6666870117188",
+        "y": "278"
+      }
+    },
+    {
+      "text": "still from earth kiddo\n@@@\n[[can't argue with that]]",
+      "links": [
+        {
+          "name": "can't argue with that",
+          "link": "can't argue with that",
+          "pid": "34"
+        }
+      ],
+      "name": "but humans and specis and stuff",
+      "pid": "33",
+      "position": {
+        "x": "1329.6666870117188",
+        "y": "406"
+      }
+    },
+    {
+      "text": "yea, ya get smarter with age\n@@@\n[[that you do ->end of diologue]] ",
+      "links": [
+        {
+          "name": "that you do ",
+          "link": "end of diologue",
+          "pid": "5"
+        }
+      ],
+      "name": "can't argue with that",
+      "pid": "34",
+      "position": {
+        "x": "1419.6666870117188",
+        "y": "541"
+      }
+    },
+    {
+      "text": "You're too young to get it\n@@@\n[[perhaps ->end of diologue]] ",
+      "links": [
+        {
+          "name": "perhaps ",
+          "link": "end of diologue",
+          "pid": "5"
+        }
+      ],
+      "name": "*stares confused*",
+      "pid": "35",
+      "position": {
+        "x": "1131.6666870117188",
+        "y": "559"
+      }
+    },
+    {
+      "text": "cant argue with your elders, we know more\n@@@\n[[guess you do ->end of diologue]]\n",
+      "links": [
+        {
+          "name": "guess you do ",
+          "link": "end of diologue",
+          "pid": "5"
+        }
+      ],
+      "name": "I don't doubt it",
+      "pid": "36",
+      "position": {
+        "x": "944.6666870117188",
+        "y": "535"
+      }
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "...",
+      "pid": "37",
+      "position": {
+        "x": "644",
+        "y": "989"
+      }
+    },
+    {
+      "text": "yea, pretty amazing right?\n@@@\n[[ I suppose maybe listening is better than talking]]",
+      "links": [
+        {
+          "name": " I suppose maybe listening is better than talking",
+          "link": " I suppose maybe listening is better than talking",
+          "pid": "40"
+        }
+      ],
+      "name": "that would've been cool",
+      "pid": "38",
+      "position": {
+        "x": "830.6666870117188",
+        "y": "490"
+      }
+    },
+    {
+      "text": "pretty cool sounding, right?\n@@@\n[[ I suppose maybe listening is better than talking]]",
+      "links": [
+        {
+          "name": " I suppose maybe listening is better than talking",
+          "link": " I suppose maybe listening is better than talking",
+          "pid": "40"
+        }
+      ],
+      "name": "*stands amazed and wondered*",
+      "pid": "39",
+      "position": {
+        "x": "668.6666870117188",
+        "y": "407"
+      }
+    },
+    {
+      "text": "maybe you'll learn something from me\n@@@\n[[maybe, just maybe ->end of diologue]]",
+      "links": [
+        {
+          "name": "maybe, just maybe ",
+          "link": "end of diologue",
+          "pid": "5"
+        }
+      ],
+      "name": " I suppose maybe listening is better than talking",
+      "pid": "40",
+      "position": {
+        "x": "734.6666870117188",
+        "y": "609"
+      }
+    }
+  ],
+  "name": "clawdious",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.8",
+  "ifid": "4697C87F-6239-4CE3-9323-8E179C1F162A"
+}

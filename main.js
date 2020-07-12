@@ -11009,6 +11009,7 @@ var $author$project$Story$Storylet = F4(
 var $author$project$Story$Athol = {$: 'Athol'};
 var $author$project$Story$Chippy = {$: 'Chippy'};
 var $author$project$Story$Clawdious = {$: 'Clawdious'};
+var $author$project$Story$Rowan = {$: 'Rowan'};
 var $elm$json$Json$Decode$fail = _Json_fail;
 var $author$project$Story$characterFromString = function (string) {
 	switch (string) {
@@ -11018,6 +11019,8 @@ var $author$project$Story$characterFromString = function (string) {
 			return $elm$json$Json$Decode$succeed($author$project$Story$Athol);
 		case 'clawdious':
 			return $elm$json$Json$Decode$succeed($author$project$Story$Clawdious);
+		case 'rowan':
+			return $elm$json$Json$Decode$succeed($author$project$Story$Rowan);
 		default:
 			return $elm$json$Json$Decode$fail('Invalid character: ' + string);
 	}
@@ -11268,7 +11271,7 @@ var $author$project$Story$characterToString = function (character) {
 		case 'Clawdious':
 			return 'clawdious';
 		default:
-			return 'Rowan';
+			return 'rowan';
 	}
 };
 var $elm$core$List$filter = F2(

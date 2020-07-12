@@ -1,86 +1,947 @@
 {
   "passages": [
     {
-      "text": "I'm cool\n@@@\n[[sure u are,,]]\n[[no]]",
+      "text": "Hey! how are you feeling bud?\n@@@\n[[i think better... clawdious is very interesting.]]\n[[overwhelmed.->tired.]]\n[[tired.]]",
       "links": [
         {
-          "name": "sure u are,,",
-          "link": "sure u are,,",
+          "name": "i think better... clawdious is very interesting.",
+          "link": "i think better... clawdious is very interesting.",
           "pid": "2"
         },
         {
-          "name": "no",
-          "link": "no",
+          "name": "overwhelmed.",
+          "link": "tired.",
+          "pid": "3"
+        },
+        {
+          "name": "tired.",
+          "link": "tired.",
           "pid": "3"
         }
       ],
-      "name": "uwu",
+      "name": "start",
       "pid": "1",
       "position": {
-        "x": "880.5",
-        "y": "363.5"
+        "x": "574.5",
+        "y": "79.5"
       },
       "tags": [
-        "chippy"
+        "rowan"
       ]
     },
     {
-      "text": "*athol laughs*\n@@@\n[[testing]]",
+      "text": "Hey, why thankyou!\n@@@\n[[oh, i didn't realise you were still here.->glad to hear]]\n[[you know it dude!->glad to hear]]",
       "links": [
         {
-          "name": "testing",
-          "link": "testing",
+          "name": "oh, i didn't realise you were still here.",
+          "link": "glad to hear",
+          "pid": "4"
+        },
+        {
+          "name": "you know it dude!",
+          "link": "glad to hear",
           "pid": "4"
         }
       ],
-      "name": "sure u are,,",
+      "name": "i think better... clawdious is very interesting.",
       "pid": "2",
       "position": {
-        "x": "805.5",
-        "y": "513.5"
-      },
-      "tags": [
-        "athol"
-      ]
-    },
-    {
-      "text": "lmao\n@@@\n[[clawdious' turn]] ",
-      "links": [
-        {
-          "name": "clawdious' turn",
-          "link": "clawdious' turn",
-          "pid": "5"
-        }
-      ],
-      "name": "no",
-      "pid": "3",
-      "position": {
-        "x": "955.5",
-        "y": "513.5"
-      },
-      "tags": [
-        "athol"
-      ]
-    },
-    {
-      "text": "good test eh?",
-      "name": "testing",
-      "pid": "4",
-      "position": {
-        "x": "805.5",
-        "y": "663.5"
+        "x": "464.5",
+        "y": "209.5"
       },
       "tags": [
         "clawdious"
       ]
     },
     {
-      "text": "hey its me clawdious",
-      "name": "clawdious' turn",
+      "text": "yeah that's super valid and understandable. but guess what?!\n@@@\n[[what?]]",
+      "links": [
+        {
+          "name": "what?",
+          "link": "what?",
+          "pid": "5"
+        }
+      ],
+      "name": "tired.",
+      "pid": "3",
+      "position": {
+        "x": "667.5",
+        "y": "206.5"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "Glad to hear you're feeling better.\n@@@\n[[oh, hey athol.->oh yeah!]]",
+      "links": [
+        {
+          "name": "oh, hey athol.",
+          "link": "oh yeah!",
+          "pid": "6"
+        }
+      ],
+      "name": "glad to hear",
+      "pid": "4",
+      "position": {
+        "x": "390.5",
+        "y": "341.5"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "soon we get to spend our very first night in space!\n@@@\n[[oh yeah!]]",
+      "links": [
+        {
+          "name": "oh yeah!",
+          "link": "oh yeah!",
+          "pid": "6"
+        }
+      ],
+      "name": "what?",
       "pid": "5",
       "position": {
-        "x": "954.5",
-        "y": "663.5"
+        "x": "789.5",
+        "y": "322.5"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "control has just let me know that it's time to pick your living quarters!\n*chiptune starts pacing*\nnow i believe each of us has a free bunk in our quaters and there is another empty living quaters out on the 'east wing'.\n@@@\n[[uh...]]",
+      "links": [
+        {
+          "name": "uh...",
+          "link": "uh...",
+          "pid": "7"
+        }
+      ],
+      "name": "oh yeah!",
+      "pid": "6",
+      "position": {
+        "x": "544.5",
+        "y": "427.5"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "its not supposed to be a big important choice you know!\n@@@\n[[i know, i know!]]",
+      "links": [
+        {
+          "name": "i know, i know!",
+          "link": "i know, i know!",
+          "pid": "9"
+        }
+      ],
+      "name": "uh...",
+      "pid": "7",
+      "position": {
+        "x": "552.5",
+        "y": "550.5"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "I'm sorry for whatever i did earlier. i'll let you read my comics to make it up to you.\n@@@\n[[...->chippy impatient]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "chippy impatient",
+          "pid": "10"
+        }
+      ],
+      "name": "athol comics plea",
+      "pid": "8",
+      "position": {
+        "x": "547.5",
+        "y": "786"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "yeah dude, its obvious, pick me!\n@@@\n[[...->athol comics plea]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "athol comics plea",
+          "pid": "8"
+        }
+      ],
+      "name": "i know, i know!",
+      "pid": "9",
+      "position": {
+        "x": "554.5",
+        "y": "665.5"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "hurry up and choose! dr. rowan also needs to pick a place!\n*you feel myself geeting overwhelmed again*\n@@@\n[[*feel my heart speed up*->athol at chippy]]\n[[*try to breathe normally*->athol at chippy]]",
+      "links": [
+        {
+          "name": "*feel my heart speed up*",
+          "link": "athol at chippy",
+          "pid": "11"
+        },
+        {
+          "name": "*try to breathe normally*",
+          "link": "athol at chippy",
+          "pid": "11"
+        }
+      ],
+      "name": "chippy impatient",
+      "pid": "10",
+      "position": {
+        "x": "547.5",
+        "y": "936"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "hey, take it easy on them chippy!\n@@@\n[[i..i j-just don't deal well under pr-pressure]]",
+      "links": [
+        {
+          "name": "i..i j-just don't deal well under pr-pressure",
+          "link": "i..i j-just don't deal well under pr-pressure",
+          "pid": "12"
+        }
+      ],
+      "name": "athol at chippy",
+      "pid": "11",
+      "position": {
+        "x": "542.5",
+        "y": "1076"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "wh- don't deal well under pressure?! why did you become an astronaut then?!\n@@@\n[[...->clawdious anxiety]]\n[[hey!->clawdious anxiety]]\n[[because i see what's really out there.->chippy apology]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "clawdious anxiety",
+          "pid": "13"
+        },
+        {
+          "name": "hey!",
+          "link": "clawdious anxiety",
+          "pid": "13"
+        },
+        {
+          "name": "because i see what's really out there.",
+          "link": "chippy apology",
+          "pid": "17"
+        }
+      ],
+      "name": "i..i j-just don't deal well under pr-pressure",
+      "pid": "12",
+      "position": {
+        "x": "542.5",
+        "y": "1226"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "it looks like anxiety. its common in 'non-metal' astronauts chippy. i've seen it many times over my years.\n@@@\n[[thankyou!->clawdious x]]\n[[can you not talk about me as though i'm not in the room.->rowan x]]\n[[*try to relax breathing->athol x]]",
+      "links": [
+        {
+          "name": "thankyou!",
+          "link": "clawdious x",
+          "pid": "14"
+        },
+        {
+          "name": "can you not talk about me as though i'm not in the room.",
+          "link": "rowan x",
+          "pid": "15"
+        },
+        {
+          "name": "*try to relax breathing",
+          "link": "athol x",
+          "pid": "16"
+        }
+      ],
+      "name": "clawdious anxiety",
+      "pid": "13",
+      "position": {
+        "x": "542.5",
+        "y": "1364"
+      },
+      "tags": [
+        "clawdious"
+      ]
+    },
+    {
+      "text": "it's what i'm here for.\n*clawdious smiles*\n@@@\n[[cool.->who are you gonna pick?]]",
+      "links": [
+        {
+          "name": "cool.",
+          "link": "who are you gonna pick?",
+          "pid": "23"
+        }
+      ],
+      "name": "clawdious x",
+      "pid": "14",
+      "position": {
+        "x": "330.5",
+        "y": "1622"
+      },
+      "tags": [
+        "clawdious"
+      ]
+    },
+    {
+      "text": "yeah, i think we all need to just lay off eachother, ok.\n@@@\n[[thanks.->athol x]]\n[[i didn't do anything!]]",
+      "links": [
+        {
+          "name": "thanks.",
+          "link": "athol x",
+          "pid": "16"
+        },
+        {
+          "name": "i didn't do anything!",
+          "link": "i didn't do anything!",
+          "pid": "21"
+        }
+      ],
+      "name": "rowan x",
+      "pid": "15",
+      "position": {
+        "x": "496.5",
+        "y": "1540"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "do you need me to get you some water?\n@@@\n[[yes please.]]\n[[no i'm ok.]]",
+      "links": [
+        {
+          "name": "yes please.",
+          "link": "yes please.",
+          "pid": "18"
+        },
+        {
+          "name": "no i'm ok.",
+          "link": "no i'm ok.",
+          "pid": "19"
+        }
+      ],
+      "name": "athol x",
+      "pid": "16",
+      "position": {
+        "x": "708.5",
+        "y": "1501"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "I-- i'm sorry. i don't know why i said that. it appears i'm not very good at it either.\n@@@\n[[apology accepted->athol x]]\n[[*try to focus on breathing*->rowan x]]",
+      "links": [
+        {
+          "name": "apology accepted",
+          "link": "athol x",
+          "pid": "16"
+        },
+        {
+          "name": "*try to focus on breathing*",
+          "link": "rowan x",
+          "pid": "15"
+        }
+      ],
+      "name": "chippy apology",
+      "pid": "17",
+      "position": {
+        "x": "706.5",
+        "y": "1359"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "you know i can't have water!\n@@@\n[[i think he meant me, not you]]",
+      "links": [
+        {
+          "name": "i think he meant me, not you",
+          "link": "i think he meant me, not you",
+          "pid": "20"
+        }
+      ],
+      "name": "yes please.",
+      "pid": "18",
+      "position": {
+        "x": "653.5",
+        "y": "1699"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "they don't need water! giving someone space and room to calm down always does the trick!\n@@@\n[[s-so can you all do that?]]",
+      "links": [
+        {
+          "name": "s-so can you all do that?",
+          "link": "s-so can you all do that?",
+          "pid": "22"
+        }
+      ],
+      "name": "no i'm ok.",
+      "pid": "19",
+      "position": {
+        "x": "764.5",
+        "y": "1658"
+      },
+      "tags": [
+        "clawdious"
+      ]
+    },
+    {
+      "text": "oh.. right... sorry.\n*chippy's screen glows pink with embarrassment*\n@@@\n[[...->clawdious x]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "clawdious x",
+          "pid": "14"
+        }
+      ],
+      "name": "i think he meant me, not you",
+      "pid": "20",
+      "position": {
+        "x": "515.5",
+        "y": "1842"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "i didn't mean you!\n@@@\n[[oh->athol x]]",
+      "links": [
+        {
+          "name": "oh",
+          "link": "athol x",
+          "pid": "16"
+        }
+      ],
+      "name": "i didn't do anything!",
+      "pid": "21",
+      "position": {
+        "x": "391.5",
+        "y": "1793"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "i'm sorry but we do need you to pick a room, then you'll actually have a space to be left alone in.\n@@@\n[[...->who are you gonna pick?]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "who are you gonna pick?",
+          "pid": "23"
+        }
+      ],
+      "name": "s-so can you all do that?",
+      "pid": "22",
+      "position": {
+        "x": "748.5",
+        "y": "1810"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "So who's room will it be?\n@@@\n[[*this is like a competition to them*]]",
+      "links": [
+        {
+          "name": "*this is like a competition to them*",
+          "link": "*this is like a competition to them*",
+          "pid": "24"
+        }
+      ],
+      "name": "who are you gonna pick?",
+      "pid": "23",
+      "position": {
+        "x": "650.5",
+        "y": "1979"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "...\n@@@\n[[*not out of friendship*]]",
+      "links": [
+        {
+          "name": "*not out of friendship*",
+          "link": "*not out of friendship*",
+          "pid": "25"
+        }
+      ],
+      "name": "*this is like a competition to them*",
+      "pid": "24",
+      "position": {
+        "x": "650.5",
+        "y": "2129"
+      },
+      "tags": [
+        "clawdious"
+      ]
+    },
+    {
+      "text": "...\n@@@\n[[*but out of control and their need need to feel like they have it.*]]",
+      "links": [
+        {
+          "name": "*but out of control and their need need to feel like they have it.*",
+          "link": "*but out of control and their need need to feel like they have it.*",
+          "pid": "26"
+        }
+      ],
+      "name": "*not out of friendship*",
+      "pid": "25",
+      "position": {
+        "x": "650.5",
+        "y": "2279"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "...\n@@@\n[[*that in their own way...*]]",
+      "links": [
+        {
+          "name": "*that in their own way...*",
+          "link": "*that in their own way...*",
+          "pid": "27"
+        }
+      ],
+      "name": "*but out of control and their need need to feel like they have it.*",
+      "pid": "26",
+      "position": {
+        "x": "650.5",
+        "y": "2429"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "...\n@@@\n[[*they have authority and influence*->clawdious choice]]",
+      "links": [
+        {
+          "name": "*they have authority and influence*",
+          "link": "clawdious choice",
+          "pid": "28"
+        }
+      ],
+      "name": "*that in their own way...*",
+      "pid": "27",
+      "position": {
+        "x": "650.5",
+        "y": "2579"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "how 'bout it kiddo?\n@@@\n[[yeah, why not?]]\n[[nah, i'll pass.->chippy choice]]",
+      "links": [
+        {
+          "name": "yeah, why not?",
+          "link": "yeah, why not?",
+          "pid": "29"
+        },
+        {
+          "name": "nah, i'll pass.",
+          "link": "chippy choice",
+          "pid": "30"
+        }
+      ],
+      "name": "clawdious choice",
+      "pid": "28",
+      "position": {
+        "x": "660.5",
+        "y": "2745"
+      },
+      "tags": [
+        "clawdious"
+      ]
+    },
+    {
+      "text": "fantastic! you can spend as much time as you want in there to cool off tonight, i've got some work to do.\n@@@\n[[thankyou so much->rowan chooses 1]] ",
+      "links": [
+        {
+          "name": "thankyou so much",
+          "link": "rowan chooses 1",
+          "pid": "38"
+        }
+      ],
+      "name": "yeah, why not?",
+      "pid": "29",
+      "position": {
+        "x": "864.5",
+        "y": "2743"
+      },
+      "tags": [
+        "clawdious"
+      ]
+    },
+    {
+      "text": "how about my quarters?\n@@@\n[[as long as you let me sleep in.]]\n[[i'm alright thanks.->athol choice]]",
+      "links": [
+        {
+          "name": "as long as you let me sleep in.",
+          "link": "as long as you let me sleep in.",
+          "pid": "31"
+        },
+        {
+          "name": "i'm alright thanks.",
+          "link": "athol choice",
+          "pid": "32"
+        }
+      ],
+      "name": "chippy choice",
+      "pid": "30",
+      "position": {
+        "x": "646.5",
+        "y": "2884"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "Wait-- you said yes?! this is great! I promise not to wake you up as long as you get to your first task within an appropriate time frame.\n@@@\n[[*laugh* alright, will do->rowan chooses 2]]",
+      "links": [
+        {
+          "name": "*laugh* alright, will do",
+          "link": "rowan chooses 2",
+          "pid": "37"
+        }
+      ],
+      "name": "as long as you let me sleep in.",
+      "pid": "31",
+      "position": {
+        "x": "861.5",
+        "y": "2903"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "how'bout it?\n@@@\n[[hell yes!]]\n[[no way!->rowan choice]]",
+      "links": [
+        {
+          "name": "hell yes!",
+          "link": "hell yes!",
+          "pid": "33"
+        },
+        {
+          "name": "no way!",
+          "link": "rowan choice",
+          "pid": "34"
+        }
+      ],
+      "name": "athol choice",
+      "pid": "32",
+      "position": {
+        "x": "641.5",
+        "y": "3059"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "*He grins widely at you*\nI reckon you're gonna be a cool bunk buddy.\n@@@\n[[*smile back*->rowan chooses 3]]",
+      "links": [
+        {
+          "name": "*smile back*",
+          "link": "rowan chooses 3",
+          "pid": "39"
+        }
+      ],
+      "name": "hell yes!",
+      "pid": "33",
+      "position": {
+        "x": "881.5",
+        "y": "3061"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "have you forgotten about me?\n@@@\n[[of course i haven't! let's share the spare!]]\n[[actually i think i'd like to go it alone if that's alright.->alone]]",
+      "links": [
+        {
+          "name": "of course i haven't! let's share the spare!",
+          "link": "of course i haven't! let's share the spare!",
+          "pid": "35"
+        },
+        {
+          "name": "actually i think i'd like to go it alone if that's alright.",
+          "link": "alone",
+          "pid": "36"
+        }
+      ],
+      "name": "rowan choice",
+      "pid": "34",
+      "position": {
+        "x": "622.5",
+        "y": "3229"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "Yay! this is going to be just like in the academy!\n@@@\n[[except you won't be embarrassed to talk to me now.]]",
+      "links": [
+        {
+          "name": "except you won't be embarrassed to talk to me now.",
+          "link": "except you won't be embarrassed to talk to me now.",
+          "pid": "40"
+        }
+      ],
+      "name": "of course i haven't! let's share the spare!",
+      "pid": "35",
+      "position": {
+        "x": "866.5",
+        "y": "3219"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "splendid. and rowan?\n@@@\n[[...->rowan chooses 4]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "rowan chooses 4",
+          "pid": "41"
+        }
+      ],
+      "name": "alone",
+      "pid": "36",
+      "position": {
+        "x": "633.5",
+        "y": "3418"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "in that case i'll go with athol.\n*rowan grins at athol*\n@@@\n[[...->chippy final]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "chippy final",
+          "pid": "45"
+        }
+      ],
+      "name": "rowan chooses 2",
+      "pid": "37",
+      "position": {
+        "x": "1044.5",
+        "y": "2903"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "in that case i'll go with athol.\n*rowan grins at athol*\n@@@\n[[...->clawdious final]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "clawdious final",
+          "pid": "46"
+        }
+      ],
+      "name": "rowan chooses 1",
+      "pid": "38",
+      "position": {
+        "x": "1044.5",
+        "y": "2742"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "oh... i- guess in that case... i'll take the spare room then.\n*rowan leaves the hall.*\n@@@\n[[...->athol final]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "athol final",
+          "pid": "42"
+        }
+      ],
+      "name": "rowan chooses 3",
+      "pid": "39",
+      "position": {
+        "x": "1044.5",
+        "y": "3061"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "I wasn't embarrassed!.. hey, i'm sorry if i made you feel that way.\n@@@\n[[that's alright, it's all in the past.->the end]]",
+      "links": [
+        {
+          "name": "that's alright, it's all in the past.",
+          "link": "the end",
+          "pid": "43"
+        }
+      ],
+      "name": "except you won't be embarrassed to talk to me now.",
+      "pid": "40",
+      "position": {
+        "x": "1052.5",
+        "y": "3211"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "in that case i'll go with athol.\n*rowan grins at athol*\n@@@\n[[...->alone final]]",
+      "links": [
+        {
+          "name": "...",
+          "link": "alone final",
+          "pid": "44"
+        }
+      ],
+      "name": "rowan chooses 4",
+      "pid": "41",
+      "position": {
+        "x": "1014.5",
+        "y": "3393"
+      },
+      "tags": [
+        "rowan"
+      ]
+    },
+    {
+      "text": "hey, sorry but you're gonna have to take the bottom bunk.\n@@@\n[[oh ok then. hey what comics did you say you had?->the end]]\n[[that's fine, i actually prefer the bottom bunk.->the end]]",
+      "links": [
+        {
+          "name": "oh ok then. hey what comics did you say you had?",
+          "link": "the end",
+          "pid": "43"
+        },
+        {
+          "name": "that's fine, i actually prefer the bottom bunk.",
+          "link": "the end",
+          "pid": "43"
+        }
+      ],
+      "name": "athol final",
+      "pid": "42",
+      "position": {
+        "x": "1313.5",
+        "y": "3125"
+      },
+      "tags": [
+        "athol"
+      ]
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "the end",
+      "pid": "43",
+      "position": {
+        "x": "1515.5",
+        "y": "3587"
+      },
+      "tags": [
+        "end"
+      ]
+    },
+    {
+      "text": "you'll find your room down the hall on the right.\n@@@\n[[thanks->the end]]",
+      "links": [
+        {
+          "name": "thanks",
+          "link": "the end",
+          "pid": "43"
+        }
+      ],
+      "name": "alone final",
+      "pid": "44",
+      "position": {
+        "x": "1194.5",
+        "y": "3236"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "Alright, I understand you have no more tasks for today so come right this way and i'll show you to the room.\n@@@\n[[thanks->the end]]",
+      "links": [
+        {
+          "name": "thanks",
+          "link": "the end",
+          "pid": "43"
+        }
+      ],
+      "name": "chippy final",
+      "pid": "45",
+      "position": {
+        "x": "1437.5",
+        "y": "3042"
+      },
+      "tags": [
+        "chippy"
+      ]
+    },
+    {
+      "text": "we have a view of home from our room! it's spectacular! come!\n@@@\n[[that sounds amazing!->the end]]",
+      "links": [
+        {
+          "name": "that sounds amazing!",
+          "link": "the end",
+          "pid": "43"
+        }
+      ],
+      "name": "clawdious final",
+      "pid": "46",
+      "position": {
+        "x": "1597.5",
+        "y": "2989"
       },
       "tags": [
         "clawdious"

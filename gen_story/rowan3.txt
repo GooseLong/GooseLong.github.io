@@ -1,0 +1,307 @@
+{
+  "passages": [
+    {
+      "text": "dude, so what did you think??\n@@@\n[[about what?]]\n[[honestly i'm a little tired right now rowan. i don't know.]]",
+      "links": [
+        {
+          "name": "about what?",
+          "link": "about what?",
+          "pid": "2"
+        },
+        {
+          "name": "honestly i'm a little tired right now rowan. i don't know.",
+          "link": "honestly i'm a little tired right now rowan. i don't know.",
+          "pid": "3"
+        }
+      ],
+      "name": "Untitled Passage",
+      "pid": "1",
+      "position": {
+        "x": "824.5",
+        "y": "366"
+      }
+    },
+    {
+      "text": "about athol! he's hot right.\n@@@\n[[couldn't tell you.->he seemed a bit intense.]]\n[[he seemed a bit intense.]]\n[[i couldn't really have a conversartion with him.->he seemed a bit intense.]]\n[[he's so pretty!!]]",
+      "links": [
+        {
+          "name": "couldn't tell you.",
+          "link": "he seemed a bit intense.",
+          "pid": "5"
+        },
+        {
+          "name": "he seemed a bit intense.",
+          "link": "he seemed a bit intense.",
+          "pid": "5"
+        },
+        {
+          "name": "i couldn't really have a conversartion with him.",
+          "link": "he seemed a bit intense.",
+          "pid": "5"
+        },
+        {
+          "name": "he's so pretty!!",
+          "link": "he's so pretty!!",
+          "pid": "4"
+        }
+      ],
+      "name": "about what?",
+      "pid": "2",
+      "position": {
+        "x": "808.5",
+        "y": "549"
+      }
+    },
+    {
+      "text": "oh crap, you doin ok?\n@@@\n[[no.->not really, just annoying.]]",
+      "links": [
+        {
+          "name": "no.",
+          "link": "not really, just annoying.",
+          "pid": "6"
+        }
+      ],
+      "name": "honestly i'm a little tired right now rowan. i don't know.",
+      "pid": "3",
+      "position": {
+        "x": "560.5",
+        "y": "796"
+      }
+    },
+    {
+      "text": "ikr!!!\n@@@\n[[his eyes!!!->omg]]\n[[his horns!!!->omg]]",
+      "links": [
+        {
+          "name": "his eyes!!!",
+          "link": "omg",
+          "pid": "14"
+        },
+        {
+          "name": "his horns!!!",
+          "link": "omg",
+          "pid": "14"
+        }
+      ],
+      "name": "he's so pretty!!",
+      "pid": "4",
+      "position": {
+        "x": "957.5",
+        "y": "737"
+      }
+    },
+    {
+      "text": "what?! but he's so nice!\n@@@\n[[listen i'm just not in the right headspace right now.->honestly i'm a little tired right now rowan. i don't know.]]\n[[not really, just annoying.]]\n[[yeah he was cool.]]",
+      "links": [
+        {
+          "name": "listen i'm just not in the right headspace right now.",
+          "link": "honestly i'm a little tired right now rowan. i don't know.",
+          "pid": "3"
+        },
+        {
+          "name": "not really, just annoying.",
+          "link": "not really, just annoying.",
+          "pid": "6"
+        },
+        {
+          "name": "yeah he was cool.",
+          "link": "yeah he was cool.",
+          "pid": "7"
+        }
+      ],
+      "name": "he seemed a bit intense.",
+      "pid": "5",
+      "position": {
+        "x": "736.5",
+        "y": "701"
+      }
+    },
+    {
+      "text": "*sigh*\nsorry, for going on about him. how are you?\n@@@\n[[awful.]]\n[[sick. does this ship have i place i can vomit?]]\n[[slightly better now, i just had a rough moment.->awful.]]",
+      "links": [
+        {
+          "name": "awful.",
+          "link": "awful.",
+          "pid": "10"
+        },
+        {
+          "name": "sick. does this ship have i place i can vomit?",
+          "link": "sick. does this ship have i place i can vomit?",
+          "pid": "11"
+        },
+        {
+          "name": "slightly better now, i just had a rough moment.",
+          "link": "awful.",
+          "pid": "10"
+        }
+      ],
+      "name": "not really, just annoying.",
+      "pid": "6",
+      "position": {
+        "x": "736.5",
+        "y": "851"
+      }
+    },
+    {
+      "text": "cool but intense?\n@@@\n[[yeah, anyway, what have you been doing?]]",
+      "links": [
+        {
+          "name": "yeah, anyway, what have you been doing?",
+          "link": "yeah, anyway, what have you been doing?",
+          "pid": "8"
+        }
+      ],
+      "name": "yeah he was cool.",
+      "pid": "7",
+      "position": {
+        "x": "856.5",
+        "y": "841"
+      }
+    },
+    {
+      "text": "talking to an ancient lobster lol.\n@@@\n[[what?!->bye]]",
+      "links": [
+        {
+          "name": "haha!",
+          "link": "bye",
+          "pid": "9"
+        }
+      ],
+      "name": "yeah, anyway, what have you been doing?",
+      "pid": "8",
+      "position": {
+        "x": "941.5",
+        "y": "1046"
+      }
+    },
+    {
+      "text": "Anyway, gotta go talk to the captain. wish me luck!\n@@@\n[[Their not that bad.->END]]\n[[Good luck!->END]]\n[[You're gonna need it.->END]]",
+      "links": [
+        {
+          "name": "Their not that bad.",
+          "link": "END",
+          "pid": "15"
+        },
+        {
+          "name": "Good luck!",
+          "link": "END",
+          "pid": "15"
+        },
+        {
+          "name": "You're gonna need it.",
+          "link": "END",
+          "pid": "15"
+        }
+      ],
+      "name": "bye",
+      "pid": "9",
+      "position": {
+        "x": "879.5",
+        "y": "1415"
+      }
+    },
+    {
+      "text": "Oh i'm sorry to hear that, but hey, it's nearly the end of the day! if i don't bunk with athol, can I share a living quaters with you?\n@@@\n[[really?!->think]]\n[[no thanks.->think]]\n[[i'll think about it.->think]]",
+      "links": [
+        {
+          "name": "really?!",
+          "link": "think",
+          "pid": "13"
+        },
+        {
+          "name": "no thanks.",
+          "link": "think",
+          "pid": "13"
+        },
+        {
+          "name": "i'll think about it.",
+          "link": "think",
+          "pid": "13"
+        }
+      ],
+      "name": "awful.",
+      "pid": "10",
+      "position": {
+        "x": "560.5",
+        "y": "1079"
+      }
+    },
+    {
+      "text": "how should i know, i'm also new.\n@@@\n[[right, of course.. sorry]]",
+      "links": [
+        {
+          "name": "right, of course.. sorry",
+          "link": "right, of course.. sorry",
+          "pid": "12"
+        }
+      ],
+      "name": "sick. does this ship have i place i can vomit?",
+      "pid": "11",
+      "position": {
+        "x": "729.5",
+        "y": "1020"
+      }
+    },
+    {
+      "text": "hey, you seem really tired.\n@@@\n[[i have no handled this day well.->awful.]]",
+      "links": [
+        {
+          "name": "i have no handled this day well.",
+          "link": "awful.",
+          "pid": "10"
+        }
+      ],
+      "name": "right, of course.. sorry",
+      "pid": "12",
+      "position": {
+        "x": "758.5",
+        "y": "1172"
+      }
+    },
+    {
+      "text": "well mull it over and get back to me later ok?\n@@@\n[[ok->bye]]",
+      "links": [
+        {
+          "name": "ok",
+          "link": "bye",
+          "pid": "9"
+        }
+      ],
+      "name": "think",
+      "pid": "13",
+      "position": {
+        "x": "523.5",
+        "y": "1248"
+      }
+    },
+    {
+      "text": "oh my gosh yes!!! so attractive!!\n@@@\n[[aside from swooning over handsome demons, what have you been doing?->yeah, anyway, what have you been doing?]]",
+      "links": [
+        {
+          "name": "aside from swooning over handsome demons, what have you been doing?",
+          "link": "yeah, anyway, what have you been doing?",
+          "pid": "8"
+        }
+      ],
+      "name": "omg",
+      "pid": "14",
+      "position": {
+        "x": "1106.5",
+        "y": "982"
+      }
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "END",
+      "pid": "15",
+      "position": {
+        "x": "879.5",
+        "y": "1565"
+      }
+    }
+  ],
+  "name": "rowan",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.8",
+  "ifid": "CC84EC9B-5D36-47C2-BE9D-664BC4ADFDF2"
+}

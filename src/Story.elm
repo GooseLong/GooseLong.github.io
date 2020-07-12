@@ -61,6 +61,9 @@ characterFromString string =
         "clawdious" ->
             Json.Decode.succeed Clawdious
 
+        "rowan" ->
+            Json.Decode.succeed Rowan
+
         _ ->
             Json.Decode.fail ("Invalid character: " ++ string)
 
@@ -140,7 +143,7 @@ characterToString character =
             "clawdious"
 
         Rowan ->
-            "Rowan"
+            "rowan"
 
 
 getStoryletFromId : StoryletID -> List Storylet -> Maybe Storylet
