@@ -34,6 +34,7 @@ type StoryletID
 type Character
     = Chippy
     | Athol
+    | Clawdious
 
 
 
@@ -54,6 +55,9 @@ characterFromString string =
 
         "athol" ->
             Json.Decode.succeed Athol
+
+        "clawdious" ->
+            Json.Decode.succeed Clawdious
 
         _ ->
             Json.Decode.fail ("Invalid character: " ++ string)
@@ -129,6 +133,9 @@ characterToString character =
 
         Athol ->
             "athol"
+
+        Clawdious ->
+            "clawdious"
 
 
 getStoryletFromId : StoryletID -> List Storylet -> Maybe Storylet
@@ -210,6 +217,11 @@ viewStorylet id orientation story =
                                     Athol ->
                                         { src = "assets/error.png"
                                         , description = "Athol"
+                                        }
+
+                                    Clawdious ->
+                                        { src = "assets/error.png"
+                                        , description = "Clawdious"
                                         }
                         , column
                             [ width fill

@@ -11008,6 +11008,7 @@ var $author$project$Story$Storylet = F4(
 	});
 var $author$project$Story$Athol = {$: 'Athol'};
 var $author$project$Story$Chippy = {$: 'Chippy'};
+var $author$project$Story$Clawdious = {$: 'Clawdious'};
 var $elm$json$Json$Decode$fail = _Json_fail;
 var $author$project$Story$characterFromString = function (string) {
 	switch (string) {
@@ -11015,6 +11016,8 @@ var $author$project$Story$characterFromString = function (string) {
 			return $elm$json$Json$Decode$succeed($author$project$Story$Chippy);
 		case 'athol':
 			return $elm$json$Json$Decode$succeed($author$project$Story$Athol);
+		case 'clawdious':
+			return $elm$json$Json$Decode$succeed($author$project$Story$Clawdious);
 		default:
 			return $elm$json$Json$Decode$fail('Invalid character: ' + string);
 	}
@@ -11257,10 +11260,13 @@ var $author$project$Story$Loaded = function (a) {
 };
 var $author$project$Main$audioControl = _Platform_outgoingPort('audioControl', $elm$json$Json$Encode$string);
 var $author$project$Story$characterToString = function (character) {
-	if (character.$ === 'Chippy') {
-		return 'chippy';
-	} else {
-		return 'athol';
+	switch (character.$) {
+		case 'Chippy':
+			return 'chippy';
+		case 'Athol':
+			return 'athol';
+		default:
+			return 'clawdious';
 	}
 };
 var $elm$core$List$filter = F2(
@@ -17521,10 +17527,13 @@ var $author$project$Story$viewStorylet = F3(
 										]),
 									function () {
 										var _v4 = storylet.character;
-										if (_v4.$ === 'Chippy') {
-											return {description: 'Chiptune', src: 'assets/chippy.png'};
-										} else {
-											return {description: 'Athol', src: 'assets/error.png'};
+										switch (_v4.$) {
+											case 'Chippy':
+												return {description: 'Chiptune', src: 'assets/chippy.png'};
+											case 'Athol':
+												return {description: 'Athol', src: 'assets/error.png'};
+											default:
+												return {description: 'Clawdious', src: 'assets/error.png'};
 										}
 									}())),
 								A2(
@@ -17622,4 +17631,4 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 				},
 				A2($elm$json$Json$Decode$field, 'height', $elm$json$Json$Decode$int));
 		},
-		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[],"Athol":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
+		A2($elm$json$Json$Decode$field, 'width', $elm$json$Json$Decode$int)))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{"Story.Storylet":{"args":[],"type":"{ id : Story.StoryletID, character : Story.Character, paragraph : String.String, options : List.List ( String.String, Story.StoryletID ) }"}},"unions":{"Main.Msg":{"args":[],"tags":{"WindowResized":["Basics.Int","Basics.Int"],"StoryMsg":["Story.Msg"]}},"Basics.Int":{"args":[],"tags":{"Int":[]}},"Story.Msg":{"args":[],"tags":{"LoadedStory":["List.List Story.Storylet"],"ErrorLoadingStory":["Http.Error"],"OptionClicked":["Story.StoryletID"]}},"Story.Character":{"args":[],"tags":{"Chippy":[],"Athol":[],"Clawdious":[]}},"Http.Error":{"args":[],"tags":{"BadUrl":["String.String"],"Timeout":[],"NetworkError":[],"BadStatus":["Basics.Int"],"BadBody":["String.String"]}},"List.List":{"args":["a"],"tags":{}},"Story.StoryletID":{"args":[],"tags":{"StoryletID":["Basics.Int"]}},"String.String":{"args":[],"tags":{"String":[]}}}}})}});}(this));
