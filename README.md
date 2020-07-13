@@ -1,5 +1,5 @@
-# GMTK Game Jam 2020
-Github repo for code to go in. :)
+# Lost Orbit
+GMTK Game Jam 2020 --- Github repo for code to go in during dev. :)
 
 ## THEME : Out of Control
 
